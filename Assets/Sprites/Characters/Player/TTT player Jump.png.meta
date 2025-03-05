@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: fac04d4fd934de541af81a09575bcdbc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3732572567039245074
+    second: TTT player Jump_0
+  - first:
+      213: 3293761364313399069
+    second: TTT player Jump_1
+  - first:
+      213: -111754616837936384
+    second: TTT player Jump_2
+  - first:
+      213: -6833238009710102046
+    second: TTT player Jump_3
+  - first:
+      213: 6287884513534524718
+    second: TTT player Jump_4
+  - first:
+      213: 2201918191634784361
+    second: TTT player Jump_5
+  - first:
+      213: 1268633269000230611
+    second: TTT player Jump_6
+  - first:
+      213: -3527231279402519168
+    second: TTT player Jump_7
+  - first:
+      213: 1872218129713212803
+    second: TTT player Jump_8
+  - first:
+      213: -3439067980650661076
+    second: TTT player Jump_9
+  - first:
+      213: -905927333019900635
+    second: TTT player Jump_10
+  - first:
+      213: 7789413413268660972
+    second: TTT player Jump_11
+  - first:
+      213: -103894979196872817
+    second: TTT player Jump_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TTT player Jump_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bfdb449f2ccc330800000000000000
+      internalID: 3732572567039245074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f5ece728ac5bd20800000000000000
+      internalID: 3293761364313399069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b6d51a4c7f27ef0800000000000000
+      internalID: -111754616837936384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e93885fb367b21a0800000000000000
+      internalID: -6833238009710102046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2db7e186ad034750800000000000000
+      internalID: 6287884513534524718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_5
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960acd4dde8ce8e10800000000000000
+      internalID: 2201918191634784361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d650059c371b9110800000000000000
+      internalID: 1268633269000230611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085f096e6d1cc0fc0800000000000000
+      internalID: -3527231279402519168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_8
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d2a9338747bf910800000000000000
+      internalID: 1872218129713212803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_9
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bb5ee74e9f540d0800000000000000
+      internalID: -3439067980650661076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_10
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5252803f3ef7d63f0800000000000000
+      internalID: -905927333019900635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_11
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2aa82ba3e891c60800000000000000
+      internalID: 7789413413268660972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT player Jump_12
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 15
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87160f1114ee8ef0800000000000000
+      internalID: -103894979196872817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 42178c8df5063ad41891082f4b8f74a8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TTT player Jump_0: 3732572567039245074
+      TTT player Jump_1: 3293761364313399069
+      TTT player Jump_10: -905927333019900635
+      TTT player Jump_11: 7789413413268660972
+      TTT player Jump_12: -103894979196872817
+      TTT player Jump_2: -111754616837936384
+      TTT player Jump_3: -6833238009710102046
+      TTT player Jump_4: 6287884513534524718
+      TTT player Jump_5: 2201918191634784361
+      TTT player Jump_6: 1268633269000230611
+      TTT player Jump_7: -3527231279402519168
+      TTT player Jump_8: 1872218129713212803
+      TTT player Jump_9: -3439067980650661076
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

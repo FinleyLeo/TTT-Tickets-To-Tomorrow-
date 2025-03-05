@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: 9480cbefa0fa4ec4181c9fcdb0f344a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 669714573683474379
+    second: TTT Title_0
+  - first:
+      213: 9055792046448196602
+    second: TTT Title_1
+  - first:
+      213: -8410978111200566205
+    second: TTT Title_2
+  - first:
+      213: 7755128714559183675
+    second: TTT Title_3
+  - first:
+      213: 7197507718281116536
+    second: TTT Title_4
+  - first:
+      213: 485378376469712791
+    second: TTT Title_5
+  - first:
+      213: 4842771030851987249
+    second: TTT Title_6
+  - first:
+      213: 2559837830180372913
+    second: TTT Title_7
+  - first:
+      213: -7342982211794197062
+    second: TTT Title_8
+  - first:
+      213: 7416607071158294582
+    second: TTT Title_9
+  - first:
+      213: -6511069394639487451
+    second: TTT Title_10
+  - first:
+      213: 3861546352092432067
+    second: TTT Title_11
+  - first:
+      213: 6912432469484000105
+    second: TTT Title_12
+  - first:
+      213: 4801961182316440249
+    second: TTT Title_13
+  - first:
+      213: 5610859789235263909
+    second: TTT Title_14
+  - first:
+      213: -4980367792651851614
+    second: TTT Title_15
+  - first:
+      213: -453147169233354186
+    second: TTT Title_16
+  - first:
+      213: -1389174539574741734
+    second: TTT Title_17
+  - first:
+      213: 1610465869019145809
+    second: TTT Title_18
+  - first:
+      213: 6943742843383362111
+    second: TTT Title_19
+  - first:
+      213: 3081973031327209911
+    second: TTT Title_20
+  - first:
+      213: -4496552799994624762
+    second: TTT Title_21
+  - first:
+      213: -446972734996042265
+    second: TTT Title_22
+  - first:
+      213: 5431592966811268371
+    second: TTT Title_23
+  - first:
+      213: -8049634877831481431
+    second: TTT Title_24
+  - first:
+      213: -2588615428482093858
+    second: TTT Title_25
+  - first:
+      213: 5402900523728846194
+    second: TTT Title_26
+  - first:
+      213: -9082636221125419381
+    second: TTT Title_27
+  - first:
+      213: 6304181035788729460
+    second: TTT Title_28
+  - first:
+      213: 2094032199579547632
+    second: TTT Title_29
+  - first:
+      213: 5728753927001582753
+    second: TTT Title_30
+  - first:
+      213: 50214478880332309
+    second: TTT Title_31
+  - first:
+      213: -5575072502392434010
+    second: TTT Title_32
+  - first:
+      213: -6192074416232282968
+    second: TTT Title_33
+  - first:
+      213: -3387637946904029221
+    second: TTT Title_34
+  - first:
+      213: 4947385326388728716
+    second: TTT Title_35
+  - first:
+      213: 8871514657319580391
+    second: TTT Title_36
+  - first:
+      213: 4063351764166468013
+    second: TTT Title_37
+  - first:
+      213: 2984071657495603117
+    second: TTT Title_38
+  - first:
+      213: -2243747794629097390
+    second: TTT Title_39
+  - first:
+      213: -2632898756873742123
+    second: TTT Title_40
+  - first:
+      213: -8838983427647307524
+    second: TTT Title_41
+  - first:
+      213: 6841219621170319257
+    second: TTT Title_42
+  - first:
+      213: -9118173573717271249
+    second: TTT Title_43
+  - first:
+      213: -4461083299243184300
+    second: TTT Title_44
+  - first:
+      213: -2698142491906437495
+    second: TTT Title_45
+  - first:
+      213: 3883808597272683250
+    second: TTT Title_46
+  - first:
+      213: 7931811494591813623
+    second: TTT Title_47
+  - first:
+      213: 3260983807647797729
+    second: TTT Title_48
+  - first:
+      213: 8581553704422038535
+    second: TTT Title_49
+  - first:
+      213: -6360839190514293035
+    second: TTT Title_50
+  - first:
+      213: 3335145603408746211
+    second: TTT Title_51
+  - first:
+      213: 6908534538837962334
+    second: TTT Title_52
+  - first:
+      213: 5152891481854524165
+    second: TTT Title_53
+  - first:
+      213: -8246092864243177609
+    second: TTT Title_54
+  - first:
+      213: 6898690058849985230
+    second: TTT Title_55
+  - first:
+      213: -1777672199578783676
+    second: TTT Title_56
+  - first:
+      213: 1017379416620301681
+    second: TTT Title_57
+  - first:
+      213: 3106183583700216587
+    second: TTT Title_58
+  - first:
+      213: 3772488280839271881
+    second: TTT Title_59
+  - first:
+      213: 3411048065233197131
+    second: TTT Title_60
+  - first:
+      213: 5501997968411464727
+    second: TTT Title_61
+  - first:
+      213: -488658448040587917
+    second: TTT Title_62
+  - first:
+      213: -5816283984963518716
+    second: TTT Title_63
+  - first:
+      213: -8461955882266248817
+    second: TTT Title_64
+  - first:
+      213: -5349898072653464069
+    second: TTT Title_65
+  - first:
+      213: 8462623644525661434
+    second: TTT Title_66
+  - first:
+      213: -3649607875985914868
+    second: TTT Title_67
+  - first:
+      213: -3054780135992538120
+    second: TTT Title_68
+  - first:
+      213: 1887999460332295579
+    second: TTT Title_69
+  - first:
+      213: -8842629765359480195
+    second: TTT Title_70
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TTT Title_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 44
+        width: 72
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf3e414bdd4b4900800000000000000
+      internalID: 669714573683474379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT Title_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 7
+        width: 68
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb3a58f2e2acad70800000000000000
+      internalID: 9055792046448196602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT Title_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 46
+        width: 115
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344ed4c98f3364b80800000000000000
+      internalID: -8410978111200566205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT Title_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 21
+        width: 70
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b5bba3a70cf9b60800000000000000
+      internalID: 7755128714559183675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f26f7a0ce2cdef74998c9e0aa736f456
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TTT Title_0: 669714573683474379
+      TTT Title_1: 9055792046448196602
+      TTT Title_2: -8410978111200566205
+      TTT Title_3: 7755128714559183675
+      TTT Title_4: 7197507718281116536
+      TTT Title_5: 485378376469712791
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

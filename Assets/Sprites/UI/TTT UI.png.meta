@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: 40f0e3746e88b86468a7d7805a6b900b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8511539347278659359
+    second: TTT UI_0
+  - first:
+      213: -7429395044676757299
+    second: TTT UI_1
+  - first:
+      213: 8791328203908478659
+    second: TTT UI_2
+  - first:
+      213: 3647438903936518768
+    second: TTT UI_3
+  - first:
+      213: 4798891171695661255
+    second: TTT UI_4
+  - first:
+      213: -3035384214057679513
+    second: TTT UI_5
+  - first:
+      213: -6180739252445728573
+    second: TTT UI_6
+  - first:
+      213: -7594198187724194362
+    second: TTT UI_7
+  - first:
+      213: -4060210739505966717
+    second: TTT UI_8
+  - first:
+      213: -2540573574750409385
+    second: TTT UI_9
+  - first:
+      213: -1241910908233473706
+    second: TTT UI_10
+  - first:
+      213: -5665831084229853279
+    second: TTT UI_11
+  - first:
+      213: 8842200157734319582
+    second: TTT UI_12
+  - first:
+      213: -8557009512388920289
+    second: TTT UI_13
+  - first:
+      213: -2977686938782178639
+    second: TTT UI_14
+  - first:
+      213: -5493333498220193201
+    second: TTT UI_15
+  - first:
+      213: -5495101586906130024
+    second: TTT UI_16
+  - first:
+      213: 2636363330559452541
+    second: TTT UI_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TTT UI_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 14
+        width: 110
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ffd46b0ff0f1670800000000000000
+      internalID: 8511539347278659359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_1
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 98
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc89ef9c19c75e890800000000000000
+      internalID: -7429395044676757299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_2
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 98
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c676d94c62110a70800000000000000
+      internalID: 8791328203908478659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 73
+        width: 84
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a8311bb5e4e9230800000000000000
+      internalID: 3647438903936518768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_13
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 44
+        width: 87
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c7b6a7f256f3980800000000000000
+      internalID: -8557009512388920289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_14
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 14
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2619171812da6d0800000000000000
+      internalID: -2977686938782178639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT UI_17
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 12
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75acd82b7e369420800000000000000
+      internalID: 2636363330559452541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 62019c6bb992f744996188cd71cba741
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TTT UI_0: 8511539347278659359
+      TTT UI_1: -7429395044676757299
+      TTT UI_10: -1241910908233473706
+      TTT UI_11: -5665831084229853279
+      TTT UI_12: 8842200157734319582
+      TTT UI_13: -8557009512388920289
+      TTT UI_14: -2977686938782178639
+      TTT UI_15: -5493333498220193201
+      TTT UI_16: -5495101586906130024
+      TTT UI_17: 2636363330559452541
+      TTT UI_2: 8791328203908478659
+      TTT UI_3: 3647438903936518768
+      TTT UI_4: 4798891171695661255
+      TTT UI_5: -3035384214057679513
+      TTT UI_6: -6180739252445728573
+      TTT UI_7: -7594198187724194362
+      TTT UI_8: -4060210739505966717
+      TTT UI_9: -2540573574750409385
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     // Controls the direction the player is facing and runs in
-    float horiz, friction = 0.88f;
+    public float horiz, friction = 0.88f;
     public float jumpForce;
-    bool facingRight = true, canFlip = true;
+    public bool facingRight = true, canFlip = true;
+    float orientation;
 
     // Manages the speed of the player
     public float speed, groundSpeed, airSpeed, maxSpeed;
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim =  GetComponent<Animator>();
+
+        orientation = transform.localScale.x;
     }
 
     void Update()
@@ -166,14 +169,18 @@ public class PlayerController : MonoBehaviour
 
     void Flip()
     {
-        if (facingRight && horiz < 0 || !facingRight && horiz > 0)
+        if (!wallSliding && canFlip)
         {
-            if (!wallSliding && canFlip)
+            if (horiz < 0)
             {
-                facingRight = !facingRight;
-                Vector3 scale = transform.localScale;
-                scale.x *= -1;
-                transform.localScale = scale;
+                facingRight = true;
+                transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
+            }
+
+            else if (horiz > 0)
+            {
+                facingRight = false;
+                transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
             }
         }
 
@@ -231,7 +238,7 @@ public class PlayerController : MonoBehaviour
         if (isSliding)
         {
             // Apply a continuous force while sliding
-            rb.AddForce(new Vector2(slideDir * slideSpeed, 0), ForceMode2D.Force);
+            rb.AddForce(new Vector2(-slideDir * slideSpeed, 0), ForceMode2D.Force);
 
             // Cap max slide speed to prevent acceleration
             if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
@@ -304,7 +311,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 rayDirection = facingRight ? Vector2.right : Vector2.left;
 
-        return Physics2D.CapsuleCast(transform.position, new Vector2(0.15f, 0.4f), CapsuleDirection2D.Vertical, 0, rayDirection, wallRayDistance, groundLayer);
+        return Physics2D.CapsuleCast(transform.position, new Vector2(0.2f, 0.4f), CapsuleDirection2D.Vertical, 0, -rayDirection, wallRayDistance, groundLayer);
     }
 
     void GroundCheck()

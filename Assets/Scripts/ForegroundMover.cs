@@ -7,7 +7,7 @@ public class ForegroundMover : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, 8f);
+        Destroy(gameObject, 6f);
     }
 
     // Update is called once per frame

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     // Controls the direction the player is facing and runs in
     public float horiz, friction = 0.88f;
     public float jumpForce;
-    public bool facingRight = true, canFlip = true;
+    public bool facingLeft = true, canFlip = true;
     float orientation;
 
     // Manages the speed of the player
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim =  GetComponent<Animator>();
-
+        
         orientation = transform.localScale.x;
     }
 
@@ -173,13 +173,13 @@ public class PlayerController : MonoBehaviour
         {
             if (horiz < 0)
             {
-                facingRight = true;
+                facingLeft = true;
                 transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
             }
 
             else if (horiz > 0)
             {
-                facingRight = false;
+                facingLeft = false;
                 transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
             }
         }
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
             {
                 isSliding = true;
                 anim.SetBool("Sliding", true);
-                slideDir = facingRight ? 1 : -1;
+                slideDir = facingLeft ? 1 : -1;
                 StartCoroutine(SlideCancel());
             }
         }
@@ -288,12 +288,12 @@ public class PlayerController : MonoBehaviour
             wallSliding = false;
             anim.SetTrigger("Jump");
 
-            wallJumpDir = facingRight ? -1 : 1;
+            wallJumpDir = facingLeft ? -1 : 1;
             rb.AddForce(new Vector2(wallJumpDir * wallJumpPower.x, wallJumpPower.y) * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(WallJumpDelay());           
             StartCoroutine(FlipDelay());
 
-            facingRight = !facingRight;
+            facingLeft = !facingLeft;
             Vector3 scale = transform.localScale;
             scale.x *= -1;
             transform.localScale = scale;
@@ -309,7 +309,7 @@ public class PlayerController : MonoBehaviour
 
     bool WallCheck()
     {
-        Vector2 rayDirection = facingRight ? Vector2.right : Vector2.left;
+        Vector2 rayDirection = facingLeft ? Vector2.right : Vector2.left;
 
         return Physics2D.CapsuleCast(transform.position, new Vector2(0.2f, 0.4f), CapsuleDirection2D.Vertical, 0, -rayDirection, wallRayDistance, groundLayer);
     }

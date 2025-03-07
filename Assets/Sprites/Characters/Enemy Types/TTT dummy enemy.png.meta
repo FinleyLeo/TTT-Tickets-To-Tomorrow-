@@ -11,15 +11,6 @@ TextureImporter:
   - first:
       213: 5268992363718208240
     second: TTT dummy enemy_2
-  - first:
-      213: 867592348123581678
-    second: TTT dummy enemy_3
-  - first:
-      213: 7704725081565633849
-    second: TTT dummy enemy_4
-  - first:
-      213: -7872866633393616643
-    second: TTT dummy enemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,12 +109,12 @@ TextureImporter:
       name: TTT dummy enemy_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 16
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +131,12 @@ TextureImporter:
       name: TTT dummy enemy_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 32
         y: 0
-        width: 16
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +153,12 @@ TextureImporter:
       name: TTT dummy enemy_2
       rect:
         serializedVersion: 2
-        x: 73
+        x: 64
         y: 0
-        width: 16
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,77 +171,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: TTT dummy enemy_3
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eecc0c7d4ae4a0c00800000000000000
-      internalID: 867592348123581678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TTT dummy enemy_4
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93d13cae3aeacea60800000000000000
-      internalID: 7704725081565633849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TTT dummy enemy_5
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df84c885285fdb290800000000000000
-      internalID: -7872866633393616643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b1db990bffafd594c98dcbaeb951bd36
+    spriteID: 92b8086079905e04b8566f69a869f662
     internalID: 0
     vertices: []
     indices: 
@@ -263,9 +188,6 @@ TextureImporter:
       TTT dummy enemy_0: -441852832213337852
       TTT dummy enemy_1: 6724685262934882226
       TTT dummy enemy_2: 5268992363718208240
-      TTT dummy enemy_3: 867592348123581678
-      TTT dummy enemy_4: 7704725081565633849
-      TTT dummy enemy_5: -7872866633393616643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

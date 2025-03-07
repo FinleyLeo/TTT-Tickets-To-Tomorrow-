@@ -3,16 +3,20 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerAim : MonoBehaviour
 {
-    public GameObject arm;
+    public GameObject arm, gun, shootPoint;
+
+    public GameObject bullet;
 
     float orientation;
+    float cooldown;
 
-    PlayerController player;
+    public ParticleSystem shell;
+    PlayerController playerScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GetComponent<PlayerController>();
+        playerScript = GetComponent<PlayerController>();
         orientation = transform.localScale.x;
     }
 
@@ -24,38 +28,49 @@ public class PlayerAim : MonoBehaviour
 
     void Aim()
     {
-        Vector3 aimDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        Vector3 aimDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
-        if (player.horiz == 0)
+        if (playerScript.horiz == 0)
         {
-            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x - 0.1f)
+            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x)
             {
-                player.facingRight = true;
+                playerScript.facingLeft = true;
                 transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
             }
 
             else
             {
-                player.facingRight = false;
+                playerScript.facingLeft = false;
                 transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
             }
         }
 
-        if (player.facingRight)
+        if (playerScript.facingLeft)
         {
-            arm.transform.eulerAngles = new Vector3(0, 0, angle - 180);
+            arm.transform.rotation = Quaternion.Euler(0, 0, angle + 185);
         }
 
         else
         {
-            arm.transform.eulerAngles = new Vector3(0, 0, angle);
+            arm.transform.rotation = Quaternion.Euler(0, 0, angle - 5);
         }
-        
+
+        cooldown -= Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0) && cooldown <= 0)
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
     {
+        cooldown = 0.2f;
+        shell.Play();
+        gun.GetComponent<Animator>().SetTrigger("Shoot");
 
+        GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, shootPoint.transform.rotation.eulerAngles.z));
+        temp.tag = "Player";
     }
 }

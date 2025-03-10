@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,9 +9,10 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     // Controls the direction the player is facing and runs in
-    public float horiz, friction = 0.88f;
+    public float horiz;
     public float jumpForce;
     public bool facingLeft = true, canFlip = true;
+    float friction = 0.88f;
     float orientation;
 
     // Manages the speed of the player

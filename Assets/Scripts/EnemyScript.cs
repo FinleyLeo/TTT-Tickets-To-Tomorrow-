@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject bullet;
     public GameObject shootPoint;
 
-    float flipValue;
+    public float flipValue, offset;
     bool facingRight;
 
     public Animator gunAnim;
@@ -58,11 +58,13 @@ public class EnemyScript : MonoBehaviour
 
         if (facingRight)
         {
-            arm.transform.rotation = Quaternion.Euler(0, 0, angle);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * 3);
         }
         else
         {
-            arm.transform.rotation = Quaternion.Euler(0, 0, angle + 180);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * 3);
+
+            //arm.transform.rotation = Quaternion.Euler(0, 0, angle + 180 + offset);
         }
 
         float armAngle = arm.transform.eulerAngles.z;
@@ -96,6 +98,7 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        offset = Random.Range(-7.5f, 7.5f);
         gunAnim.SetTrigger("Shoot");
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
         temp.tag = "Enemy";

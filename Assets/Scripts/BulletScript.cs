@@ -40,7 +40,9 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            collision.GetComponent<Animator>().SetBool("Dead", true);
+            collision.GetComponent<EnemyScript>().isDead = true;
+            collision.GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(gameObject);
         }
     }

@@ -24,7 +24,7 @@ public class PlayerAim : MonoBehaviour
         playerScript = GetComponent<PlayerController>();
         orientation = transform.localScale.x;
 
-        ammoAnim = GameObject.Find("Ammo").GetComponent<Animator>();
+        ammoAnim = GameObject.Find("Ammo")?.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -81,7 +81,12 @@ public class PlayerAim : MonoBehaviour
         shell.emission.SetBurst(0, new ParticleSystem.Burst(0.1f, ammo));
         shell.Play();
         reloading = true;
-        ammoAnim.Play("AmmoReload");
+
+        if (ammoAnim != null)
+        {
+            ammoAnim.Play("AmmoReload");
+        }
+
         yield return new WaitForSeconds(0.75f);
         reloading = false;
         ammo = 6;
@@ -89,26 +94,29 @@ public class PlayerAim : MonoBehaviour
 
     void Shoot()
     {
-        switch (ammo)
+        if (ammoAnim != null)
         {
-            case 6:
-                ammoAnim.Play("Shot1", 0);
-                break;
-            case 5:
-                ammoAnim.Play("Shot2", 0);
-                break;
-            case 4:
-                ammoAnim.Play("Shot3", 0);
-                break;
-            case 3:
-                ammoAnim.Play("Shot4", 0);
-                break;
-            case 2:
-                ammoAnim.Play("Shot5", 0);
-                break;
-            case 1:
-                ammoAnim.Play("Shot6", 0);
-                break;
+            switch (ammo)
+            {
+                case 6:
+                    ammoAnim.Play("Shot1", 0);
+                    break;
+                case 5:
+                    ammoAnim.Play("Shot2", 0);
+                    break;
+                case 4:
+                    ammoAnim.Play("Shot3", 0);
+                    break;
+                case 3:
+                    ammoAnim.Play("Shot4", 0);
+                    break;
+                case 2:
+                    ammoAnim.Play("Shot5", 0);
+                    break;
+                case 1:
+                    ammoAnim.Play("Shot6", 0);
+                    break;
+            }
         }
 
         ammo -= 1;

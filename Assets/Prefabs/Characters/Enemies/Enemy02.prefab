@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 6478150606453058984}
   - component: {fileID: 6053752721500360703}
   - component: {fileID: 5336373040381955845}
+  - component: {fileID: 6847803535579737840}
   m_Layer: 0
   m_Name: Enemy02
   m_TagString: Enemy
@@ -262,11 +263,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1057965647031810841, guid: f1f3f9239e0e642439a7ba760ce5f757, type: 3}
   shootPoint: {fileID: 5705835485475173989}
+  flipValue: 0
+  offset: 0
   gunAnim: {fileID: 294505788498464960}
   arm: {fileID: 773885682393721074}
   normalSprite: {fileID: 1892192399200896467, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
   upSprite: {fileID: 4712697224697972910, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
   downSprite: {fileID: 9091248034932105595, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
+--- !u!95 &6847803535579737840
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440012480904349126}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d38f441ae71607d40bd967681d587216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8375594787112583121
 GameObject:
   m_ObjectHideFlags: 0

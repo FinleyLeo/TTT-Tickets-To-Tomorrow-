@@ -199,10 +199,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            isCrouching = true;
-            anim.SetBool("Crouching", true);
+            if (isGrounded)
+            {
+                isCrouching = true;
+                anim.SetBool("Crouching", true);
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+
+        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) || !isGrounded)
         {
             isCrouching = false;
             anim.SetBool("Crouching", false);

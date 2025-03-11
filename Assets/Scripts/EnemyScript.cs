@@ -4,13 +4,16 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     SpriteRenderer sr;
+    Animator anim;
     GameObject player;
 
     public GameObject bullet;
     public GameObject shootPoint;
 
     public float flipValue, offset;
+    float fadeTime = 1.5f, deadDelay = 0.5f;
     bool facingRight;
+    public bool isDead;
 
     public Animator gunAnim;
     public GameObject arm;
@@ -20,8 +23,9 @@ public class EnemyScript : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player");
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        player = GameObject.Find("Player");
 
         flipValue = transform.localScale.x;
 
@@ -31,8 +35,30 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        Orientation();
-        ArmAim();
+        if (!isDead)
+        {
+            Orientation();
+            ArmAim();
+        }
+
+        else
+        {
+            deadDelay -= Time.deltaTime;
+
+            if (deadDelay <= 0)
+            {
+                sr.color = Color.Lerp(sr.color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+                arm.GetComponentsInChildren<SpriteRenderer>()[0].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[0].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+                arm.GetComponentsInChildren<SpriteRenderer>()[1].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[1].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+
+                if (gameObject.name != "Dummy")
+                {
+                    arm.GetComponentsInChildren<SpriteRenderer>()[2].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[2].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+                }
+
+                StartCoroutine(Death());
+            }
+        }
     }
 
     void Orientation()
@@ -96,6 +122,12 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+
     IEnumerator Shoot()
     {
         offset = Random.Range(-7.5f, 7.5f);
@@ -105,6 +137,9 @@ public class EnemyScript : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(0.25f, 1f));
 
-        StartCoroutine(Shoot());
+        if (!isDead)
+        {
+            StartCoroutine(Shoot());
+        }
     }
 }

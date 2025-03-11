@@ -337,7 +337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horiz: 0
-  friction: 0.88
   jumpForce: 50
   facingLeft: 1
   canFlip: 1
@@ -623,8 +622,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 7.5
-      minScalar: 5
+      scalar: 5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1434,7 +1433,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 6
         minScalar: 30
         maxCurve:
           serializedVersion: 2

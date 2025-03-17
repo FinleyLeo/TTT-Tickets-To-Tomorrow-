@@ -9,6 +9,9 @@ TagManager:
   - Ground
   - Destructible
   - SpawnPoint
+  - Door
+  - LeftDoor
+  - RightDoor
   layers:
   - Default
   - TransparentFX

@@ -346,4 +346,17 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("RightDoor"))
+        {
+            transform.position += Vector3.right * 3f;
+        }
+
+        else if (collision.gameObject.CompareTag("LeftDoor"))
+        {
+            transform.position += Vector3.right * -3f;
+        }
+    }
 }

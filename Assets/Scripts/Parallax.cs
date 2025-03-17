@@ -52,7 +52,7 @@ public class Parallax : MonoBehaviour
     void SpawnForeground()
     {
         int index = Random.Range(0, foregroundTypes.Length);
-        Instantiate(foregroundTypes[index], new Vector3(transform.position.x + 20f, transform.position.y - 0.8f, transform.position.z), Quaternion.identity, foreground.transform);
+        Instantiate(foregroundTypes[index], new Vector3(transform.position.x + 20f,  0, transform.position.z), Quaternion.identity, foreground.transform);
 
         Invoke("SpawnForeground", Random.Range(0.75f, 1.5f));
     }

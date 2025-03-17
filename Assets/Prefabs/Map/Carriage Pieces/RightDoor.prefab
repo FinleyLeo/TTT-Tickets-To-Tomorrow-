@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7044697141743698105}
   m_Layer: 3
   m_Name: RightDoor
-  m_TagString: Ground
+  m_TagString: RightDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

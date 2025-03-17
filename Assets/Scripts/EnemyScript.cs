@@ -135,7 +135,7 @@ public class EnemyScript : MonoBehaviour
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
         temp.tag = "Enemy";
 
-        yield return new WaitForSeconds(Random.Range(0.25f, 1f));
+        yield return new WaitForSeconds(Random.Range(0.5f, 1f));
 
         if (!isDead)
         {

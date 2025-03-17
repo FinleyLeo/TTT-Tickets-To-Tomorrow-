@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -441852832213337852, guid: f6987491168f5384d9dde53449b681d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   shootPoint: {fileID: 5803992395675544013}
   flipValue: 0
   offset: 0
+  isDead: 0
   gunAnim: {fileID: 9182187360205058625}
   arm: {fileID: 7408244609980091680}
   normalSprite: {fileID: -441852832213337852, guid: f6987491168f5384d9dde53449b681d9, type: 3}

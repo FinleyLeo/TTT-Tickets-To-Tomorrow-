@@ -78,8 +78,6 @@ public class PlayerAim : MonoBehaviour
 
     IEnumerator Reload()
     {
-        shell.emission.SetBurst(0, new ParticleSystem.Burst(0.1f, ammo));
-        shell.Play();
         reloading = true;
 
         if (ammoAnim != null)
@@ -119,6 +117,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
+        shell.Play();
         ammo -= 1;
         cooldown = 0.15f;
         gun.GetComponent<Animator>().SetTrigger("Shoot");

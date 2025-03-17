@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2623137062767780178}
   - component: {fileID: 1885606897606525843}
   - component: {fileID: 4300422228585457901}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left Wheels
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

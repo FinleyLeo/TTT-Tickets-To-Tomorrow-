@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Ground
   - Destructible
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Wall
   - Enemy
   - Player
-  - 
-  - 
+  - Platform
+  - Bullet
   - 
   - 
   - 

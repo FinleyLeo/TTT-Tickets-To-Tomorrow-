@@ -174,7 +174,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890922323416899013}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -492,6 +492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5457947501760989177, guid: 0b5d474f8d9bc5249a846f1dc016e45f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572879162263372817, guid: 0b5d474f8d9bc5249a846f1dc016e45f, type: 3}
+      propertyPath: m_UseColliderMask
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6859825965648248660, guid: 0b5d474f8d9bc5249a846f1dc016e45f, type: 3}

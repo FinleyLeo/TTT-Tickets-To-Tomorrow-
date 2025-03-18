@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] bool trackingPlayer, manualMove;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] Transform player, roomPoint;
+    [SerializeField] GameObject camPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

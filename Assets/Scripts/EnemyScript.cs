@@ -6,12 +6,14 @@ public class EnemyScript : MonoBehaviour
     SpriteRenderer sr;
     Animator anim;
     GameObject player;
+    MaterialPropertyBlock mpb;
+    IEnumerator flashRoutine;
 
     public GameObject bullet;
     public GameObject shootPoint;
 
     public float flipValue, offset;
-    float fadeTime = 1.5f, deadDelay = 0.5f;
+    float fadeTime = 1.5f, deadDelay = 0.5f, shootSpeed;
     bool facingRight;
     public bool isDead;
 
@@ -26,8 +28,18 @@ public class EnemyScript : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         player = GameObject.Find("Player");
+        mpb = new MaterialPropertyBlock();
+
+        anim.enabled = false;
 
         flipValue = transform.localScale.x;
+
+        shootSpeed = Random.Range(0.75f, 1.5f);
+
+        if (Random.Range(0, 100) > 90)
+        {
+            shootSpeed *= 2;
+        }
 
         StartCoroutine(Shoot());
     }
@@ -43,6 +55,7 @@ public class EnemyScript : MonoBehaviour
 
         else
         {
+            anim.enabled = true;
             deadDelay -= Time.deltaTime;
 
             if (deadDelay <= 0)
@@ -122,6 +135,32 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    IEnumerator FlashEffect()
+    {
+        // Set flash effect to full white
+        sr.GetPropertyBlock(mpb);
+        mpb.SetInt("_Hit", 1);
+        sr.SetPropertyBlock(mpb);
+
+        yield return new WaitForSeconds(0.1f);
+
+        // Reset back to normal
+        sr.GetPropertyBlock(mpb);
+        mpb.SetInt("_Hit", 0);
+        sr.SetPropertyBlock(mpb);
+    }
+
+    public void FlashWhite()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+
+        flashRoutine = FlashEffect();
+        StartCoroutine(flashRoutine);
+    }
+
     IEnumerator Death()
     {
         yield return new WaitForSeconds(3f);
@@ -135,7 +174,7 @@ public class EnemyScript : MonoBehaviour
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
         temp.tag = "Enemy";
 
-        yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+        yield return new WaitForSeconds(shootSpeed);
 
         if (!isDead)
         {

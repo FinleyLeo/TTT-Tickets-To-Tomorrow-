@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sr;
     Animator anim;
 
+    // References to other scripts
+    LevelManager levelManager;
+
     // Controls the direction the player is facing and runs in
     public float horiz;
     public float jumpForce;
@@ -40,12 +43,20 @@ public class PlayerController : MonoBehaviour
     // Manages Crouching
     bool isCrouching;
 
+    // Health/Damaging
+    IEnumerator flashRoutine;
+    MaterialPropertyBlock mpb;
+    int health;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim =  GetComponent<Animator>();
-        
+        mpb = new MaterialPropertyBlock();
+
+        levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+
         orientation = transform.localScale.x;
     }
 
@@ -347,16 +358,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void TakeDamage()
+    {
+        FlashWhite();
+    }
+
+    IEnumerator Flash()
+    {
+        sr.material.SetInt("_Hit", 1);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
+        transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
+        yield return new WaitForSeconds(0.1f);
+        sr.material.SetInt("_Hit", 0);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
+        transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
+    }
+
+    public void FlashWhite()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(Flash());
+        }
+
+        flashRoutine = Flash();
+        StartCoroutine(flashRoutine);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("RightDoor"))
         {
             transform.position += Vector3.right * 3f;
+            levelManager.currentCarriage++;
         }
 
         else if (collision.gameObject.CompareTag("LeftDoor"))
         {
             transform.position += Vector3.right * -3f;
+            levelManager.currentCarriage--;
         }
     }
 }

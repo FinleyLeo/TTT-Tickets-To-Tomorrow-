@@ -26,9 +26,8 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Player hit");
             Destroy(gameObject);
-            //Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage();
         }
     }
 
@@ -36,6 +35,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
         {
+            collision.GetComponent<EnemyScript>().FlashWhite();
             collision.GetComponent<Animator>().SetBool("Dead", true);
             collision.GetComponent<EnemyScript>().isDead = true;
             collision.GetComponent<CapsuleCollider2D>().enabled = false;

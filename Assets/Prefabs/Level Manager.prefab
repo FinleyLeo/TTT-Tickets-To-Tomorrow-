@@ -57,6 +57,16 @@ MonoBehaviour:
   - {fileID: 5177068024409247404, guid: efbe609967146d44e95209a43e744f61, type: 3}
   - {fileID: 2988600190890908900, guid: b9e2b89642733054ba6950127471d745, type: 3}
   large:
-  - {fileID: 559299257266321821, guid: cb0c711ca4ea7ad4ebb5d6098506312b, type: 3}
+  - {fileID: 3419703393344894567, guid: 68679f2423abde848891fc0027c5c8df, type: 3}
+  - {fileID: 5167558935370856648, guid: 228879361ddb590489711a02a108621c, type: 3}
+  - {fileID: 1599867775913849868, guid: 79430e7c83b47244f8ac75dfdf0b4c6b, type: 3}
+  - {fileID: 1007273246768546936, guid: b5cd9f56835c65745b8b14b151a19a7b, type: 3}
+  - {fileID: 3137798928784876047, guid: 02f0f2ffd9f7d6b4cb1ffeed7570903d, type: 3}
+  enemies:
+  - {fileID: 5127861962570635838, guid: 3d4adce80c2a88443acfc2b293787ae6, type: 3}
+  - {fileID: 1440012480904349126, guid: e8aece0117b5d434dac144aaa2451680, type: 3}
+  - {fileID: 4711170796526881175, guid: 2fcbd5994bd91bb4890cc814eccb65e2, type: 3}
+  - {fileID: 8472019233606894313, guid: 828ab79e042e05445a2a2a3e1337d2de, type: 3}
+  - {fileID: 8507429223227596317, guid: 882641ba4d4af1740a0a4fca6ff3aba0, type: 3}
   map: {fileID: 0}
-  carriageAmount: 1000
+  carriageAmount: 100

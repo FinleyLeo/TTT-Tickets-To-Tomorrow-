@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 41b5ab0936510604297c57bbf6df6ac8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +161,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d3c1a8ca72cd3bb40a62171b5b035c1e, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -183,6 +183,10 @@ PrefabInstance:
     - target: {fileID: 1334831946982963967, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
       propertyPath: m_Name
       value: DummyArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070881601209680498, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6503203825076711297, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
       propertyPath: m_LocalPosition.x

@@ -5,6 +5,9 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject[] small, medium, large;
     [SerializeField] GameObject[] enemies;
+    [SerializeField] List<GameObject> carriages = new List<GameObject>();
+    List<GameObject> actors = new List<GameObject>();
+    GameObject carriage;
 
     [SerializeField] Transform map;
 
@@ -12,17 +15,15 @@ public class LevelManager : MonoBehaviour
 
     float xOffset;
 
-    public int carriageAmount;
+    public int carriageAmount, currentCarriage;
 
-    string spawnTag;
-    public List<GameObject> actors = new List<GameObject>();
+    string spawnTag = "SpawnPoint";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-
         xOffset += 23.375f;
+        currentCarriage = -1;
 
         for (int i = 0; i < carriageAmount; i++)
         {
@@ -58,7 +59,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(carriages[currentCarriage].name);
     }
 
     void SpawnRoom()
@@ -67,56 +68,35 @@ public class LevelManager : MonoBehaviour
 
         if (roomSize < 1)
         {
-            GameObject temp = Instantiate(small[Random.Range(0, small.Length)], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
-
-            if (spawnTag != null)
-            {
-                FindObjectwithTag(spawnTag, temp);
-
-                foreach (GameObject child in actors)
-                {
-                    Debug.Log("child name: " + child.name);
-                }
-
-            }
+            carriage = Instantiate(small[Random.Range(0, small.Length)], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
 
             xOffset += 19.075f;
         }
 
         else if (roomSize > 1 && roomSize < 2.5f)
         {
-            GameObject temp = Instantiate(medium[Random.Range(0, medium.Length)], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
-
-            if (spawnTag != null)
-            {
-                FindObjectwithTag(spawnTag, temp);
-
-                foreach (GameObject child in actors)
-                {
-                    Debug.Log("child name: " + child.name);
-                }
-
-            }
+            carriage = Instantiate(medium[Random.Range(0, medium.Length)], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
 
             xOffset += 23.375f;
         }
 
         else if (roomSize > 2.5f)
         {
-            GameObject temp = Instantiate(large[Random.Range(0, large.Length)], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
-
-            if (spawnTag != null)
-            {
-                FindObjectwithTag(spawnTag, temp);
-
-                foreach (GameObject child in actors)
-                {
-                    Debug.Log("child name: " + child.name);
-                }
-
-            }
+            carriage = Instantiate(large[Random.Range(0, large.Length)], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
 
             xOffset += 29.375f;
         }
+
+        if (spawnTag != null)
+        {
+            FindObjectwithTag(spawnTag, carriage);
+
+            foreach (GameObject child in actors)
+            {
+                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+            }
+        }
+
+        carriages.Add(carriage);
     }
 }

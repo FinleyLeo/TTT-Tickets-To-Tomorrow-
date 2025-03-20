@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
 
     // Controls the direction the player is facing and runs in
     public float horiz;
-    public float jumpForce;
     public bool facingLeft = true, canFlip = true;
-    float friction = 0.88f;
+    public float defaultFriction = 0.8f;
+    float friction;
     float orientation;
 
     // Manages the speed of the player
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     // Manages Jumping
+    public float jumpForce;
     float coyoteTime = 0.15f, coyoteTimeCounter;
     bool isGrounded, jumpPressed;
 
@@ -225,12 +226,12 @@ public class PlayerController : MonoBehaviour
 
         if (isCrouching)
         {
-            friction = 0.6f;
+            friction = defaultFriction * 0.75f;
         }
 
         else
         {
-            friction = 0.88f;
+            friction = defaultFriction;
         }
     }
 
@@ -304,6 +305,7 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Jump");
 
             wallJumpDir = facingLeft ? -1 : 1;
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
             rb.AddForce(new Vector2(wallJumpDir * wallJumpPower.x, wallJumpPower.y) * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(WallJumpDelay());           
             StartCoroutine(FlipDelay());
@@ -385,18 +387,22 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(flashRoutine);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("RightDoor") && levelManager.canLeave)
         {
             transform.position += Vector3.right * 3f;
             levelManager.currentCarriage++;
+            levelManager.FollowLogic();
+            levelManager.ActivateEnemies();
         }
 
         else if (collision.gameObject.CompareTag("LeftDoor"))
         {
             transform.position += Vector3.right * -3f;
+            levelManager.DeactivateEnemies();
             levelManager.currentCarriage--;
+            levelManager.FollowLogic();
         }
     }
 }

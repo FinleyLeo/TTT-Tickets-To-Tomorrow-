@@ -26,8 +26,8 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerController>().TakeDamage();
+            Destroy(gameObject);
         }
     }
 

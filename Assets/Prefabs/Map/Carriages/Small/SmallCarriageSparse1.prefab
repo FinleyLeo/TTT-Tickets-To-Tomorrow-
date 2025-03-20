@@ -40,8 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845318090832023054}
-  - component: {fileID: 3125634079997434526}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: SmallCarriageSparse1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -82,15 +81,48 @@ Transform:
   - {fileID: 2017161785757053867}
   - {fileID: 631086769314393930}
   - {fileID: 3503549483075213322}
+  - {fileID: 940315351845880079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3125634079997434526
+--- !u!1 &4526963930357961468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940315351845880079}
+  - component: {fileID: 4424405519939938754}
+  m_Layer: 3
+  m_Name: Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940315351845880079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526963930357961468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 845318090832023054}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4424405519939938754
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3136146018583957961}
+  m_GameObject: {fileID: 4526963930357961468}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -172,7 +204,7 @@ GameObject:
   - component: {fileID: 3503549483075213322}
   m_Layer: 0
   m_Name: Room Point
-  m_TagString: Untagged
+  m_TagString: RoomPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

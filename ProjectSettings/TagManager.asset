@@ -12,6 +12,7 @@ TagManager:
   - Door
   - LeftDoor
   - RightDoor
+  - RoomPoint
   layers:
   - Default
   - TransparentFX
@@ -24,9 +25,9 @@ TagManager:
   - Player
   - Platform
   - Bullet
-  - 
-  - 
-  - 
+  - Small
+  - Medium
+  - Large
   - 
   - 
   - 

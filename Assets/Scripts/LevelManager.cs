@@ -1,16 +1,20 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject[] small, medium, large;
     [SerializeField] GameObject[] enemies;
+
     [SerializeField] List<GameObject> carriages = new List<GameObject>();
     List<GameObject> actors = new List<GameObject>();
     List<GameObject> actors2 = new List<GameObject>();
+    List<GameObject> camPoints = new List<GameObject>();
     GameObject carriage;
 
-    [SerializeField] Transform map;
+    [SerializeField] CinemachineCamera cam;
+    [SerializeField] Transform map, player;
 
     float roomSize;
 
@@ -31,30 +35,7 @@ public class LevelManager : MonoBehaviour
         carriages.Add(carriage);
     }
 
-    public void FindObjectwithTag(string _tag, GameObject temp, List<GameObject> actors)
-    {
-        actors.Clear();
-        Transform parent = temp.transform;
-        GetChildObject(parent, _tag, actors);
-    }
-
-    public void GetChildObject(Transform parent, string _tag, List<GameObject> actors)
-    {
-        for (int i = 0; i < parent.childCount; i++)
-        {
-            Transform child = parent.GetChild(i);
-
-            if (child.tag == _tag)
-            {
-                actors.Add(child.gameObject);
-            }
-
-            if (child.childCount > 0)
-            {
-                GetChildObject(child, _tag, actors);
-            }
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -69,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
     public void EnemyDetection()
     {
-        FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+        Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
 
         enemyAmount = actors2.Count;
 
@@ -109,7 +90,7 @@ public class LevelManager : MonoBehaviour
             xOffset += 29.375f;
         }
 
-        FindObjectwithTag("SpawnPoint", carriage, actors);
+        Helper.instance.FindObjectwithTag("SpawnPoint", carriage, actors);
 
         foreach (GameObject child in actors)
         {
@@ -118,5 +99,40 @@ public class LevelManager : MonoBehaviour
 
         carriages.Add(carriage);
         carriageAmount++;
+    }
+
+    public void ActivateEnemies()
+    {
+        Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+
+        foreach (GameObject enemy in actors2)
+        {
+            StartCoroutine(enemy.GetComponent<EnemyScript>().Awaken());
+        }
+    }
+
+    public void DeactivateEnemies()
+    {
+        Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+
+        foreach (GameObject enemy in actors2)
+        {
+            enemy.GetComponent<EnemyScript>().isActive = false;
+        }
+    }
+
+    public void FollowLogic()
+    {
+        if (carriages[currentCarriage].layer == 11 || carriages[currentCarriage].layer == 12)
+        {
+            Helper.instance.FindObjectwithTag("RoomPoint", carriages[currentCarriage], camPoints);
+
+            cam.Target.TrackingTarget = camPoints[0].transform;
+        }
+
+        else
+        {
+            cam.Target.TrackingTarget = player;
+        }
     }
 }

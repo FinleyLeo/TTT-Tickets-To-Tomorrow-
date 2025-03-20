@@ -189,6 +189,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 612755961733723569, guid: 8c8ed5a7441c88340b5a287d803ed991, type: 3}
   m_PrefabInstance: {fileID: 50541508}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &207032612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207032613}
+  - component: {fileID: 207032614}
+  m_Layer: 0
+  m_Name: Helper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207032613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207032612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 492562448}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207032614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207032612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f180e25317b18a24fb87a8362fd88d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &358467121
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,12 +411,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 207032613}
   - {fileID: 1644528631}
   - {fileID: 358467122}
   - {fileID: 487878344}
   - {fileID: 1042632385}
   - {fileID: 1212402233}
-  - {fileID: 1373648532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &517615615 stripped
@@ -448,6 +492,10 @@ PrefabInstance:
     - target: {fileID: 6835329982272278323, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381589463584342463, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
+      propertyPath: wallJumpPower.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7815157429957986063, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1106,7 +1154,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1124893462}
-  m_Father: {fileID: 492562448}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1275,7 +1323,6 @@ GameObject:
   - component: {fileID: 1570379335}
   - component: {fileID: 1570379334}
   - component: {fileID: 1570379337}
-  - component: {fileID: 1570379338}
   - component: {fileID: 1570379339}
   m_Layer: 0
   m_Name: Main Camera
@@ -1403,24 +1450,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1570379338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570379333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa26a7ff3350d54694a656fa07169a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingPlayer: 1
-  manualMove: 1
-  cam: {fileID: 1307609004}
-  player: {fileID: 1335335877}
-  roomPoint: {fileID: 1965330945}
-  camPos: {fileID: 0}
 --- !u!114 &1570379339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,21 +1761,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 492562448}
     m_Modifications:
     - target: {fileID: 2266700773056956676, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1307609004}
+    - target: {fileID: 2266700773056956676, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
       propertyPath: map
       value: 
       objectReference: {fileID: 426874117}
     - target: {fileID: 2266700773056956676, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
-      propertyPath: canLeave
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266700773056956676, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
-      propertyPath: carriageAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266700773056956676, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
-      propertyPath: currentCarriage
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1335335877}
     - target: {fileID: 5490064205870863923, guid: 158dcbd61f38bed4a86e1e6b2a8cc992, type: 3}
       propertyPath: m_Name
       value: Level Manager
@@ -1800,6 +1825,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1373648532}
   - {fileID: 492562448}
   - {fileID: 563885191}
   - {fileID: 426874117}

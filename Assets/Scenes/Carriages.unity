@@ -802,8 +802,7 @@ PrefabInstance:
       value: LargeCarriageDense1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1795127753251471377, guid: 68679f2423abde848891fc0027c5c8df, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68679f2423abde848891fc0027c5c8df, type: 3}
@@ -1046,10 +1045,6 @@ PrefabInstance:
     - target: {fileID: 817997900841393807, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
       propertyPath: m_Name
       value: MediumCarriageSemi1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1464288221197122858, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
-      propertyPath: m_Intensity
-      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5496473696552767057, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
       propertyPath: m_LocalPosition.x

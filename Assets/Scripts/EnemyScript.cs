@@ -13,9 +13,9 @@ public class EnemyScript : MonoBehaviour
     public GameObject shootPoint;
 
     public float flipValue, offset;
-    float fadeTime = 1.5f, deadDelay = 0.5f, shootSpeed;
+    float fadeTime = 1.5f, deadDelay = 0.5f, shootSpeed, aimSpeed;
     bool facingRight;
-    public bool isDead;
+    public bool isDead, isActive;
 
     public Animator gunAnim;
     public GameObject arm;
@@ -31,17 +31,17 @@ public class EnemyScript : MonoBehaviour
         mpb = new MaterialPropertyBlock();
 
         anim.enabled = false;
+        isActive = false;
 
         flipValue = transform.localScale.x;
 
-        shootSpeed = Random.Range(0.75f, 1.5f);
+        shootSpeed = Random.Range(0.75f, 1.75f);
+        aimSpeed = Random.Range(2.5f, 3.5f);
 
         if (Random.Range(0, 100) > 90)
         {
             shootSpeed *= 2;
         }
-
-        StartCoroutine(Shoot());
     }
 
 
@@ -49,8 +49,11 @@ public class EnemyScript : MonoBehaviour
     {
         if (!isDead)
         {
-            Orientation();
-            ArmAim();
+            if (isActive)
+            {
+                Orientation();
+                ArmAim();
+            }
         }
 
         else
@@ -97,11 +100,11 @@ public class EnemyScript : MonoBehaviour
 
         if (facingRight)
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * 3);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * aimSpeed);
         }
         else
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * 3);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed);
 
             //arm.transform.rotation = Quaternion.Euler(0, 0, angle + 180 + offset);
         }
@@ -161,6 +164,13 @@ public class EnemyScript : MonoBehaviour
         StartCoroutine(flashRoutine);
     }
 
+    public IEnumerator Awaken()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isActive = true;
+        StartCoroutine(Shoot());
+    }
+
     IEnumerator Death()
     {
         tag = "Untagged";
@@ -168,7 +178,7 @@ public class EnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator Shoot()
+    public IEnumerator Shoot()
     {
         offset = Random.Range(-7.5f, 7.5f);
         gunAnim.SetTrigger("Shoot");
@@ -177,7 +187,7 @@ public class EnemyScript : MonoBehaviour
 
         yield return new WaitForSeconds(shootSpeed);
 
-        if (!isDead)
+        if (!isDead && isActive)
         {
             StartCoroutine(Shoot());
         }

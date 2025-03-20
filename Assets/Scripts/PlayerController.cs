@@ -387,7 +387,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("RightDoor"))
+        if (collision.gameObject.CompareTag("RightDoor") && levelManager.canLeave)
         {
             transform.position += Vector3.right * 3f;
             levelManager.currentCarriage++;

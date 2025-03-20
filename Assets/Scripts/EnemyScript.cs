@@ -163,6 +163,7 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator Death()
     {
+        tag = "Untagged";
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

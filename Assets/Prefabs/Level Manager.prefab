@@ -68,5 +68,8 @@ MonoBehaviour:
   - {fileID: 4711170796526881175, guid: 2fcbd5994bd91bb4890cc814eccb65e2, type: 3}
   - {fileID: 8472019233606894313, guid: 828ab79e042e05445a2a2a3e1337d2de, type: 3}
   - {fileID: 8507429223227596317, guid: 882641ba4d4af1740a0a4fca6ff3aba0, type: 3}
+  carriages: []
   map: {fileID: 0}
-  carriageAmount: 100
+  carriageAmount: 50
+  currentCarriage: 0
+  enemyAmount: 0

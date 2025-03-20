@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject[] enemies;
     [SerializeField] List<GameObject> carriages = new List<GameObject>();
     List<GameObject> actors = new List<GameObject>();
+    List<GameObject> actors2 = new List<GameObject>();
     GameObject carriage;
 
     [SerializeField] Transform map;
@@ -17,28 +18,27 @@ public class LevelManager : MonoBehaviour
 
     public int carriageAmount, currentCarriage;
 
-    string spawnTag = "SpawnPoint";
+    public int enemyAmount;
+
+    public bool canLeave;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         xOffset += 23.375f;
-        currentCarriage = -1;
 
-        for (int i = 0; i < carriageAmount; i++)
-        {
-            SpawnRoom();
-        }
+        carriage = GameObject.Find("Start Room");
+        carriages.Add(carriage);
     }
 
-    public void FindObjectwithTag(string _tag, GameObject temp)
+    public void FindObjectwithTag(string _tag, GameObject temp, List<GameObject> actors)
     {
         actors.Clear();
         Transform parent = temp.transform;
-        GetChildObject(parent, _tag);
+        GetChildObject(parent, _tag, actors);
     }
 
-    public void GetChildObject(Transform parent, string _tag)
+    public void GetChildObject(Transform parent, string _tag, List<GameObject> actors)
     {
         for (int i = 0; i < parent.childCount; i++)
         {
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
             if (child.childCount > 0)
             {
-                GetChildObject(child, _tag);
+                GetChildObject(child, _tag, actors);
             }
         }
     }
@@ -59,7 +59,29 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(carriages[currentCarriage].name);
+        EnemyDetection();
+
+        if (currentCarriage > carriageAmount - 1)
+        {
+            SpawnRoom();
+        }
+    }
+
+    public void EnemyDetection()
+    {
+        FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+
+        enemyAmount = actors2.Count;
+
+        if (enemyAmount > 0)
+        {
+            canLeave = false;
+        }
+
+        else
+        {
+            canLeave = true;
+        }
     }
 
     void SpawnRoom()
@@ -87,16 +109,14 @@ public class LevelManager : MonoBehaviour
             xOffset += 29.375f;
         }
 
-        if (spawnTag != null)
-        {
-            FindObjectwithTag(spawnTag, carriage);
+        FindObjectwithTag("SpawnPoint", carriage, actors);
 
-            foreach (GameObject child in actors)
-            {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
-            }
+        foreach (GameObject child in actors)
+        {
+            Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
         }
 
         carriages.Add(carriage);
+        carriageAmount++;
     }
 }

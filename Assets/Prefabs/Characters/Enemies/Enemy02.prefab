@@ -266,6 +266,7 @@ MonoBehaviour:
   flipValue: 0
   offset: 0
   isDead: 0
+  isActive: 0
   gunAnim: {fileID: 294505788498464960}
   arm: {fileID: 773885682393721074}
   normalSprite: {fileID: 1892192399200896467, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}

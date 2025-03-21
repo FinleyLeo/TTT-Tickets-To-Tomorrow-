@@ -339,6 +339,7 @@ MonoBehaviour:
   horiz: 0
   facingLeft: 1
   canFlip: 1
+  defaultFriction: 0.8
   speed: 20
   groundSpeed: 7
   airSpeed: 8

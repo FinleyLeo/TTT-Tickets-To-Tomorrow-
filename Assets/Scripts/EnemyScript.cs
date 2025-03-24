@@ -7,6 +7,8 @@ public class EnemyScript : MonoBehaviour
     Animator anim;
     GameObject player;
     MaterialPropertyBlock mpb;
+    CameraController cam;
+
     IEnumerator flashRoutine;
 
     public GameObject bullet;
@@ -29,6 +31,7 @@ public class EnemyScript : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.Find("Player");
         mpb = new MaterialPropertyBlock();
+        cam = Camera.main.GetComponent<CameraController>();
 
         anim.enabled = false;
         isActive = false;
@@ -183,6 +186,7 @@ public class EnemyScript : MonoBehaviour
         offset = Random.Range(-7.5f, 7.5f);
         gunAnim.SetTrigger("Shoot");
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
+        cam.Shake(1f, 0.1f, 0.1f);
         temp.tag = "Enemy";
 
         yield return new WaitForSeconds(shootSpeed);

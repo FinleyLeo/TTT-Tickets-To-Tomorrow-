@@ -1042,6 +1042,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 850521325}
     m_Modifications:
+    - target: {fileID: 512000295375522990, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 817997900841393807, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
       propertyPath: m_Name
       value: MediumCarriageSemi1
@@ -1085,6 +1089,10 @@ PrefabInstance:
     - target: {fileID: 5496473696552767057, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239769223784741062, guid: 787baf37263863249b9b4a0c1f762bbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

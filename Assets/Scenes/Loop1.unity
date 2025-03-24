@@ -493,10 +493,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7381589463584342463, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
-      propertyPath: wallJumpPower.y
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 7815157429957986063, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.9858713
@@ -957,6 +953,7 @@ GameObject:
   - component: {fileID: 1307609003}
   - component: {fileID: 1307609004}
   - component: {fileID: 1307609005}
+  - component: {fileID: 1307609006}
   m_Layer: 0
   m_Name: 2DFollow
   m_TagString: Untagged
@@ -1053,6 +1050,23 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &1307609006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307609002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0.3
+  FrequencyGain: 0.1
+  m_NoiseOffsets: {x: 9.166809, y: -73.89603, z: -477.27356}
 --- !u!4 &1335335877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7815157429957986063, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
@@ -1324,6 +1338,7 @@ GameObject:
   - component: {fileID: 1570379334}
   - component: {fileID: 1570379337}
   - component: {fileID: 1570379339}
+  - component: {fileID: 1570379340}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1482,6 +1497,19 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &1570379340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570379333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa26a7ff3350d54694a656fa07169a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noise: {fileID: 1307609006}
 --- !u!1 &1631730803
 GameObject:
   m_ObjectHideFlags: 0

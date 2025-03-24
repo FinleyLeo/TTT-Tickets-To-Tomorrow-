@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerAim : MonoBehaviour
 {
     public GameObject arm, gun, shootPoint;
-
     public GameObject bullet;
 
     Animator ammoAnim;
@@ -12,11 +11,12 @@ public class PlayerAim : MonoBehaviour
     float orientation;
     float cooldown;
     float ammo = 6;
-
     bool reloading;
 
     public ParticleSystem shell;
     PlayerController playerScript;
+    CameraController cam;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +24,7 @@ public class PlayerAim : MonoBehaviour
         playerScript = GetComponent<PlayerController>();
         orientation = transform.localScale.x;
 
+        cam = Camera.main.GetComponent<CameraController>();
         ammoAnim = GameObject.Find("Ammo")?.GetComponent<Animator>();
     }
 
@@ -117,6 +118,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
+        cam.Shake(2f, 0.1f, 0.1f);
         shell.Play();
         ammo -= 1;
         cooldown = 0.15f;

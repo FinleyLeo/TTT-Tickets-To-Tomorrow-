@@ -20,7 +20,6 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("RightDoor") || collision.gameObject.CompareTag("LeftDoor"))
         {
-            // collision.contacts[0].normal will be used for effects being displayed when hitting a wall
             Destroy(gameObject);
         }
 
@@ -39,6 +38,7 @@ public class BulletScript : MonoBehaviour
             collision.GetComponent<Animator>().SetBool("Dead", true);
             collision.GetComponent<EnemyScript>().isDead = true;
             collision.GetComponent<CapsuleCollider2D>().enabled = false;
+
             Destroy(gameObject);
         }
     }

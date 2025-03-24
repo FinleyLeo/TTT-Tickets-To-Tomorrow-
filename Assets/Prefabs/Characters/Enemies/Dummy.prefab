@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -441852832213337852, guid: f6987491168f5384d9dde53449b681d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   flipValue: 0
   offset: 0
   isDead: 0
+  isActive: 0
   gunAnim: {fileID: 9182187360205058625}
   arm: {fileID: 7408244609980091680}
   normalSprite: {fileID: -441852832213337852, guid: f6987491168f5384d9dde53449b681d9, type: 3}
@@ -186,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070881601209680498, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6503203825076711297, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,6 +228,10 @@ PrefabInstance:
     - target: {fileID: 6503203825076711297, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434489127119365017, guid: 5c072a932d49a8845b9571ae847b3cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

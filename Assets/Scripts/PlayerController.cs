@@ -49,13 +49,16 @@ public class PlayerController : MonoBehaviour
     MaterialPropertyBlock mpb;
     int health;
 
+    // Visuals
+    public ParticleSystem Dust;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim =  GetComponent<Animator>();
         mpb = new MaterialPropertyBlock();
-
+        
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
 
         orientation = transform.localScale.x;
@@ -155,6 +158,7 @@ public class PlayerController : MonoBehaviour
             {
                 jumpPressed = false;
                 anim.SetTrigger("Jump");
+                Dust.Play();
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -253,6 +257,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isSliding)
         {
+            Dust.Play();
             // Apply a continuous force while sliding
             rb.AddForce(new Vector2(-slideDir * slideSpeed, 0), ForceMode2D.Force);
 
@@ -303,6 +308,7 @@ public class PlayerController : MonoBehaviour
             wallJumped = true;
             wallSliding = false;
             anim.SetTrigger("Jump");
+            Dust.Play();
 
             wallJumpDir = facingLeft ? -1 : 1;
             rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
@@ -368,12 +374,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator Flash()
     {
         sr.material.SetInt("_Hit", 1);
-        transform.GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
-        transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
+        transform.GetChild(1).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
+        transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 1);
         yield return new WaitForSeconds(0.1f);
         sr.material.SetInt("_Hit", 0);
-        transform.GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
-        transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
+        transform.GetChild(1).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
+        transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
     }
 
     public void FlashWhite()

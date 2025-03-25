@@ -32,6 +32,15 @@ TextureImporter:
   - first:
       213: -468980966596232322
     second: TTT Main Menu_9
+  - first:
+      213: -3597260802070174578
+    second: TTT Main Menu_10
+  - first:
+      213: -1401154153486747675
+    second: TTT Main Menu_11
+  - first:
+      213: -5332709374980027853
+    second: TTT Main Menu_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,7 +108,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,32 +132,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -157,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 7
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +161,10 @@ TextureImporter:
       name: TTT Main Menu_1
       rect:
         serializedVersion: 2
-        x: 197
-        y: 7
+        x: 189
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +183,10 @@ TextureImporter:
       name: TTT Main Menu_2
       rect:
         serializedVersion: 2
-        x: 394
-        y: 7
+        x: 378
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +205,10 @@ TextureImporter:
       name: TTT Main Menu_3
       rect:
         serializedVersion: 2
-        x: 590
-        y: 7
-        width: 189
-        height: 81
+        x: 567
+        y: 0
+        width: 188
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +227,10 @@ TextureImporter:
       name: TTT Main Menu_4
       rect:
         serializedVersion: 2
-        x: 788
-        y: 7
+        x: 756
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +249,10 @@ TextureImporter:
       name: TTT Main Menu_5
       rect:
         serializedVersion: 2
-        x: 985
-        y: 7
+        x: 945
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +271,10 @@ TextureImporter:
       name: TTT Main Menu_6
       rect:
         serializedVersion: 2
-        x: 1182
-        y: 7
+        x: 1134
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +293,10 @@ TextureImporter:
       name: TTT Main Menu_7
       rect:
         serializedVersion: 2
-        x: 1379
-        y: 7
+        x: 1323
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +315,10 @@ TextureImporter:
       name: TTT Main Menu_8
       rect:
         serializedVersion: 2
-        x: 1576
-        y: 7
+        x: 1512
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +337,10 @@ TextureImporter:
       name: TTT Main Menu_9
       rect:
         serializedVersion: 2
-        x: 1773
-        y: 7
+        x: 1701
+        y: 0
         width: 188
-        height: 81
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,11 +355,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TTT Main Menu_10
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 0
+        width: 188
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84ab201c56f31ec0800000000000000
+      internalID: -3597260802070174578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT Main Menu_11
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 0
+        width: 188
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7fbd598b91e8ce0800000000000000
+      internalID: -1401154153486747675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT Main Menu_12
+      rect:
+        serializedVersion: 2
+        x: 2268
+        y: 0
+        width: 188
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a8bedc3196ef5b0800000000000000
+      internalID: -5332709374980027853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 49e3c8ed31f67804ca553b0ec1855c53
+    spriteID: 1547527e5003bb74bab8b84da38a9912
     internalID: 0
     vertices: []
     indices: 
@@ -388,6 +437,9 @@ TextureImporter:
     nameFileIdTable:
       TTT Main Menu_0: 777064065920825552
       TTT Main Menu_1: -6066806963161994888
+      TTT Main Menu_10: -3597260802070174578
+      TTT Main Menu_11: -1401154153486747675
+      TTT Main Menu_12: -5332709374980027853
       TTT Main Menu_2: -4248795953023381826
       TTT Main Menu_3: 9082184707681097683
       TTT Main Menu_4: -4851139851582414539

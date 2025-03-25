@@ -56,6 +56,8 @@ public class MainMenu : MonoBehaviour
         print("Loading game...");
         mountainAnim.SetInteger("Break", 1);
         mountainAnim.SetBool("InMenu", true);
+
+        SceneSwitcher.instance.Transition("Loop1");
     }
     public void OpenOptions()
     {
@@ -71,5 +73,10 @@ public class MainMenu : MonoBehaviour
         print("Quitting game...");
         mountainAnim.SetInteger("Break", 3);
         mountainAnim.SetBool("InMenu", true);
+    }
+
+    public void ExitSettings()
+    {
+
     }
 }

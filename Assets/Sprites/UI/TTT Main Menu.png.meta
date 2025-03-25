@@ -123,6 +123,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -152,9 +178,9 @@ TextureImporter:
       name: TTT Main Menu_1
       rect:
         serializedVersion: 2
-        x: 196
+        x: 197
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -174,9 +200,9 @@ TextureImporter:
       name: TTT Main Menu_2
       rect:
         serializedVersion: 2
-        x: 393
+        x: 394
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -198,7 +224,7 @@ TextureImporter:
         serializedVersion: 2
         x: 590
         y: 7
-        width: 190
+        width: 189
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -218,9 +244,9 @@ TextureImporter:
       name: TTT Main Menu_4
       rect:
         serializedVersion: 2
-        x: 787
+        x: 788
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -240,9 +266,9 @@ TextureImporter:
       name: TTT Main Menu_5
       rect:
         serializedVersion: 2
-        x: 984
+        x: 985
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -262,9 +288,9 @@ TextureImporter:
       name: TTT Main Menu_6
       rect:
         serializedVersion: 2
-        x: 1181
+        x: 1182
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -284,9 +310,9 @@ TextureImporter:
       name: TTT Main Menu_7
       rect:
         serializedVersion: 2
-        x: 1378
+        x: 1379
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -306,9 +332,9 @@ TextureImporter:
       name: TTT Main Menu_8
       rect:
         serializedVersion: 2
-        x: 1575
+        x: 1576
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -328,9 +354,9 @@ TextureImporter:
       name: TTT Main Menu_9
       rect:
         serializedVersion: 2
-        x: 1772
+        x: 1773
         y: 7
-        width: 190
+        width: 188
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

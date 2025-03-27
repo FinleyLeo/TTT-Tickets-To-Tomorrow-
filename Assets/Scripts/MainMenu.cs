@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI startText;
 
     Animator anim;
-    public Animator mountainAnim, settings, quitConfirm;
+    public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
     float startdelay;
 
     [Header("Slider stuff")]
@@ -64,8 +64,23 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetInteger("Break", 1);
         mountainAnim.SetBool("InMenu", true);
 
+        playAnim.SetBool("Opened", true);
+    }
+
+    public void Continue()
+    {
+        mountainAnim.SetBool("InMenu", false);
+        playAnim.SetBool("Opened", false);
+    }
+
+    public void NewGame()
+    {
+        mountainAnim.SetBool("InMenu", false);
+        playAnim.SetBool("Opened", false);
+
         _SceneSwitcher.instance.Transition("Loop1");
     }
+
     public void OpenOptions()
     {
         // Open the options menu
@@ -73,7 +88,7 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetInteger("Break", 2);
         mountainAnim.SetBool("InMenu", true);
 
-        settings.SetBool("Opened", true);
+        settingsAnim.SetBool("Opened", true);
     }
 
     public void QuitGame()
@@ -83,13 +98,13 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetInteger("Break", 3);
         mountainAnim.SetBool("InMenu", true);
 
-        quitConfirm.SetBool("Opened", true);
+        quitConfirmAnim.SetBool("Opened", true);
     }
 
     public void ConfirmQuit()
     {
         mountainAnim.SetBool("InMenu", false);
-        quitConfirm.SetBool("Opened", false);
+        quitConfirmAnim.SetBool("Opened", false);
 
         Application.Quit();
     }
@@ -97,7 +112,7 @@ public class MainMenu : MonoBehaviour
     public void CancelQuit()
     {
         mountainAnim.SetBool("InMenu", false);
-        quitConfirm.SetBool("Opened", false);
+        quitConfirmAnim.SetBool("Opened", false);
     }
 
     public void MusicToggle()
@@ -149,6 +164,6 @@ public class MainMenu : MonoBehaviour
     public void ExitSettings()
     {
         mountainAnim.SetBool("InMenu", false);
-        settings.SetBool("Opened", false);
+        settingsAnim.SetBool("Opened", false);
     }
 }

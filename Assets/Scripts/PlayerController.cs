@@ -83,22 +83,24 @@ public class PlayerController : MonoBehaviour
 
     void BasicMovement()
     {
-        if (!isSliding)
+        if (!isSliding && !isCrouching)
         {
             horiz = Input.GetAxisRaw("Horizontal");
         }
 
+        else
+        {
+            horiz = 0;
+        }
+
         if (horiz != 0)
         {
-            if (!isCrouching)
-            {
-                rb.AddForce(10f * horiz * speed * Vector2.right);
+            rb.AddForce(10f * horiz * speed * Vector2.right);
 
-                // Limits the speed of the player
-                if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
-                {
-                    rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
-                }
+            // Limits the speed of the player
+            if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+            {
+                rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
             }
         }
 
@@ -158,7 +160,6 @@ public class PlayerController : MonoBehaviour
             {
                 jumpPressed = false;
                 anim.SetTrigger("Jump");
-                Dust.Play();
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -190,13 +191,15 @@ public class PlayerController : MonoBehaviour
             if (horiz < 0)
             {
                 facingLeft = true;
-                transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                //transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
             }
 
             else if (horiz > 0)
             {
                 facingLeft = false;
-                transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                //transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
             }
         }
 
@@ -215,7 +218,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (isGrounded)
+            if (isGrounded && !isSliding)
             {
                 isCrouching = true;
                 anim.SetBool("Crouching", true);
@@ -257,7 +260,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isSliding)
         {
-            Dust.Play();
+            Dust.emissionRate = 40;
             // Apply a continuous force while sliding
             rb.AddForce(new Vector2(-slideDir * slideSpeed, 0), ForceMode2D.Force);
 
@@ -266,6 +269,11 @@ public class PlayerController : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
             }
+        }
+
+        else
+        {
+            Dust.emissionRate = 0;
         }
     }
 
@@ -308,7 +316,6 @@ public class PlayerController : MonoBehaviour
             wallJumped = true;
             wallSliding = false;
             anim.SetTrigger("Jump");
-            Dust.Play();
 
             wallJumpDir = facingLeft ? -1 : 1;
             rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
@@ -317,9 +324,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlipDelay());
 
             facingLeft = !facingLeft;
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
+            //Vector3 scale = transform.localScale;
+            //scale.x *= -1;
+            //transform.localScale = scale;
+
+            transform.rotation = Quaternion.Euler(0, facingLeft ? 180 : 0, 0);
         }
     }
 
@@ -392,6 +401,11 @@ public class PlayerController : MonoBehaviour
 
         flashRoutine = Flash();
         StartCoroutine(flashRoutine);
+    }
+
+    public void DustEffect()
+    {
+        Dust.Play();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

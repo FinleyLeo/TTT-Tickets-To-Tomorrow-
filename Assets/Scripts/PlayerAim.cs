@@ -44,27 +44,25 @@ public class PlayerAim : MonoBehaviour
 
         if (playerScript.horiz == 0)
         {
-            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x)
-            {
-                playerScript.facingLeft = true;
-                transform.localScale = new Vector3(-orientation, transform.localScale.y, transform.localScale.z);
-            }
+            bool shouldFaceLeft = Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x;
 
-            else
+            if (shouldFaceLeft != playerScript.facingLeft)
             {
-                playerScript.facingLeft = false;
-                transform.localScale = new Vector3(orientation, transform.localScale.y, transform.localScale.z);
+                playerScript.facingLeft = shouldFaceLeft;
+                transform.rotation = Quaternion.Euler(0, shouldFaceLeft ? 180 : 0, 0);
             }
         }
 
         if (playerScript.facingLeft)
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 185), Time.deltaTime * 50);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(180, 0, -angle - 5), Time.deltaTime * 50);
+            shootPoint.transform.rotation = Quaternion.Lerp(shootPoint.transform.rotation, Quaternion.Euler(0, 0, angle + 270), Time.deltaTime * 50);
         }
 
         else
         {
             arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle - 5), Time.deltaTime * 50);
+            shootPoint.transform.rotation = Quaternion.Lerp(shootPoint.transform.rotation, Quaternion.Euler(0, 0, angle - 90), Time.deltaTime * 50);
         }
 
         cooldown -= Time.deltaTime;

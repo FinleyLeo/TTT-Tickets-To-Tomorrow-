@@ -7,6 +7,10 @@ public class TimeManager : MonoBehaviour
 
     public bool normalTime;
 
+    bool slowTime;
+
+    public float delay;
+
     private void Awake()
     {
         if (instance == null)
@@ -23,7 +27,7 @@ public class TimeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class TimeManager : MonoBehaviour
     {
         if (normalTime)
         {
-            if (Time.timeScale < 0.9)
+            if (Time.timeScale < 0.8)
             {
                 Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 10 * Time.unscaledDeltaTime);
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -44,6 +48,14 @@ public class TimeManager : MonoBehaviour
             }
         }
 
-        Debug.Log(Time.timeScale);
+        else
+        {
+            delay -= Time.unscaledDeltaTime;
+
+            if (delay <= 0)
+            {
+                normalTime = true;
+            }
+        }
     }
 }

@@ -16,31 +16,30 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         transform.position += transform.up * speed * Time.deltaTime;
+
+        if (gameObject.CompareTag("Player"))
+        {
+            GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Player");
+        }
+
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        }
     }
 
     IEnumerator HitTime()
     {
         TimeManager.instance.normalTime = false;
+        TimeManager.instance.delay = 0.05f;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<TrailRenderer>().enabled = false;
 
-        if (Time.timeScale > 0.75f)
-        {
-            Time.timeScale = 0.3f;
-        }
-
-        else
-        {
-            if (Time.timeScale > 0.05f)
-            {
-                Time.timeScale -= 0.05f;
-            }
-        }
-
+        Time.timeScale = 0.2f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
-        GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
-        yield return new WaitForSecondsRealtime(0.025f);
-        TimeManager.instance.normalTime = true;
+        yield return new WaitForSecondsRealtime(0.15f);
         Destroy(gameObject);
     }
 
@@ -53,7 +52,7 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage();
+            collision.gameObject?.GetComponent<PlayerController>()?.TakeDamage();
             Destroy(gameObject);
         }
     }

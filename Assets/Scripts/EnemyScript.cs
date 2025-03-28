@@ -15,7 +15,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject shootPoint;
 
     public float flipValue, offset;
-    float fadeTime = 1.5f, deadDelay = 0.5f, shootSpeed, aimSpeed;
+    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed;
     bool facingRight;
     public bool isDead, isActive;
 
@@ -148,7 +148,7 @@ public class EnemyScript : MonoBehaviour
         mpb.SetInt("_Hit", 1);
         sr.SetPropertyBlock(mpb);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         // Reset back to normal
         sr.GetPropertyBlock(mpb);
@@ -171,6 +171,7 @@ public class EnemyScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         isActive = true;
+        yield return new WaitForSeconds(0.2f);
         StartCoroutine(Shoot());
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2207328601808302447}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmTypeC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3211136499582926806}
   - component: {fileID: 7107879563594689250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArms_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6777629324721327663}
   - component: {fileID: 8195153816969834129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArms_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

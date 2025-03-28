@@ -368,6 +368,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        Camera.main.GetComponent<CameraController>().Shake(1f, 0.2f, 0.1f);
         FlashWhite();
     }
 

@@ -11,12 +11,10 @@ public class MainMenu : MonoBehaviour
     public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
     float startdelay;
 
-    [Header("Slider stuff")]
-    public GameObject musicCross;
-    public GameObject sfxCross;
-    public Image sfxBack, musicBack, sfxFill, musicFill;
-    bool sfxMuted, musicMuted;
+    
 
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,6 +69,8 @@ public class MainMenu : MonoBehaviour
     {
         mountainAnim.SetBool("InMenu", false);
         playAnim.SetBool("Opened", false);
+
+        StartCoroutine(DisableMenu());
     }
 
     public void NewGame()
@@ -78,7 +78,8 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetBool("InMenu", false);
         playAnim.SetBool("Opened", false);
 
-        _SceneSwitcher.instance.Transition("Loop1");
+        SceneSwitcher.instance.Transition("Loop1");
+        StartCoroutine(DisableMenu());
     }
 
     public void OpenOptions()
@@ -115,55 +116,15 @@ public class MainMenu : MonoBehaviour
         quitConfirmAnim.SetBool("Opened", false);
     }
 
-    public void MusicToggle()
-    {
-        musicMuted = !musicMuted;
-
-        musicCross.SetActive(musicMuted);
-
-        if (musicMuted)
-        {
-            musicBack.color = new Color(0.75f, 0.75f, 0.75f);
-            musicFill.color = new Color(0.75f, 0.75f, 0.75f);
-
-            musicFill.GetComponentInParent<Slider>().interactable = false;
-        }
-
-        else
-        {
-            musicBack.color = Color.white;
-            musicFill.color = Color.white;
-
-            musicFill.GetComponentInParent<Slider>().interactable = true;
-        }
-    }
-
-    public void SFXToggle()
-    {
-        sfxMuted = !sfxMuted;
-
-        sfxCross.SetActive(sfxMuted);
-
-        if (sfxMuted)
-        {
-            sfxBack.color = new Color(0.75f, 0.75f, 0.75f);
-            sfxFill.color = new Color(0.75f, 0.75f, 0.75f);
-
-            sfxFill.GetComponentInParent<Slider>().interactable = false;
-        }
-
-        else
-        {
-            sfxBack.color = Color.white;
-            sfxFill.color = Color.white;
-
-            sfxFill.GetComponentInParent<Slider>().interactable = true;
-        }
-    }
-
     public void ExitSettings()
     {
         mountainAnim.SetBool("InMenu", false);
         settingsAnim.SetBool("Opened", false);
+    }
+
+    IEnumerator DisableMenu()
+    {
+        yield return new WaitForSeconds(0.99f);
+        gameObject.SetActive(false);
     }
 }

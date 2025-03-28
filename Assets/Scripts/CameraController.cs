@@ -11,28 +11,26 @@ public class CameraController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        noise.AmplitudeGain = 0.3f;
+        noise.AmplitudeGain = 0.2f;
         noise.FrequencyGain = 0.1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (shakeTimer > 0)
-        {
-            shakeTimer -= Time.deltaTime;
+        shakeTimer -= Time.deltaTime;
 
-            if (shakeTimer <= 0)
-            {
-                noise.AmplitudeGain = 0.3f;
-                noise.FrequencyGain = 0.1f;
-            }
-        }
+        noise.AmplitudeGain = Mathf.Lerp(noise.AmplitudeGain, 0.2f, -shakeTimer);
+        noise.FrequencyGain = Mathf.Lerp(noise.FrequencyGain, 0.1f, -shakeTimer);
     }
 
     public void Shake(float intensity, float frequency, float time)
-    {   
-        noise.AmplitudeGain = intensity;
+    {
+        if (noise.AmplitudeGain < 3f)
+        {
+            noise.AmplitudeGain += intensity;
+        }
+
         noise.FrequencyGain = frequency;
         shakeTimer = time;
     }

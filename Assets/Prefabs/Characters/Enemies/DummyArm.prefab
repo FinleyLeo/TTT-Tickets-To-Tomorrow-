@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6805462120271736376}
   - component: {fileID: 8434489127119365017}
   - component: {fileID: 802968311213671838}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Gun (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6503203825076711297}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DummyArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165730241175995220}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7414095239680509868}
   - component: {fileID: 6070881601209680498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArms_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

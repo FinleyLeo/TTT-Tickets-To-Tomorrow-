@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3836781125224777119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7798705587311079372}
   - component: {fileID: 5853079390295254579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArms_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 6053752721500360703}
   - component: {fileID: 5336373040381955845}
   - component: {fileID: 6847803535579737840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy02
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5136654676802564626}
   - component: {fileID: 3763423437765097228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArms_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,9 +397,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6850347326460392204, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8464670361832897629, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464670361832897629, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8950964967120257073, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
       propertyPath: m_LocalScale.x

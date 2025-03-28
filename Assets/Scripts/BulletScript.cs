@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -14,6 +16,32 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         transform.position += transform.up * speed * Time.deltaTime;
+    }
+
+    IEnumerator HitTime()
+    {
+        TimeManager.instance.normalTime = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        if (Time.timeScale > 0.75f)
+        {
+            Time.timeScale = 0.3f;
+        }
+
+        else
+        {
+            if (Time.timeScale > 0.05f)
+            {
+                Time.timeScale -= 0.05f;
+            }
+        }
+
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        yield return new WaitForSecondsRealtime(0.025f);
+        TimeManager.instance.normalTime = true;
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,7 +67,7 @@ public class BulletScript : MonoBehaviour
             collision.GetComponent<EnemyScript>().isDead = true;
             collision.GetComponent<CapsuleCollider2D>().enabled = false;
 
-            Destroy(gameObject);
+            StartCoroutine(HitTime());
         }
     }
 }

@@ -970,7 +970,7 @@ Transform:
   m_GameObject: {fileID: 1307609002}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 0.5, z: -10}
+  m_LocalPosition: {x: -6.000003, y: 0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1047,8 +1047,8 @@ MonoBehaviour:
   Damping: {x: 1, y: 1, z: 1}
   Lookahead:
     Enabled: 0
-    Time: 0
-    Smoothing: 0
+    Time: 0.2
+    Smoothing: 2
     IgnoreY: 0
 --- !u!114 &1307609006
 MonoBehaviour:
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 0.3
   FrequencyGain: 0.1
-  m_NoiseOffsets: {x: 9.166809, y: -73.89603, z: -477.27356}
+  m_NoiseOffsets: {x: -841.9625, y: 339.64752, z: 589.95746}
 --- !u!4 &1335335877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7815157429957986063, guid: c896ae2fa2d08234f91b66a08925763d, type: 3}
@@ -1414,7 +1414,7 @@ Transform:
   m_GameObject: {fileID: 1570379333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 0.5, z: -10}
+  m_LocalPosition: {x: -6.000003, y: 0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

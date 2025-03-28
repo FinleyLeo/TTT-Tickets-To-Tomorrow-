@@ -31,7 +31,10 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Aim();
+        if (!UIScript.instance.paused)
+        {
+            Aim();
+        }
     }
 
     void Aim()
@@ -118,7 +121,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        cam.Shake(2f, 0.1f, 0.1f);
+        cam.Shake(1f, 0.1f, 0.1f);
         shell.Play();
         ammo -= 1;
         cooldown = 0.15f;

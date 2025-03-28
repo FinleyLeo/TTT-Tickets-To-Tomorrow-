@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 117555350931808444}
   - component: {fileID: 3441235509436094794}
   - component: {fileID: 8624043245817783661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -189,9 +189,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6850347326460392204, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8464670361832897629, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464670361832897629, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8950964967120257073, guid: ba18dc6f5596d6146b75f70a2dd5d72b, type: 3}
       propertyPath: m_LocalScale.x

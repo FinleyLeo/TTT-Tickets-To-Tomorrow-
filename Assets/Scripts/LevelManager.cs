@@ -35,8 +35,6 @@ public class LevelManager : MonoBehaviour
         carriages.Add(carriage);
     }
 
-    
-
     // Update is called once per frame
     void Update()
     {

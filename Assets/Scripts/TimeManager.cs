@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class TimeManager : MonoBehaviour
 {
@@ -33,29 +34,45 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (normalTime)
+        if (!normalTime)
         {
-            if (Time.timeScale < 0.8)
+            if (!slowTime)
             {
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 10 * Time.unscaledDeltaTime);
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                if (Time.timeScale < 0.8)
+                {
+                    Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 10 * Time.unscaledDeltaTime);
+                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                }
+
+                else
+                {
+                    Time.timeScale = 1;
+                    Time.fixedDeltaTime = 0.02f;
+                    normalTime = true;
+                }
             }
 
             else
             {
-                Time.timeScale = 1;
-                Time.fixedDeltaTime = 0.02f;
+                // slow motion effect
             }
+        }
+    }
+
+    public IEnumerator HitStop(float duration)
+    {
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(duration);
+
+        if (normalTime)
+        {
+            Time.timeScale = 1f;
         }
 
         else
         {
-            delay -= Time.unscaledDeltaTime;
-
-            if (delay <= 0)
-            {
-                normalTime = true;
-            }
+            Time.timeScale = 0.25f;
         }
     }
 }

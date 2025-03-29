@@ -42,7 +42,7 @@ public class PlayerAim : MonoBehaviour
         Vector3 aimDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - arm.transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
-        if (playerScript.horiz == 0)
+        if (playerScript.horiz == 0 && !playerScript.isSliding)
         {
             bool shouldFaceLeft = Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x;
 

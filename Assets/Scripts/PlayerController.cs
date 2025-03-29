@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     // Manages Sliding values
     public float slideSpeed;
     float slideDir;
-    bool isSliding;
+    public bool isSliding;
 
     // Manages Crouching
     bool isCrouching;
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator flashRoutine;
     MaterialPropertyBlock mpb;
     int health;
+    public bool invincible;
 
     // Visuals
     public ParticleSystem Dust;
@@ -62,6 +63,8 @@ public class PlayerController : MonoBehaviour
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
 
         orientation = transform.localScale.x;
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
@@ -83,17 +86,9 @@ public class PlayerController : MonoBehaviour
 
     void BasicMovement()
     {
-        if (!isSliding && !isCrouching)
-        {
-            horiz = Input.GetAxisRaw("Horizontal");
-        }
+        horiz = Input.GetAxisRaw("Horizontal");
 
-        else
-        {
-            horiz = 0;
-        }
-
-        if (horiz != 0)
+        if (horiz != 0 && !isSliding && !isCrouching)
         {
             rb.AddForce(10f * horiz * speed * Vector2.right);
 
@@ -216,9 +211,9 @@ public class PlayerController : MonoBehaviour
 
     void Crouch()
     {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            if (isGrounded && !isSliding)
+            if (isGrounded && !isSliding && horiz == 0)
             {
                 isCrouching = true;
                 anim.SetBool("Crouching", true);
@@ -377,8 +372,37 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        Camera.main.GetComponent<CameraController>().Shake(1f, 0.2f, 0.1f);
-        FlashWhite();
+        if (!invincible)
+        {
+            Camera.main.GetComponent<CameraController>().Shake(1f, 0.2f, 0.1f);
+            StartCoroutine(InvincibilityEffect(1.5f, 0.1f));
+            FlashWhite();
+        }
+    }
+
+    IEnumerator InvincibilityEffect(float duration, float flashSpeed)
+    {
+        invincible = true;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        SpriteRenderer armSr = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        SpriteRenderer gunSr = transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>();
+        float elapsedTime = 0f;
+        bool isVisible = true;
+
+        while (elapsedTime < duration)
+        {
+            isVisible = !isVisible;
+            sr.enabled = isVisible;
+            armSr.enabled = isVisible;
+            gunSr.enabled = isVisible;
+            elapsedTime += flashSpeed;
+            yield return new WaitForSeconds(flashSpeed);
+        }
+
+        sr.enabled = true;
+        armSr.enabled = true;
+        gunSr.enabled = true;
+        invincible = false;
     }
 
     IEnumerator Flash()
@@ -418,7 +442,7 @@ public class PlayerController : MonoBehaviour
             levelManager.ActivateEnemies();
         }
 
-        else if (collision.gameObject.CompareTag("LeftDoor"))
+        else if (collision.gameObject.CompareTag("LeftDoor") && levelManager.canLeave)
         {
             transform.position += Vector3.right * -3f;
             levelManager.DeactivateEnemies();

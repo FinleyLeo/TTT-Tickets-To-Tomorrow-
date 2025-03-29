@@ -6,9 +6,13 @@ public class BulletScript : MonoBehaviour
 {
     public float speed;
 
+    GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.Find("Player");
+
         Destroy(gameObject, 3f);
     }
 
@@ -17,7 +21,7 @@ public class BulletScript : MonoBehaviour
     {
         transform.position += transform.up * speed * Time.deltaTime;
 
-        if (gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Player") || player.GetComponent<PlayerController>().invincible)
         {
             GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Player");
         }
@@ -26,21 +30,6 @@ public class BulletScript : MonoBehaviour
         {
             GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         }
-    }
-
-    IEnumerator HitTime()
-    {
-        TimeManager.instance.normalTime = false;
-        TimeManager.instance.delay = 0.05f;
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<TrailRenderer>().enabled = false;
-
-        Time.timeScale = 0.2f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-
-        yield return new WaitForSecondsRealtime(0.15f);
-        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,8 +41,12 @@ public class BulletScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject?.GetComponent<PlayerController>()?.TakeDamage();
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage();
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<TrailRenderer>().enabled = false;
+            StartCoroutine(TimeManager.instance.HitStop(0.15f));
+            Destroy(gameObject, 0.20f);
         }
     }
 
@@ -61,12 +54,12 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
         {
-            collision.GetComponent<EnemyScript>().FlashWhite();
-            collision.GetComponent<Animator>().SetBool("Dead", true);
-            collision.GetComponent<EnemyScript>().isDead = true;
-            collision.GetComponent<CapsuleCollider2D>().enabled = false;
-
-            StartCoroutine(HitTime());
+            collision.gameObject.GetComponent<EnemyScript>().TakeDamage();
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<TrailRenderer>().enabled = false;
+            StartCoroutine(TimeManager.instance.HitStop(0.05f));
+            Destroy(gameObject, 0.1f);
         }
     }
 }

@@ -13,14 +13,16 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject bullet;
     public GameObject shootPoint;
-
-    public float flipValue, offset;
-    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed;
-    bool facingRight;
-    public bool isDead, isActive;
-
-    public Animator gunAnim;
     public GameObject arm;
+    public Animator gunAnim;
+
+    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed, offset, flipValue;
+
+    [SerializeField] int health = 1;
+
+    bool facingRight;
+    public bool isDead, isActive, isAwake;
+
     public Sprite normalSprite;  // Default front-facing sprite
     public Sprite upSprite;      // Sprite when aiming up
     public Sprite downSprite;    // Sprite when aiming down
@@ -169,10 +171,30 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator Awaken()
     {
-        yield return new WaitForSeconds(0.5f);
-        isActive = true;
-        yield return new WaitForSeconds(0.2f);
-        StartCoroutine(Shoot());
+        if (!isAwake)
+        {
+            isAwake = true;
+            yield return new WaitForSeconds(0.5f);
+            isActive = true;
+            yield return new WaitForSeconds(0.25f);
+
+            StartCoroutine(Shoot());
+        }
+    }
+
+    public void TakeDamage()
+    {
+        Camera.main.GetComponent<CameraController>().Shake(0.5f, 0.15f, 0.1f);
+        FlashWhite();
+
+        health--;
+
+        if (health <= 0)
+        {
+            isDead = true;
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            anim.SetBool("Dead", true);
+        }
     }
 
     IEnumerator Death()

@@ -116,6 +116,7 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject enemy in actors2)
         {
             enemy.GetComponent<EnemyScript>().isActive = false;
+            enemy.GetComponent<EnemyScript>().isAwake = false;
         }
     }
 

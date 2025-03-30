@@ -119,7 +119,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        cam.Shake(1f, 0.1f, 0.1f);
+        cam.Shake(0.75f, 0.1f, 0.1f);
         shell.Play();
         ammo -= 1;
         cooldown = 0.15f;

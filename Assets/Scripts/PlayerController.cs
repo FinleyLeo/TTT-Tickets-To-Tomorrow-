@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!invincible)
         {
-            Camera.main.GetComponent<CameraController>().Shake(1f, 0.2f, 0.1f);
+            Camera.main.GetComponent<CameraController>().Shake(1.5f, 0.1f, 0.2f);
             StartCoroutine(InvincibilityEffect(1.5f, 0.1f));
             FlashWhite();
         }

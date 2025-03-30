@@ -150,7 +150,7 @@ public class EnemyScript : MonoBehaviour
         mpb.SetInt("_Hit", 1);
         sr.SetPropertyBlock(mpb);
 
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSeconds(0.1f);
 
         // Reset back to normal
         sr.GetPropertyBlock(mpb);
@@ -184,7 +184,7 @@ public class EnemyScript : MonoBehaviour
 
     public void TakeDamage()
     {
-        Camera.main.GetComponent<CameraController>().Shake(0.5f, 0.15f, 0.1f);
+        Camera.main.GetComponent<CameraController>().Shake(0.5f, 0.1f, 0.1f);
         FlashWhite();
 
         health--;
@@ -209,7 +209,7 @@ public class EnemyScript : MonoBehaviour
         offset = Random.Range(-7.5f, 7.5f);
         gunAnim.SetTrigger("Shoot");
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
-        cam.Shake(0.5f, 0.1f, 0.1f);
+        cam.Shake(0.25f, 0.1f, 0.1f);
         temp.tag = "Enemy";
 
         yield return new WaitForSeconds(shootSpeed);

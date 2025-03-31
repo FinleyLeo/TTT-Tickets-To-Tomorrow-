@@ -244,6 +244,7 @@ public class PlayerController : MonoBehaviour
             if (horiz != 0 && isGrounded && !isSliding)
             {
                 isSliding = true;
+                canFlip = false;
                 anim.SetBool("Sliding", true);
                 slideDir = facingLeft ? 1 : -1;
                 StartCoroutine(SlideCancel());
@@ -276,6 +277,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         isSliding = false;
+        canFlip = true;
         anim.SetBool("Sliding", false);
     }
 

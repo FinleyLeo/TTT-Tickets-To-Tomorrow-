@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     Animator anim;
     public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
-    float startdelay;
+    public float startdelay;
 
     public UIScript UI;
 
@@ -17,6 +17,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = 0.02f;
     }
 
     // Update is called once per frame

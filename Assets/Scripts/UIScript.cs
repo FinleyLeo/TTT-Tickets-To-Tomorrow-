@@ -244,6 +244,11 @@ public class UIScript : MonoBehaviour
             vSyncCross = pauseMenu.Find("Panel").Find("VSync").Find("Toggle").GetChild(2).gameObject;
         }
 
+        else
+        {
+            vSyncCross = mainMenu.transform.Find("Settings").Find("Panel").Find("VSync").Find("Toggle").GetChild(2).gameObject;
+        }
+
         vSyncActive = !vSyncActive;
 
         vSyncCross.SetActive(vSyncActive);
@@ -258,6 +263,11 @@ public class UIScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Main Menu")
         {
             fullScreenCross = pauseMenu.Find("Panel").Find("Full screen").Find("Toggle").GetChild(2).gameObject;
+        }
+
+        else
+        {
+            fullScreenCross = mainMenu.transform.Find("Settings").Find("Panel").Find("Full screen").Find("Toggle").GetChild(2).gameObject;
         }
 
         fullScreen = !fullScreen;

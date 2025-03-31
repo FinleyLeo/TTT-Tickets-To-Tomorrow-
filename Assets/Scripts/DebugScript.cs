@@ -45,7 +45,7 @@ public class DebugScript : MonoBehaviour
 
     void SetFPS()
     {
-        fps = 1 / Time.deltaTime;
+        fps = 1 / Time.unscaledDeltaTime;
 
         fpsText.text = "FPS: " + Mathf.Round(fps).ToString();
     }

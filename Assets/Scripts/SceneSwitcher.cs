@@ -42,7 +42,7 @@ public class SceneSwitcher : MonoBehaviour
     IEnumerator Transitioning(string scene)
     {
         transition.SetBool("Fading", false);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadScene(scene);
         transition.SetBool("Fading", true);
     }

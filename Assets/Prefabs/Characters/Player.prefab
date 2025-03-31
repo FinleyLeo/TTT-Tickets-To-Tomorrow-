@@ -352,6 +352,8 @@ MonoBehaviour:
   wallSlideSpeed: 3
   wallJumpPower: {x: -0.75, y: 0.8}
   slideSpeed: 1500
+  isSliding: 0
+  invincible: 0
   Dust: {fileID: 4687327108155944375}
 --- !u!114 &1350134786377683441
 MonoBehaviour:

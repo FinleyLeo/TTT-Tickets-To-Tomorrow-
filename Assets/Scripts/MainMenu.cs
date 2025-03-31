@@ -11,10 +11,7 @@ public class MainMenu : MonoBehaviour
     public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
     float startdelay;
 
-    
-
-
-    
+    public UIScript UI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,7 +67,7 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetBool("InMenu", false);
         playAnim.SetBool("Opened", false);
 
-        StartCoroutine(DisableMenu());
+        StartCoroutine(UI.DisableMenu());
     }
 
     public void NewGame()
@@ -79,7 +76,7 @@ public class MainMenu : MonoBehaviour
         playAnim.SetBool("Opened", false);
 
         SceneSwitcher.instance.Transition("Loop1");
-        StartCoroutine(DisableMenu());
+        StartCoroutine(UI.DisableMenu());
     }
 
     public void OpenOptions()
@@ -120,11 +117,5 @@ public class MainMenu : MonoBehaviour
     {
         mountainAnim.SetBool("InMenu", false);
         settingsAnim.SetBool("Opened", false);
-    }
-
-    IEnumerator DisableMenu()
-    {
-        yield return new WaitForSeconds(0.99f);
-        gameObject.SetActive(false);
     }
 }

@@ -10,24 +10,24 @@ public class UIScript : MonoBehaviour
 
     public bool paused;
 
-    public Animator pauseAnim, quitChoice, menuAnim;
-    public Image pauseDarken;
+    [SerializeField] Animator pauseAnim, quitChoice, menuAnim;
+    [SerializeField] Image pauseDarken;
 
     bool menuActive = true;
 
     // Menus
-    public GameObject mainMenu;
+    [SerializeField] GameObject mainMenu;
 
-    bool sfxMuted, musicMuted;
 
-    [SerializeField] GameObject[] crosses;
-    [SerializeField] Image[] sliderFills;
-    [SerializeField] Image[] sliderBacks;
+    // Sliders
     [SerializeField] GameObject[] sliders;
 
+    // Resolutions
     [SerializeField] TMP_Dropdown resolutions, pResolutions;
 
     // Toggles
+    [SerializeField] GameObject[] crosses;
+    bool sfxMuted, musicMuted;
     bool vSyncActive, fullScreen;
     bool quitToggle;
 
@@ -38,6 +38,8 @@ public class UIScript : MonoBehaviour
         {
             GameObject.Find("Main Menu").SetActive(true);
         }
+
+        SetValues();
     }
 
     private void Awake()
@@ -50,6 +52,79 @@ public class UIScript : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void SetValues()
+    {
+        if (PlayerPrefs.HasKey("musicMuted"))
+        {
+            if (PlayerPrefs.GetInt("musicMuted") == 1)
+            {
+                musicMuted = false;
+                MusicToggle();
+            }
+
+            else
+            {
+                musicMuted = true;
+                MusicToggle();
+            }
+        }
+
+        if (PlayerPrefs.HasKey("sfxMuted"))
+        {
+            if (PlayerPrefs.GetInt("sfxMuted") == 1)
+            {
+                sfxMuted = false;
+                SFXToggle();
+            }
+
+            else
+            {
+                sfxMuted = true;
+                SFXToggle();
+            }
+        }
+
+        if (PlayerPrefs.HasKey("vSyncActive"))
+        {
+            if (PlayerPrefs.GetInt("vSyncActive") == 1)
+            {
+                vSyncActive = false;
+                VSyncToggle();
+            }
+
+            else
+            {
+                vSyncActive = true;
+                VSyncToggle();
+            }
+        }
+
+        if (PlayerPrefs.HasKey("fsActive"))
+        {
+            if (PlayerPrefs.GetInt("fsActive") == 1)
+            {
+                fullScreen = false;
+                FullscreenToggle();
+            }
+
+            else
+            {
+                fullScreen = true;
+                FullscreenToggle();
+            }
+        }
+
+        if (PlayerPrefs.HasKey("resolution"))
+        {
+            SetResolution(PlayerPrefs.GetInt("resolution"));
+        }
+
+        else
+        {
+            SetResolution(2);
         }
     }
 
@@ -178,32 +253,34 @@ public class UIScript : MonoBehaviour
                 sliders[3].transform.GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
                 sliders[3].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
 
-                sliderFills[3].GetComponentInParent<Slider>().interactable = false;
+                sliders[3].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = false;
             }
 
+            sliders[1].transform.GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
+            sliders[1].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
 
-            sliderBacks[1].color = new Color(0.75f, 0.75f, 0.75f);
-            sliderFills[1].color = new Color(0.75f, 0.75f, 0.75f);
-
-            sliderFills[1].GetComponentInParent<Slider>().interactable = false;
+            sliders[1].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = false;
         }
 
         else
         {
             if (SceneManager.GetActiveScene().name == "Main Menu")
             {
-                sliderBacks[3].color = Color.white;
-                sliderFills[3].color = Color.white;
+                sliders[3].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+                sliders[3].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = Color.white;
 
-                sliderFills[3].GetComponentInParent<Slider>().interactable = true;
+                sliders[3].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = true;
             }
 
+            sliders[1].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+            sliders[1].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = Color.white;
 
-            sliderBacks[1].color = Color.white;
-            sliderFills[1].color = Color.white;
-
-            sliderFills[1].GetComponentInParent<Slider>().interactable = true;
+            sliders[1].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = true;
         }
+
+        PlayerPrefs.SetInt("musicMuted", musicMuted ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("musicMuted"));
+        AudioManager.instance.musicSource.mute = musicMuted;
     }
 
     public void SFXToggle()
@@ -217,34 +294,37 @@ public class UIScript : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Main Menu")
             {
-                sliderBacks[2].color = new Color(0.75f, 0.75f, 0.75f);
-                sliderFills[2].color = new Color(0.75f, 0.75f, 0.75f);
+                sliders[2].transform.GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
+                sliders[2].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
 
-                sliderFills[2].GetComponentInParent<Slider>().interactable = false;
+                sliders[2].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = false;
             }
 
-            sliderBacks[0].color = new Color(0.75f, 0.75f, 0.75f);
-            sliderFills[0].color = new Color(0.75f, 0.75f, 0.75f);
+            sliders[0].transform.GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
+            sliders[0].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
 
-            sliderBacks[0].GetComponentInParent<Slider>().interactable = false;
+            sliders[0].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = false;
         }
 
         else
         {
             if (SceneManager.GetActiveScene().name == "Main Menu")
             {
-                sliderBacks[2].color = Color.white;
-                sliderFills[2].color = Color.white;
+                sliders[2].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+                sliders[2].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = Color.white;
 
-                sliderFills[2].GetComponentInParent<Slider>().interactable = true;
+                sliders[2].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = true;
             }
 
+            sliders[0].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+            sliders[0].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = Color.white;
 
-            sliderBacks[0].color = Color.white;
-            sliderFills[0].color = Color.white;
-
-            sliderFills[0].GetComponentInParent<Slider>().interactable = true;
+            sliders[0].transform.GetChild(1).GetChild(0).GetComponentInParent<Slider>().interactable = true;
         }
+
+        PlayerPrefs.SetInt("sfxMuted", sfxMuted ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("sfxMuted"));
+        AudioManager.instance.SFXSource.mute = sfxMuted;
     }
 
     public void VSyncToggle()
@@ -256,7 +336,7 @@ public class UIScript : MonoBehaviour
 
         QualitySettings.vSyncCount = vSyncActive ? 1 : 0;
 
-        print(QualitySettings.vSyncCount);
+        PlayerPrefs.SetInt("vSyncActive", vSyncActive ? 1 : 0);
     }
 
     public void FullscreenToggle()
@@ -275,6 +355,8 @@ public class UIScript : MonoBehaviour
         {
             Screen.fullScreenMode = FullScreenMode.Windowed;
         }
+
+        PlayerPrefs.SetInt("fsActive", fullScreen ? 1 : 0);
     }
     public IEnumerator DisableMenu()
     {
@@ -315,5 +397,7 @@ public class UIScript : MonoBehaviour
                 Screen.SetResolution(7680, 4320, fullScreen);
                 break;
         }
+
+        PlayerPrefs.SetInt("resolution", resolution);
     }
 }

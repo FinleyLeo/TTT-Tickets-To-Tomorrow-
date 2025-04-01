@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 34621770}
   - component: {fileID: 34621769}
   m_Layer: 5
-  m_Name: X
+  m_Name: Pause SFX X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 130111858}
   - component: {fileID: 130111857}
   m_Layer: 5
-  m_Name: X
+  m_Name: Pause Music X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1044,7 +1044,7 @@ GameObject:
   - component: {fileID: 159040910}
   - component: {fileID: 159040909}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: Music Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3570,6 +3570,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2109273998}
+  - {fileID: 900240643}
   - {fileID: 2053790910}
   - {fileID: 351253988}
   m_Father: {fileID: 0}
@@ -3597,14 +3598,27 @@ MonoBehaviour:
   menuAnim: {fileID: 2109273999}
   pauseDarken: {fileID: 1059377318}
   mainMenu: {fileID: 2109273997}
-  musicCross: {fileID: 724356008}
-  sfxCross: {fileID: 1942955196}
-  sfxBack: {fileID: 400402896}
-  musicBack: {fileID: 530163786}
-  sfxFill: {fileID: 1029412322}
-  musicFill: {fileID: 159040909}
-  vSyncCross: {fileID: 465279401}
-  fullScreenCross: {fileID: 1952163125}
+  crosses:
+  - {fileID: 34621767}
+  - {fileID: 130111855}
+  - {fileID: 1942955196}
+  - {fileID: 724356008}
+  - {fileID: 465279401}
+  - {fileID: 1952163125}
+  - {fileID: 1975125400}
+  - {fileID: 838338524}
+  sliderFills:
+  - {fileID: 550476350}
+  - {fileID: 453484595}
+  - {fileID: 1029412322}
+  - {fileID: 159040909}
+  sliderBacks:
+  - {fileID: 1203103955}
+  - {fileID: 408897782}
+  - {fileID: 400402894}
+  - {fileID: 530163784}
+  resolutions: {fileID: 1226654806}
+  pResolutions: {fileID: 1451952963}
 --- !u!1 &400402894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3617,7 +3631,7 @@ GameObject:
   - component: {fileID: 400402897}
   - component: {fileID: 400402896}
   m_Layer: 5
-  m_Name: Background
+  m_Name: SFX Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3692,7 +3706,7 @@ GameObject:
   - component: {fileID: 408897785}
   - component: {fileID: 408897784}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Pause Music Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4053,7 +4067,7 @@ GameObject:
   - component: {fileID: 453484596}
   - component: {fileID: 453484595}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: Pause Music Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4203,7 +4217,7 @@ GameObject:
   - component: {fileID: 465279404}
   - component: {fileID: 465279403}
   m_Layer: 5
-  m_Name: Cross (1)
+  m_Name: VS Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4571,17 +4585,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516614950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1379151813}
-  m_Father: {fileID: 2109273998}
+  m_Father: {fileID: 799855265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -651.5}
+  m_AnchoredPosition: {x: 0, y: -601.49994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &516614952
@@ -4729,7 +4743,7 @@ GameObject:
   - component: {fileID: 530163787}
   - component: {fileID: 530163786}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Music Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5075,7 +5089,7 @@ GameObject:
   - component: {fileID: 550476351}
   - component: {fileID: 550476350}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: Pause SFX Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5869,7 +5883,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6426,7 +6440,7 @@ GameObject:
   - component: {fileID: 724356011}
   - component: {fileID: 724356010}
   m_Layer: 5
-  m_Name: X
+  m_Name: Music X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7446,6 +7460,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796313197}
   m_CullTransparentMesh: 1
+--- !u!1 &799855264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799855265}
+  m_Layer: 5
+  m_Name: Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &799855265
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799855264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 516614951}
+  - {fileID: 1270878182}
+  m_Father: {fileID: 2109273998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &807961951
 GameObject:
   m_ObjectHideFlags: 0
@@ -7552,7 +7603,7 @@ GameObject:
   - component: {fileID: 838338527}
   - component: {fileID: 838338526}
   m_Layer: 5
-  m_Name: Cross (1)
+  m_Name: Pause FS Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7758,17 +7809,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900240642}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1343292326}
-  m_Father: {fileID: 2109273998}
+  m_Father: {fileID: 399147683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -621.5833}
+  m_AnchoredPosition: {x: 0, y: -567.58325}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &900240644
@@ -9523,7 +9574,7 @@ GameObject:
   - component: {fileID: 1029412323}
   - component: {fileID: 1029412322}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: SFX Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10256,7 +10307,7 @@ GameObject:
   - component: {fileID: 1203103958}
   - component: {fileID: 1203103957}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Pause SFX Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10453,7 +10504,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11057,13 +11108,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270878181}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 919775907}
-  m_Father: {fileID: 2109273998}
+  m_Father: {fileID: 799855265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11794,7 +11845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15996,7 +16047,7 @@ GameObject:
   - component: {fileID: 1942955199}
   - component: {fileID: 1942955198}
   m_Layer: 5
-  m_Name: X
+  m_Name: SFX X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16146,7 +16197,7 @@ GameObject:
   - component: {fileID: 1952163128}
   - component: {fileID: 1952163127}
   m_Layer: 5
-  m_Name: Cross (1)
+  m_Name: FS Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16512,7 +16563,7 @@ GameObject:
   - component: {fileID: 1975125403}
   - component: {fileID: 1975125402}
   m_Layer: 5
-  m_Name: Cross (1)
+  m_Name: Pause VS Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17464,9 +17515,7 @@ RectTransform:
   - {fileID: 364835764}
   - {fileID: 1439190382}
   - {fileID: 784905454}
-  - {fileID: 900240643}
-  - {fileID: 1270878182}
-  - {fileID: 516614951}
+  - {fileID: 799855265}
   m_Father: {fileID: 399147683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

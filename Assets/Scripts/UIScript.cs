@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class UIScript : MonoBehaviour
 {
@@ -10,24 +11,25 @@ public class UIScript : MonoBehaviour
     public bool paused;
 
     public Animator pauseAnim, quitChoice, menuAnim;
-
     public Image pauseDarken;
+
     bool menuActive = true;
 
+    // Menus
     public GameObject mainMenu;
 
-    [Header("Slider stuff")]
-    public GameObject musicCross;
-    public GameObject sfxCross;
-    public Image sfxBack, musicBack, sfxFill, musicFill;
     bool sfxMuted, musicMuted;
 
-    [Header("Toggles")]
+    [SerializeField] GameObject[] crosses;
+    [SerializeField] Image[] sliderFills;
+    [SerializeField] Image[] sliderBacks;
+    [SerializeField] GameObject[] sliders;
+
+    [SerializeField] TMP_Dropdown resolutions, pResolutions;
+
+    // Toggles
     bool vSyncActive, fullScreen;
     bool quitToggle;
-    public GameObject vSyncCross, fullScreenCross;
-
-    Transform pauseMenu;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,8 +38,6 @@ public class UIScript : MonoBehaviour
         {
             GameObject.Find("Main Menu").SetActive(true);
         }
-
-        pauseMenu = pauseAnim.transform;
     }
 
     private void Awake()
@@ -165,93 +165,94 @@ public class UIScript : MonoBehaviour
 
     public void MusicToggle()
     {
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            musicCross = pauseMenu.Find("Panel").Find("Sliders").Find("Music Volume").Find("Icon").GetChild(0).gameObject;
-            musicBack = pauseMenu.Find("Panel").Find("Sliders").Find("Music Volume").Find("Slider").GetChild(0).GetComponent<Image>();
-            musicFill = pauseMenu.Find("Panel").Find("Sliders").Find("Music Volume").Find("Slider").Find("Fill Area").GetChild(0).GetComponent<Image>();
-        }
-
-        else
-        {
-            musicCross = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("Music Volume").Find("Icon").GetChild(0).gameObject;
-            musicBack = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("Music Volume").Find("Slider").GetChild(0).GetComponent<Image>();
-            musicFill = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("Music Volume").Find("Slider").Find("Fill Area").GetChild(0).GetComponent<Image>();
-        }
-
         musicMuted = !musicMuted;
 
-        musicCross.SetActive(musicMuted);
+        crosses[3].SetActive(musicMuted);
+        crosses[1].SetActive(musicMuted);
+        
 
         if (musicMuted)
         {
-            musicBack.color = new Color(0.75f, 0.75f, 0.75f);
-            musicFill.color = new Color(0.75f, 0.75f, 0.75f);
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+            {
+                sliders[3].transform.GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
+                sliders[3].transform.GetChild(1).GetChild(0).GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f);
 
-            musicFill.GetComponentInParent<Slider>().interactable = false;
+                sliderFills[3].GetComponentInParent<Slider>().interactable = false;
+            }
+
+
+            sliderBacks[1].color = new Color(0.75f, 0.75f, 0.75f);
+            sliderFills[1].color = new Color(0.75f, 0.75f, 0.75f);
+
+            sliderFills[1].GetComponentInParent<Slider>().interactable = false;
         }
 
         else
         {
-            musicBack.color = Color.white;
-            musicFill.color = Color.white;
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+            {
+                sliderBacks[3].color = Color.white;
+                sliderFills[3].color = Color.white;
 
-            musicFill.GetComponentInParent<Slider>().interactable = true;
+                sliderFills[3].GetComponentInParent<Slider>().interactable = true;
+            }
+
+
+            sliderBacks[1].color = Color.white;
+            sliderFills[1].color = Color.white;
+
+            sliderFills[1].GetComponentInParent<Slider>().interactable = true;
         }
     }
 
     public void SFXToggle()
     {
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            sfxCross = pauseMenu.Find("Panel").Find("Sliders").Find("SFX Volume").Find("Icon").GetChild(0).gameObject;
-            sfxBack = pauseMenu.Find("Panel").Find("Sliders").Find("SFX Volume").Find("Slider").GetChild(0).GetComponent<Image>();
-            sfxFill = pauseMenu.Find("Panel").Find("Sliders").Find("SFX Volume").Find("Slider").Find("Fill Area").GetChild(0).GetComponent<Image>();
-        }
-
-        else
-        {
-            musicCross = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("SFX Volume").Find("Icon").GetChild(0).gameObject;
-            musicBack = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("SFX Volume").Find("Slider").GetChild(0).GetComponent<Image>();
-            musicFill = mainMenu.transform.Find("Settings").Find("Panel").Find("Sliders").Find("SFX Volume").Find("Slider").Find("Fill Area").GetChild(0).GetComponent<Image>();
-        }
-
         sfxMuted = !sfxMuted;
 
-        sfxCross.SetActive(sfxMuted);
+        crosses[2].SetActive(sfxMuted);
+        crosses[0].SetActive(sfxMuted);
 
         if (sfxMuted)
         {
-            sfxBack.color = new Color(0.75f, 0.75f, 0.75f);
-            sfxFill.color = new Color(0.75f, 0.75f, 0.75f);
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+            {
+                sliderBacks[2].color = new Color(0.75f, 0.75f, 0.75f);
+                sliderFills[2].color = new Color(0.75f, 0.75f, 0.75f);
 
-            sfxFill.GetComponentInParent<Slider>().interactable = false;
+                sliderFills[2].GetComponentInParent<Slider>().interactable = false;
+            }
+
+            sliderBacks[0].color = new Color(0.75f, 0.75f, 0.75f);
+            sliderFills[0].color = new Color(0.75f, 0.75f, 0.75f);
+
+            sliderBacks[0].GetComponentInParent<Slider>().interactable = false;
         }
 
         else
         {
-            sfxBack.color = Color.white;
-            sfxFill.color = Color.white;
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+            {
+                sliderBacks[2].color = Color.white;
+                sliderFills[2].color = Color.white;
 
-            sfxFill.GetComponentInParent<Slider>().interactable = true;
+                sliderFills[2].GetComponentInParent<Slider>().interactable = true;
+            }
+
+
+            sliderBacks[0].color = Color.white;
+            sliderFills[0].color = Color.white;
+
+            sliderFills[0].GetComponentInParent<Slider>().interactable = true;
         }
     }
 
     public void VSyncToggle()
     {
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            vSyncCross = pauseMenu.Find("Panel").Find("VSync").Find("Toggle").GetChild(2).gameObject;
-        }
-
-        else
-        {
-            vSyncCross = mainMenu.transform.Find("Settings").Find("Panel").Find("VSync").Find("Toggle").GetChild(2).gameObject;
-        }
-
         vSyncActive = !vSyncActive;
 
-        vSyncCross.SetActive(vSyncActive);
+        crosses[6].SetActive(vSyncActive);
+        crosses[4].SetActive(vSyncActive);
 
         QualitySettings.vSyncCount = vSyncActive ? 1 : 0;
 
@@ -260,19 +261,10 @@ public class UIScript : MonoBehaviour
 
     public void FullscreenToggle()
     {
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            fullScreenCross = pauseMenu.Find("Panel").Find("Full screen").Find("Toggle").GetChild(2).gameObject;
-        }
-
-        else
-        {
-            fullScreenCross = mainMenu.transform.Find("Settings").Find("Panel").Find("Full screen").Find("Toggle").GetChild(2).gameObject;
-        }
-
         fullScreen = !fullScreen;
 
-        fullScreenCross.SetActive(fullScreen);
+        crosses[7].SetActive(fullScreen);
+        crosses[5].SetActive(fullScreen);
 
         if (fullScreen)
         {
@@ -296,6 +288,9 @@ public class UIScript : MonoBehaviour
 
     public void SetResolution(int resolution)
     {
+        resolutions.value = resolution;
+        pResolutions.value = resolution;
+
         switch (resolution)
         {
             case 0:
@@ -320,7 +315,5 @@ public class UIScript : MonoBehaviour
                 Screen.SetResolution(7680, 4320, fullScreen);
                 break;
         }
-
-        Debug.Log(Screen.currentResolution);
     }
 }

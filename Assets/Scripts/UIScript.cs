@@ -367,7 +367,6 @@ public class UIScript : MonoBehaviour
         mainMenu.SetActive(menuActive);
     }
 
-
     public void SetResolution(int resolution)
     {
         resolutions.value = resolution;

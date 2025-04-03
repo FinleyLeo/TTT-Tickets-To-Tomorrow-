@@ -7,10 +7,8 @@ public class TimeManager : MonoBehaviour
     public static TimeManager instance;
 
     public bool normalTime;
-
     bool slowTime;
-
-    public float delay;
+    bool isHitStopRunning = false;
 
     private void Awake()
     {
@@ -61,18 +59,29 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator HitStop(float duration)
     {
+        if (isHitStopRunning)
+        {
+            yield break;
+        }
+
+        isHitStopRunning = true;
+
         Time.timeScale = 0f;
+        Debug.Log("HitStop: Time.timeScale set to 0");
 
         yield return new WaitForSecondsRealtime(duration);
 
         if (normalTime)
         {
             Time.timeScale = 1f;
+            Debug.Log("HitStop: Time.timeScale reset to 1");
         }
-
         else
         {
             Time.timeScale = 0.25f;
+            Debug.Log("HitStop: Time.timeScale set to 0.25");
         }
+
+        isHitStopRunning = false;
     }
 }

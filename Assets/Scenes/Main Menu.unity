@@ -5240,7 +5240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalTime: 1
-  delay: 0
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0
@@ -12591,7 +12590,7 @@ Transform:
   m_GameObject: {fileID: 1371784536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1235.285, y: -960.34937, z: -17.027252}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12615,8 +12614,16 @@ MonoBehaviour:
   musicSlider: {fileID: 549409489}
   p_sfxSlider: {fileID: 1923228641}
   p_musicSlider: {fileID: 1924553314}
-  SFXSounds: []
-  musicSounds: []
+  SFXSounds:
+  - soundName: 
+    sound: {fileID: 0}
+  musicSounds:
+  - soundName: Menu
+    sound: {fileID: 0}
+  - soundName: Loop
+    sound: {fileID: 0}
+  - soundName: Boss
+    sound: {fileID: 0}
   SFXSource: {fileID: 125927954}
   musicSource: {fileID: 104909082}
   musicMixer: {fileID: 24100000, guid: de81cf7b47eac314f8615a5b8a230f53, type: 2}

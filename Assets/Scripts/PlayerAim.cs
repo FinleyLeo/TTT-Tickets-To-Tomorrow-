@@ -8,7 +8,6 @@ public class PlayerAim : MonoBehaviour
 
     Animator ammoAnim;
 
-    float orientation;
     float cooldown;
     float ammo = 6;
     bool reloading;
@@ -22,7 +21,6 @@ public class PlayerAim : MonoBehaviour
     void Start()
     {
         playerScript = GetComponent<PlayerController>();
-        orientation = transform.localScale.x;
 
         cam = Camera.main.GetComponent<CameraController>();
         ammoAnim = GameObject.Find("Ammo")?.GetComponent<Animator>();

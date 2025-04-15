@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+
+        TimeManager.instance.timeLoss = 1;
 
         orientation = transform.localScale.x;
 

@@ -279,7 +279,6 @@ public class UIScript : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("musicMuted", musicMuted ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("musicMuted"));
         AudioManager.instance.musicSource.mute = musicMuted;
     }
 
@@ -323,7 +322,6 @@ public class UIScript : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("sfxMuted", sfxMuted ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("sfxMuted"));
         AudioManager.instance.SFXSource.mute = sfxMuted;
     }
 

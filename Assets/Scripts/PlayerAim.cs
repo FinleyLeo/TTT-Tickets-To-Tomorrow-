@@ -63,7 +63,7 @@ public class PlayerAim : MonoBehaviour
             shootPoint.transform.rotation = Quaternion.Lerp(shootPoint.transform.rotation, Quaternion.Euler(0, 0, angle - 90), Time.deltaTime * 50);
         }
 
-        cooldown -= Time.deltaTime;
+        cooldown -= Time.unscaledDeltaTime;
 
         if (Input.GetMouseButtonDown(0) && cooldown <= 0 && ammo > 0 && !reloading)
         {

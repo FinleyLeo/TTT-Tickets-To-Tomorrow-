@@ -5240,6 +5240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalTime: 1
+  timeLeft: 900
+  timeLoss: 0
+  previousLoss: 0
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0

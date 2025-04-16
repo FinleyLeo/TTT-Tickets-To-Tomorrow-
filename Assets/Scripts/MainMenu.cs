@@ -56,8 +56,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        // Load the game scene
-        print("Loading game...");
         mountainAnim.SetInteger("Break", 1);
         mountainAnim.SetBool("InMenu", true);
 
@@ -83,8 +81,6 @@ public class MainMenu : MonoBehaviour
 
     public void OpenOptions()
     {
-        // Open the options menu
-        print("Opening options...");
         mountainAnim.SetInteger("Break", 2);
         mountainAnim.SetBool("InMenu", true);
 
@@ -93,8 +89,6 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        // Quit the game
-        print("Quitting game...");
         mountainAnim.SetInteger("Break", 3);
         mountainAnim.SetBool("InMenu", true);
 

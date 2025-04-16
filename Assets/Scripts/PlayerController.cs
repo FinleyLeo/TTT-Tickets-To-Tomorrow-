@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     // Manages Crouching
     bool isCrouching;
+    bool onPlatform;
 
     // Health/Damaging
     IEnumerator flashRoutine;
@@ -182,6 +183,13 @@ public class PlayerController : MonoBehaviour
         wallJumped = false;
     }
 
+    IEnumerator PlatformFall()
+    {
+        Physics2D.IgnoreLayerCollision(8, 9, true);
+        yield return new WaitForSeconds(0.75f);
+        Physics2D.IgnoreLayerCollision(8, 9, false);
+    }
+
     void Flip()
     {
         if (!wallSliding && canFlip)
@@ -220,6 +228,11 @@ public class PlayerController : MonoBehaviour
             {
                 isCrouching = true;
                 anim.SetBool("Crouching", true);
+            }
+
+            if (onPlatform)
+            {
+                StartCoroutine(PlatformFall());
             }
         }
 
@@ -435,6 +448,19 @@ public class PlayerController : MonoBehaviour
     public void DustEffect()
     {
         Dust.Play();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            onPlatform = true;
+        }
+
+        else
+        {
+            onPlatform = false;
+        }  
     }
 
     private void OnTriggerStay2D(Collider2D collision)

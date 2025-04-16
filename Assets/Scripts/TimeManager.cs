@@ -1,20 +1,29 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance;
 
     public bool normalTime;
-    bool slowTime, slowActive;
+    public bool slowTime;
+    bool slowActive;
     bool isHitStopRunning = false;
 
     float slowCoolDown;
     public float timeLeft;
-
     public int timeLoss;
-    public int previousLoss;
+
+    public int secondsLeft, minutesLeft;
+
+    int previousLoss, previousSec, previousMin;
+
+    GameObject timeObj;
+    Animator timeAnim;
+    Image timeSlider;
 
     private void Awake()
     {
@@ -39,6 +48,64 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SlowLogic();
+        SlowTime();
+        TimeCalc();
+        WatchAnim();
+
+        if (SceneManager.GetActiveScene().name != "Main Menu" && timeObj == null)
+        {
+            timeObj = GameObject.Find("Time");
+            timeAnim = timeObj.GetComponent<Animator>();
+            timeSlider = timeObj.transform.GetChild(0).GetComponent<Image>();
+
+            Debug.Log("Time object found: " + timeObj.name);
+            Debug.Log("Time anim found: " + timeAnim.name);
+        }
+
+        slowCoolDown -= Time.unscaledDeltaTime;
+
+        timeLeft -= Time.unscaledDeltaTime * timeLoss;
+        timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 15 minutes max
+    }
+
+    void TimeCalc()
+    {
+        secondsLeft = Mathf.RoundToInt(timeLeft % 60);
+        minutesLeft = Mathf.FloorToInt(timeLeft / 60);
+
+        // Plays sound when ticks
+        if (previousSec != secondsLeft)
+        {
+            previousSec = secondsLeft;
+            Debug.Log("Second hand Ticked");
+        }
+
+        if (previousMin != minutesLeft)
+        {
+            previousMin = minutesLeft;
+            Debug.Log("Minute Hand Ticked");
+        }
+    }
+
+    void WatchAnim()
+    {
+        if (timeSlider != null)
+        {
+            timeSlider.fillAmount = Mathf.Lerp(timeSlider.fillAmount, Mathf.Clamp01(timeLeft / 720), Time.unscaledDeltaTime * 10);
+            timeSlider.color = Color.Lerp(Color.red, Color.white, timeLeft / 720);
+        }
+
+        if (timeAnim != null)
+        {
+            timeAnim.SetFloat("AnimSpeed", timeLoss);
+        }
+
+        // Will move the watch hands based on current time
+    }
+
+    void SlowLogic()
+    {
         if (!UIScript.instance.paused && SceneManager.GetActiveScene().name != "Main Menu")
         {
             if (Input.GetMouseButtonDown(1) && slowCoolDown <= 0)
@@ -46,16 +113,12 @@ public class TimeManager : MonoBehaviour
                 slowActive = true;
                 normalTime = false;
                 slowTime = true;
-
                 timeLoss = 2;
-                GameObject.Find("Time").GetComponent<Animator>().SetFloat("AnimSpeed", timeLoss);
-                Debug.Log("Slowed time");
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 timeLoss = previousLoss;
-                GameObject.Find("Time").GetComponent<Animator>().SetFloat("AnimSpeed", timeLoss);
             }
         }
 
@@ -65,7 +128,6 @@ public class TimeManager : MonoBehaviour
             {
                 previousLoss = timeLoss;
                 timeLoss = 0;
-                GameObject.Find("Time").GetComponent<Animator>().SetFloat("AnimSpeed", timeLoss);
             }
         }
 
@@ -77,19 +139,12 @@ public class TimeManager : MonoBehaviour
             if (!UIScript.instance.paused)
             {
                 timeLoss = 1;
-                GameObject.Find("Time").GetComponent<Animator>().SetFloat("AnimSpeed", timeLoss);
             }
 
             previousLoss = 1;
 
             slowCoolDown = 0.5f;
         }
-
-        SlowTime();
-
-        slowCoolDown -= Time.unscaledDeltaTime;
-
-        timeLeft -= Time.unscaledDeltaTime * timeLoss;
     }
 
     void SlowTime()

@@ -79,6 +79,7 @@ public class PlayerAim : MonoBehaviour
     IEnumerator Reload()
     {
         reloading = true;
+        TimeManager.instance.timeLeft -= 4f;
 
         if (ammoAnim != null)
         {

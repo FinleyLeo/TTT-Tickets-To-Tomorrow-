@@ -57,6 +57,17 @@ public class BulletScript : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<TrailRenderer>().enabled = false;
+
+            if (TimeManager.instance.slowTime)
+            {
+                TimeManager.instance.timeLeft += 3.5f;
+            }
+
+            else
+            {
+                TimeManager.instance.timeLeft += 2f;
+            }
+
             Destroy(gameObject, 0.1f);
         }
     }

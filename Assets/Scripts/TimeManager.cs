@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
 
     int previousLoss, previousSec, previousMin;
 
-    GameObject timeObj;
+    GameObject timeObj, minuteHand, secondHand;
     Animator timeAnim;
     Image timeSlider;
 
@@ -58,6 +58,9 @@ public class TimeManager : MonoBehaviour
             timeObj = GameObject.Find("Time");
             timeAnim = timeObj.GetComponent<Animator>();
             timeSlider = timeObj.transform.GetChild(0).GetComponent<Image>();
+
+            secondHand = timeObj.transform.GetChild(5).gameObject;
+            minuteHand = timeObj.transform.GetChild(4).gameObject;
 
             Debug.Log("Time object found: " + timeObj.name);
             Debug.Log("Time anim found: " + timeAnim.name);
@@ -102,6 +105,22 @@ public class TimeManager : MonoBehaviour
         }
 
         // Will move the watch hands based on current time
+
+        if (minuteHand != null && secondHand != null)
+        {
+            float secondAngle = secondsLeft * 6f;           // 360° / 60 seconds
+            float minuteAngle = (minutesLeft % 12) * 30f;   // 360° / 12 minutes
+
+            // Lerp current rotation to target rotation
+            float currentSec = secondHand.transform.localEulerAngles.z;
+            float currentMin = minuteHand.transform.localEulerAngles.z;
+
+            float smoothSec = Mathf.LerpAngle(currentSec, secondAngle, Time.unscaledDeltaTime * 10f);
+            float smoothMin = Mathf.LerpAngle(currentMin, minuteAngle, Time.unscaledDeltaTime * 5f);
+
+            secondHand.transform.localEulerAngles = new Vector3(0, 0, smoothSec);
+            minuteHand.transform.localEulerAngles = new Vector3(0, 0, smoothMin);
+        }
     }
 
     void SlowLogic()
@@ -113,7 +132,7 @@ public class TimeManager : MonoBehaviour
                 slowActive = true;
                 normalTime = false;
                 slowTime = true;
-                timeLoss = 2;
+                timeLoss = 3;
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))

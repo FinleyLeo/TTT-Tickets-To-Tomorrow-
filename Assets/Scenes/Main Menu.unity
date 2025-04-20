@@ -5240,7 +5240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalTime: 1
-  slowActive: 0
+  slowTime: 0
   timeLeft: 720
   timeLoss: 0
   secondsLeft: 0

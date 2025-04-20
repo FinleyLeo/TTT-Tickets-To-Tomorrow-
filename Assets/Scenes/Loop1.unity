@@ -764,38 +764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3592427181410420573, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3592427181410420573, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3592427181410420573, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5223197691384094637, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951176709420786554, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.b
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951176709420786554, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951176709420786554, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159694676668144428, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1697884088285514415, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1570379335}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1208,6 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noise: {fileID: 1307609006}
+  camera: {fileID: 1307609004}
 --- !u!1 &1631730803
 GameObject:
   m_ObjectHideFlags: 0

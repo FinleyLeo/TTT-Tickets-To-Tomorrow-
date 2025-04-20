@@ -48,22 +48,25 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SlowLogic();
-        SlowTime();
-        TimeCalc();
-        WatchAnim();
-
-        if (SceneManager.GetActiveScene().name != "Main Menu" && timeObj == null)
+        if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            timeObj = GameObject.Find("Time");
-            timeAnim = timeObj.GetComponent<Animator>();
-            timeSlider = timeObj.transform.GetChild(0).GetComponent<Image>();
+            if (timeObj == null)
+            {
+                timeObj = GameObject.Find("Time");
+                timeAnim = timeObj.GetComponent<Animator>();
+                timeSlider = timeObj.transform.GetChild(0).GetComponent<Image>();
 
-            secondHand = timeObj.transform.GetChild(5).gameObject;
-            minuteHand = timeObj.transform.GetChild(4).gameObject;
+                secondHand = timeObj.transform.GetChild(5).gameObject;
+                minuteHand = timeObj.transform.GetChild(4).gameObject;
 
-            Debug.Log("Time object found: " + timeObj.name);
-            Debug.Log("Time anim found: " + timeAnim.name);
+                Debug.Log("Time object found: " + timeObj.name);
+                Debug.Log("Time anim found: " + timeAnim.name);
+            }
+
+            TimeCalc();
+            SlowLogic();
+            SlowTime();
+            WatchAnim();
         }
 
         slowCoolDown -= Time.unscaledDeltaTime;

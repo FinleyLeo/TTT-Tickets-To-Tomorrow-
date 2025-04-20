@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,13 +47,18 @@ public class PlayerController : MonoBehaviour
     bool onPlatform;
 
     // Health/Damaging
+    [SerializeField] int health = 5;
+    public bool invincible;
+
     IEnumerator flashRoutine;
     MaterialPropertyBlock mpb;
-    int health;
-    public bool invincible;
 
     // Visuals
     public ParticleSystem Dust;
+    Image ammoBase;
+    Animator ammoShake;
+    public Sprite[] ammoSprites;
+    ParticleSystem ammoShatter;
 
     void Start()
     {
@@ -63,6 +68,9 @@ public class PlayerController : MonoBehaviour
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+        ammoBase = GameObject.Find("Ammo").transform.GetChild(0).GetComponent<Image>();
+        ammoShake = GameObject.Find("Ammo").GetComponent<Animator>();
+        ammoShatter = GameObject.Find("Ammo").GetComponentInChildren<ParticleSystem>();
 
         TimeManager.instance.timeLoss = 1;
 
@@ -392,9 +400,38 @@ public class PlayerController : MonoBehaviour
     {
         if (!invincible)
         {
+            health--;
+
+            if (health <= 0)
+            {
+                // Game Over
+            }
+
             Camera.main.GetComponent<CameraController>().Shake(1.5f, 0.1f, 0.2f);
             StartCoroutine(InvincibilityEffect(1.5f, 0.1f));
             FlashWhite();
+
+            switch (health)
+            {
+                case 5:
+                    ammoBase.sprite = ammoSprites[0];
+                    break;
+                case 4:
+                    ammoBase.sprite = ammoSprites[1];
+                    break;
+                case 3:
+                    ammoBase.sprite = ammoSprites[2];
+                    break;
+                case 2:
+                    ammoBase.sprite = ammoSprites[3];
+                    break;
+                case 1:
+                    ammoBase.sprite = ammoSprites[4];
+                    break;
+            }
+
+            ammoShake.SetTrigger("Shake");
+            ammoShatter.Play();
         }
     }
 

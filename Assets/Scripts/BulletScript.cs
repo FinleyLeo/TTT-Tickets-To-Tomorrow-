@@ -60,7 +60,7 @@ public class BulletScript : MonoBehaviour
 
             if (TimeManager.instance.slowTime)
             {
-                TimeManager.instance.timeLeft += 3.5f;
+                TimeManager.instance.timeLeft += 5f;
             }
 
             else

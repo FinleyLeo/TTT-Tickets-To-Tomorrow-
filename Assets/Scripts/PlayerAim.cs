@@ -7,6 +7,7 @@ public class PlayerAim : MonoBehaviour
     public GameObject bullet;
 
     Animator ammoAnim;
+    GameObject ammoUI;
 
     float cooldown;
     float ammo = 6;
@@ -23,7 +24,8 @@ public class PlayerAim : MonoBehaviour
         playerScript = GetComponent<PlayerController>();
 
         cam = Camera.main.GetComponent<CameraController>();
-        ammoAnim = GameObject.Find("Ammo")?.GetComponent<Animator>();
+        ammoUI = GameObject.Find("Ammo");
+        ammoAnim = ammoUI.transform.GetChild(0).GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame

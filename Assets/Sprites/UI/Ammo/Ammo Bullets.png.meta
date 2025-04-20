@@ -1,0 +1,1003 @@
+fileFormatVersion: 2
+guid: b79a0b5e225d0d049b5e8769839a3f1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5182266856861556648
+    second: Ammo Bullets_0
+  - first:
+      213: 6153271626115606855
+    second: Ammo Bullets_1
+  - first:
+      213: 9205791247555433953
+    second: Ammo Bullets_2
+  - first:
+      213: -3041776891340328689
+    second: Ammo Bullets_3
+  - first:
+      213: -7773794357650493606
+    second: Ammo Bullets_4
+  - first:
+      213: 4427562877427985658
+    second: Ammo Bullets_5
+  - first:
+      213: 7159609087244070352
+    second: Ammo Bullets_6
+  - first:
+      213: 8666911108405876881
+    second: Ammo Bullets_7
+  - first:
+      213: 6749292390502236699
+    second: Ammo Bullets_8
+  - first:
+      213: -2927409566155675008
+    second: Ammo Bullets_9
+  - first:
+      213: -5552106033829644943
+    second: Ammo Bullets_10
+  - first:
+      213: -6675005593555373544
+    second: Ammo Bullets_11
+  - first:
+      213: 4310456467048975142
+    second: Ammo Bullets_12
+  - first:
+      213: 6883068626323164130
+    second: Ammo Bullets_13
+  - first:
+      213: -7721699388409265419
+    second: Ammo Bullets_14
+  - first:
+      213: 2270401504684525736
+    second: Ammo Bullets_15
+  - first:
+      213: 7595450350539274902
+    second: Ammo Bullets_16
+  - first:
+      213: 7758561430208020225
+    second: Ammo Bullets_17
+  - first:
+      213: -2989954736169148715
+    second: Ammo Bullets_18
+  - first:
+      213: -474196470489264730
+    second: Ammo Bullets_19
+  - first:
+      213: 3289806076187958343
+    second: Ammo Bullets_20
+  - first:
+      213: 2816509433782200959
+    second: Ammo Bullets_21
+  - first:
+      213: 1807451963681861913
+    second: Ammo Bullets_22
+  - first:
+      213: 4213398811193161560
+    second: Ammo Bullets_23
+  - first:
+      213: -3724298528389594576
+    second: Ammo Bullets_24
+  - first:
+      213: -7754849666269016999
+    second: Ammo Bullets_25
+  - first:
+      213: 3405081984465449317
+    second: Ammo Bullets_26
+  - first:
+      213: 7786793873135747453
+    second: Ammo Bullets_27
+  - first:
+      213: 892363180695329257
+    second: Ammo Bullets_28
+  - first:
+      213: 872102723220170623
+    second: Ammo Bullets_29
+  - first:
+      213: 294974958417519860
+    second: Ammo Bullets_30
+  - first:
+      213: 7000340950073868829
+    second: Ammo Bullets_31
+  - first:
+      213: 1507823584085109314
+    second: Ammo Bullets_32
+  - first:
+      213: -2331101916938493783
+    second: Ammo Bullets_33
+  - first:
+      213: -6191258799263139498
+    second: Ammo Bullets_34
+  - first:
+      213: 8041069663877689320
+    second: Ammo Bullets_35
+  - first:
+      213: -2250680376366129031
+    second: Ammo Bullets_36
+  - first:
+      213: 3697884571307421465
+    second: Ammo Bullets_37
+  - first:
+      213: 7155927827786794218
+    second: Ammo Bullets_38
+  - first:
+      213: -1936024930267089620
+    second: Ammo Bullets_39
+  - first:
+      213: 952212801920151189
+    second: Ammo Bullets_40
+  - first:
+      213: -252135034159492389
+    second: Ammo Bullets_41
+  - first:
+      213: 3477209741776455801
+    second: Ammo Bullets_42
+  - first:
+      213: 5220947237389908651
+    second: Ammo Bullets_43
+  - first:
+      213: 1911853640241523491
+    second: Ammo Bullets_44
+  - first:
+      213: -5275946030466564407
+    second: Ammo Bullets_45
+  - first:
+      213: 3132377793664269850
+    second: Ammo Bullets_46
+  - first:
+      213: 2734593429815201549
+    second: Ammo Bullets_47
+  - first:
+      213: -5079841624546718096
+    second: Ammo Bullets_48
+  - first:
+      213: -1694896232052237361
+    second: Ammo Bullets_49
+  - first:
+      213: 3037152834411901265
+    second: Ammo Bullets_50
+  - first:
+      213: -5194237212026650378
+    second: Ammo Bullets_51
+  - first:
+      213: 4646652390155464654
+    second: Ammo Bullets_52
+  - first:
+      213: 5496706839518628414
+    second: Ammo Bullets_53
+  - first:
+      213: 6266428814725487715
+    second: Ammo Bullets_54
+  - first:
+      213: -914741309072385133
+    second: Ammo Bullets_55
+  - first:
+      213: -8562797393556781129
+    second: Ammo Bullets_56
+  - first:
+      213: -8049669150597208051
+    second: Ammo Bullets_57
+  - first:
+      213: 3984196272289923310
+    second: Ammo Bullets_58
+  - first:
+      213: -674648081052386286
+    second: Ammo Bullets_59
+  - first:
+      213: -1133343789264513929
+    second: Ammo Bullets_60
+  - first:
+      213: -6770789943906171541
+    second: Ammo Bullets_61
+  - first:
+      213: -8821632519353088684
+    second: Ammo Bullets_62
+  - first:
+      213: 1676148868312756990
+    second: Ammo Bullets_63
+  - first:
+      213: -4456530946777862321
+    second: Ammo Bullets_64
+  - first:
+      213: 3844102233056466655
+    second: Ammo Bullets_65
+  - first:
+      213: -1141607934572127880
+    second: Ammo Bullets_66
+  - first:
+      213: -7087025538404562300
+    second: Ammo Bullets_67
+  - first:
+      213: -1931442333407775589
+    second: Ammo Bullets_68
+  - first:
+      213: -1616239667715172978
+    second: Ammo Bullets_69
+  - first:
+      213: -276985701810472934
+    second: Ammo Bullets_70
+  - first:
+      213: 8296676132488810401
+    second: Ammo Bullets_71
+  - first:
+      213: -8189148508504416069
+    second: Ammo Bullets_72
+  - first:
+      213: -2144395422343378684
+    second: Ammo Bullets_73
+  - first:
+      213: 1013673877858284948
+    second: Ammo Bullets_74
+  - first:
+      213: 1728214002338270207
+    second: Ammo Bullets_75
+  - first:
+      213: 3684390023421920211
+    second: Ammo Bullets_76
+  - first:
+      213: 2669124800627224898
+    second: Ammo Bullets_77
+  - first:
+      213: 9126885629383774470
+    second: Ammo Bullets_78
+  - first:
+      213: 6420002219761670029
+    second: Ammo Bullets_79
+  - first:
+      213: -6532745682826356635
+    second: Ammo Bullets_80
+  - first:
+      213: -5529761945795279477
+    second: Ammo Bullets_81
+  - first:
+      213: 9014336286989556992
+    second: Ammo Bullets_82
+  - first:
+      213: -9168668567580621015
+    second: Ammo Bullets_83
+  - first:
+      213: 4624996968491368338
+    second: Ammo Bullets_84
+  - first:
+      213: 277497659342340575
+    second: Ammo Bullets_85
+  - first:
+      213: -7195912170089414251
+    second: Ammo Bullets_86
+  - first:
+      213: -5327823342154971775
+    second: Ammo Bullets_87
+  - first:
+      213: -729175746291981462
+    second: Ammo Bullets_88
+  - first:
+      213: -7354981530367614901
+    second: Ammo Bullets_89
+  - first:
+      213: -4223863743811250243
+    second: Ammo Bullets_90
+  - first:
+      213: 924106134240200906
+    second: Ammo Bullets_91
+  - first:
+      213: 2865969861174802165
+    second: Ammo Bullets_92
+  - first:
+      213: 8002695505845813915
+    second: Ammo Bullets_93
+  - first:
+      213: 5771290083460435631
+    second: Ammo Bullets_94
+  - first:
+      213: -6041861644769289994
+    second: Ammo Bullets_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ammo Bullets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af538edf3c1be740800000000000000
+      internalID: 5182266856861556648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7496c1941ffc46550800000000000000
+      internalID: 6153271626115606855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e511f28d5a81cf70800000000000000
+      internalID: 9205791247555433953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01faa9880079c5d0800000000000000
+      internalID: -3041776891340328689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f6e43183fed1490800000000000000
+      internalID: -7773794357650493606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc2dc19afcd17d30800000000000000
+      internalID: 4427562877427985658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd67d7188a0c5360800000000000000
+      internalID: 7159609087244070352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1985b6cdbbd074870800000000000000
+      internalID: 8666911108405876881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12022d7bad4aad50800000000000000
+      internalID: 6749292390502236699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ae5397280cf57d0800000000000000
+      internalID: -2927409566155675008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175f7428af4f2f2b0800000000000000
+      internalID: -5552106033829644943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 812f26247cd9d53a0800000000000000
+      internalID: -6675005593555373544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b4d3aa151d1db30800000000000000
+      internalID: 4310456467048975142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebc0a49272958f50800000000000000
+      internalID: 6883068626323164130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2c38b415307d490800000000000000
+      internalID: -7721699388409265419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8cb30b326128f10800000000000000
+      internalID: 2270401504684525736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a7205f9d5786960800000000000000
+      internalID: 7595450350539274902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f789f9382fbab60800000000000000
+      internalID: 7758561430208020225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_18
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de1428420c8186d0800000000000000
+      internalID: -2989954736169148715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_19
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad4ebe82d05b69f0800000000000000
+      internalID: -474196470489264730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_20
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74cda17323db7ad20800000000000000
+      internalID: 3289806076187958343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_21
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7aef135860461720800000000000000
+      internalID: 2816509433782200959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_22
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 911f6d31cfb551910800000000000000
+      internalID: 1807451963681861913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857b83e25eff87a30800000000000000
+      internalID: 4213398811193161560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_24
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03204d97832a05cc0800000000000000
+      internalID: -3724298528389594576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ammo Bullets_25
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c8a73c05d316490800000000000000
+      internalID: -7754849666269016999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c0f1f09eab8fb204c88d03e61e08ed94
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ammo Bullets_0: 5182266856861556648
+      Ammo Bullets_1: 6153271626115606855
+      Ammo Bullets_10: -5552106033829644943
+      Ammo Bullets_11: -6675005593555373544
+      Ammo Bullets_12: 4310456467048975142
+      Ammo Bullets_13: 6883068626323164130
+      Ammo Bullets_14: -7721699388409265419
+      Ammo Bullets_15: 2270401504684525736
+      Ammo Bullets_16: 7595450350539274902
+      Ammo Bullets_17: 7758561430208020225
+      Ammo Bullets_18: -2989954736169148715
+      Ammo Bullets_19: -474196470489264730
+      Ammo Bullets_2: 9205791247555433953
+      Ammo Bullets_20: 3289806076187958343
+      Ammo Bullets_21: 2816509433782200959
+      Ammo Bullets_22: 1807451963681861913
+      Ammo Bullets_23: 4213398811193161560
+      Ammo Bullets_24: -3724298528389594576
+      Ammo Bullets_25: -7754849666269016999
+      Ammo Bullets_3: -3041776891340328689
+      Ammo Bullets_4: -7773794357650493606
+      Ammo Bullets_5: 4427562877427985658
+      Ammo Bullets_6: 7159609087244070352
+      Ammo Bullets_7: 8666911108405876881
+      Ammo Bullets_8: 6749292390502236699
+      Ammo Bullets_9: -2927409566155675008
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -353,8 +353,15 @@ MonoBehaviour:
   wallJumpPower: {x: -0.75, y: 0.8}
   slideSpeed: 1500
   isSliding: 0
+  health: 5
   invincible: 0
   Dust: {fileID: 4687327108155944375}
+  ammoSprites:
+  - {fileID: -3216871165892649391, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
+  - {fileID: 2594145299966734832, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
+  - {fileID: 6054549910823359052, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
+  - {fileID: 930156628183183310, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
+  - {fileID: -5101954098649015951, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
 --- !u!114 &1350134786377683441
 MonoBehaviour:
   m_ObjectHideFlags: 0

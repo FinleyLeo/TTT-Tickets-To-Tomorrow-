@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,7 +142,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -307,7 +307,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -481,7 +481,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -568,7 +568,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -655,7 +655,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -742,7 +742,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -989,7 +989,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1076,7 +1076,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1163,7 +1163,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1250,7 +1250,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1337,7 +1337,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1424,7 +1424,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1511,7 +1511,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1591,6 +1591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531759654933795718, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4419545961711859169, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
       propertyPath: m_Name
       value: RoofMiddle (11)
@@ -1669,6 +1673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoofRight (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8622928841400949623, guid: c76fc63a1e4b4da43a90a0addb54b03c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1691,6 +1699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wheels
       objectReference: {fileID: 0}
+    - target: {fileID: 1885606897606525843, guid: b6457840158db6b4792c55ee467335cb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 2623137062767780178, guid: b6457840158db6b4792c55ee467335cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1789,6 +1801,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1365930904686434459, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6379049228361191337, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
       propertyPath: m_Name
       value: Crate
@@ -1851,6 +1867,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531759654933795718, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4419545961711859169, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
       propertyPath: m_Name
       value: RoofMiddle (9)
@@ -1917,6 +1937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1365930904686434459, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6379049228361191337, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
       propertyPath: m_Name
       value: Crate (3)
@@ -1939,6 +1963,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6269301411989451310}
     m_Modifications:
+    - target: {fileID: 1417654562957179119, guid: f3dac1b2e98ab054bb06fe53915bbd44, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4568992437332640211, guid: f3dac1b2e98ab054bb06fe53915bbd44, type: 3}
       propertyPath: m_Name
       value: RoofLeft (4)
@@ -2045,6 +2073,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1365930904686434459, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6379049228361191337, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
       propertyPath: m_Name
       value: Crate (1)
@@ -2067,6 +2099,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6269301411989451310}
     m_Modifications:
+    - target: {fileID: 1347401017976459957, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3251902343133108629, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -2177,6 +2213,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6575895589867354679, guid: b68c49007ead2da4daf58e52412a369c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
+    - target: {fileID: 9173459611483835203, guid: b68c49007ead2da4daf58e52412a369c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2199,6 +2243,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wheels
       objectReference: {fileID: 0}
+    - target: {fileID: 2319329307433139512, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
+    - target: {fileID: 3224444864275019521, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3902358964043895987, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.873001
@@ -2297,6 +2349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1365930904686434459, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6379049228361191337, guid: 4158b6ee2c6665a4f9847fd36b79a79b, type: 3}
       propertyPath: m_Name
       value: Crate (2)
@@ -2359,6 +2415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531759654933795718, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4419545961711859169, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
       propertyPath: m_Name
       value: RoofMiddle (10)
@@ -2425,6 +2485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4526757088692844125, guid: a06f78d80847cff4b8e9abb4dcc10283, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4788282611001312317, guid: a06f78d80847cff4b8e9abb4dcc10283, type: 3}
       propertyPath: m_Name
       value: LeftDoorFloor
@@ -2447,6 +2511,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6269301411989451310}
     m_Modifications:
+    - target: {fileID: 1347401017976459957, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3251902343133108629, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -2513,6 +2581,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6269301411989451310}
     m_Modifications:
+    - target: {fileID: 1347401017976459957, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3251902343133108629, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -2579,6 +2651,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6269301411989451310}
     m_Modifications:
+    - target: {fileID: 5624093508250137863, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6217275689764520054, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.65
@@ -2619,6 +2695,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6982058989030079944, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 7183877943629669963, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
       propertyPath: m_Name
       value: RightDoor

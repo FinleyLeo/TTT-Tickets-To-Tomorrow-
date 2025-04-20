@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8977345422781750001, guid: 12f79c2493ca8d840b4f67418c77e8a2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -169,6 +173,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1881747832649949455, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4727937573220777326, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
       propertyPath: m_Name
       value: Floor (5)
@@ -279,6 +287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4822608140646575926, guid: e793019ab391023409505d7828b8cb91, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -337,6 +349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4526757088692844125, guid: a06f78d80847cff4b8e9abb4dcc10283, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4788282611001312317, guid: a06f78d80847cff4b8e9abb4dcc10283, type: 3}
       propertyPath: m_Name
       value: LeftDoorFloor (1)
@@ -359,6 +375,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 1417654562957179119, guid: f3dac1b2e98ab054bb06fe53915bbd44, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4568992437332640211, guid: f3dac1b2e98ab054bb06fe53915bbd44, type: 3}
       propertyPath: m_Name
       value: RoofLeft (1)
@@ -429,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wheels (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885606897606525843, guid: b6457840158db6b4792c55ee467335cb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 2623137062767780178, guid: b6457840158db6b4792c55ee467335cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.882
@@ -531,6 +555,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftDoor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6575895589867354679, guid: b68c49007ead2da4daf58e52412a369c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
+    - target: {fileID: 9173459611483835203, guid: b68c49007ead2da4daf58e52412a369c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -553,6 +585,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1881747832649949455, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4727937573220777326, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
       propertyPath: m_Name
       value: Floor (4)
@@ -619,6 +655,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 929952931827371157, guid: 9d08d77b1c326be4d8c0a1a92c3f9d63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 5265728851300601343, guid: 9d08d77b1c326be4d8c0a1a92c3f9d63, type: 3}
       propertyPath: m_Name
       value: WheelBase (3)
@@ -733,6 +773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoofRight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8622928841400949623, guid: c76fc63a1e4b4da43a90a0addb54b03c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -755,6 +799,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wheels (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319329307433139512, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
+    - target: {fileID: 3224444864275019521, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3902358964043895987, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.452003
@@ -813,6 +865,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 5624093508250137863, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 6217275689764520054, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63.259003
@@ -853,6 +909,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6982058989030079944, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 7183877943629669963, guid: 7b1f33269fb35bb4593fd5b0582139f9, type: 3}
       propertyPath: m_Name
       value: RightDoor (1)
@@ -915,6 +975,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531759654933795718, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4419545961711859169, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
       propertyPath: m_Name
       value: RoofMiddle (3)
@@ -945,6 +1009,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 929952931827371157, guid: 9d08d77b1c326be4d8c0a1a92c3f9d63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 5265728851300601343, guid: 9d08d77b1c326be4d8c0a1a92c3f9d63, type: 3}
       propertyPath: m_Name
       value: WheelBase (2)
@@ -1007,6 +1075,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 1881747832649949455, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4727937573220777326, guid: 5696e26c5f88a3b4a9904e3680b54353, type: 3}
       propertyPath: m_Name
       value: Floor (3)
@@ -1069,6 +1141,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5865821792173786222}
     m_Modifications:
+    - target: {fileID: 1347401017976459957, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 8201541891664265114, guid: 7136c615e05086b4995f22bf3f28f6dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.722
@@ -1171,6 +1247,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531759654933795718, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 4419545961711859169, guid: 3500db8c2854ebd40892abeed4d6b7e7, type: 3}
       propertyPath: m_Name
       value: RoofMiddle (2)

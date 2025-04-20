@@ -142,12 +142,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1057965647031810841, guid: f1f3f9239e0e642439a7ba760ce5f757, type: 3}
   shootPoint: {fileID: 3793033595136550053}
-  flipValue: 0
-  offset: 0
+  arm: {fileID: 9104572181500885614}
+  gunAnim: {fileID: 9194933880393761280}
+  health: 1
   isDead: 0
   isActive: 0
-  gunAnim: {fileID: 9194933880393761280}
-  arm: {fileID: 9104572181500885614}
+  isAwake: 0
   normalSprite: {fileID: 3996115122957857096, guid: 1e6d6f64b02e778429e2c34dcfba6fec, type: 3}
   upSprite: {fileID: 1694972825302009010, guid: 1e6d6f64b02e778429e2c34dcfba6fec, type: 3}
   downSprite: {fileID: -4594446436571812289, guid: 1e6d6f64b02e778429e2c34dcfba6fec, type: 3}

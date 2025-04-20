@@ -13,6 +13,8 @@ public class TimeManager : MonoBehaviour
     bool slowActive;
     bool isHitStopRunning = false;
 
+    public bool isRewinding;
+
     float slowCoolDown;
     public float timeLeft;
     public int timeLoss;

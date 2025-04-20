@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
     public Sprite[] ammoSprites;
     ParticleSystem ammoShatter;
 
+    public bool isDead;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -87,6 +89,16 @@ public class PlayerController : MonoBehaviour
         Crouch();
         SlideLogic();
         GroundCheck();
+
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            Shader.SetGlobalFloat("_isAffected", 1);
+        }
+
+        else if (Input.GetKeyUp(KeyCode.Mouse2))
+        {
+            Shader.SetGlobalFloat("_isAffected", 0);
+        }
     }
 
     private void FixedUpdate()

@@ -56,10 +56,10 @@ public class TimeManager : MonoBehaviour
             {
                 timeObj = GameObject.Find("Time");
                 timeAnim = timeObj.GetComponent<Animator>();
-                timeSlider = timeObj.transform.GetChild(0).GetComponent<Image>();
+                timeSlider = timeObj.transform.GetChild(1).GetComponent<Image>();
 
-                secondHand = timeObj.transform.GetChild(5).gameObject;
-                minuteHand = timeObj.transform.GetChild(4).gameObject;
+                secondHand = timeObj.transform.GetChild(6).gameObject;
+                minuteHand = timeObj.transform.GetChild(5).gameObject;
 
                 Debug.Log("Time object found: " + timeObj.name);
                 Debug.Log("Time anim found: " + timeAnim.name);
@@ -74,7 +74,7 @@ public class TimeManager : MonoBehaviour
         slowCoolDown -= Time.unscaledDeltaTime;
 
         timeLeft -= Time.unscaledDeltaTime * timeLoss;
-        timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 15 minutes max
+        timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
     }
 
     void TimeCalc()
@@ -130,7 +130,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowLogic()
     {
-        if (!UIScript.instance.paused && SceneManager.GetActiveScene().name != "Main Menu")
+        if (!UIScript.instance.paused)
         {
             if (Input.GetMouseButtonDown(1) && slowCoolDown <= 0)
             {
@@ -173,7 +173,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowTime()
     {
-        if (!UIScript.instance.paused)
+        if (!UIScript.instance.paused && !isRewinding)
         {
             if (slowTime)
             {
@@ -220,29 +220,32 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator HitStop(float duration)
     {
-        if (isHitStopRunning)
+        if (!isRewinding)
         {
-            yield break;
+            if (isHitStopRunning)
+            {
+                yield break;
+            }
+
+            isHitStopRunning = true;
+            slowTime = false;
+
+            Time.timeScale = 0f;
+
+            yield return new WaitForSecondsRealtime(duration);
+
+            if (normalTime)
+            {
+                Time.timeScale = 1f;
+            }
+
+            else
+            {
+                slowTime = true;
+                Time.timeScale = 0.4f;
+            }
+
+            isHitStopRunning = false;
         }
-
-        isHitStopRunning = true;
-        slowTime = false;
-
-        Time.timeScale = 0f;
-
-        yield return new WaitForSecondsRealtime(duration);
-
-        if (normalTime)
-        {
-            Time.timeScale = 1f;
-        }
-
-        else
-        {
-            slowTime = true;
-            Time.timeScale = 0.4f;
-        }
-        
-        isHitStopRunning = false;
     }
 }

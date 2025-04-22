@@ -350,9 +350,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlipDelay());
 
             facingLeft = !facingLeft;
-            //Vector3 scale = transform.localScale;
-            //scale.x *= -1;
-            //transform.localScale = scale;
 
             transform.rotation = Quaternion.Euler(0, facingLeft ? 180 : 0, 0);
         }
@@ -410,6 +407,7 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 // Game Over
+                isDead = true;
                 StartCoroutine(Rewind());
             }
 
@@ -443,6 +441,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Rewind()
     {
+        TimeManager.instance.isRewinding = true;
         Time.timeScale = 0;
         Shader.SetGlobalFloat("_isAffected", 1);
         yield return new WaitForSecondsRealtime(1);
@@ -452,11 +451,32 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         Time.timeScale = 1;
+        TimeManager.instance.timeLeft -= 20f;
+        TimeManager.instance.isRewinding = false;
         Shader.SetGlobalFloat("_isAffected", 0);
 
         transform.position = spawnPoint.position;
         health = 5;
-        TimeManager.instance.timeLeft -= 20f;
+        isDead = false;
+
+        switch (health)
+        {
+            case 5:
+                ammoBase.sprite = ammoSprites[0];
+                break;
+            case 4:
+                ammoBase.sprite = ammoSprites[1];
+                break;
+            case 3:
+                ammoBase.sprite = ammoSprites[2];
+                break;
+            case 2:
+                ammoBase.sprite = ammoSprites[3];
+                break;
+            case 1:
+                ammoBase.sprite = ammoSprites[4];
+                break;
+        }
     }
 
     IEnumerator InvincibilityEffect(float duration, float flashSpeed)

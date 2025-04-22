@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     // Health/Damaging
     [SerializeField] int health = 5;
     public bool invincible;
+    Transform spawnPoint;
 
     IEnumerator flashRoutine;
     MaterialPropertyBlock mpb;
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
         TimeManager.instance.timeLoss = 1;
 
         orientation = transform.localScale.x;
+        spawnPoint = GameObject.Find("Spawn Point").transform;
+        spawnPoint.position = transform.position;
 
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -89,16 +92,6 @@ public class PlayerController : MonoBehaviour
         Crouch();
         SlideLogic();
         GroundCheck();
-
-        if (Input.GetKeyDown(KeyCode.Mouse2))
-        {
-            Shader.SetGlobalFloat("_isAffected", 1);
-        }
-
-        else if (Input.GetKeyUp(KeyCode.Mouse2))
-        {
-            Shader.SetGlobalFloat("_isAffected", 0);
-        }
     }
 
     private void FixedUpdate()
@@ -417,6 +410,7 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 // Game Over
+                StartCoroutine(Rewind());
             }
 
             Camera.main.GetComponent<CameraController>().Shake(1.5f, 0.1f, 0.2f);
@@ -445,6 +439,24 @@ public class PlayerController : MonoBehaviour
             ammoShake.SetTrigger("Shake");
             ammoShatter.Play();
         }
+    }
+
+    IEnumerator Rewind()
+    {
+        Time.timeScale = 0;
+        Shader.SetGlobalFloat("_isAffected", 1);
+        yield return new WaitForSecondsRealtime(1);
+        Respawn();
+    }
+
+    void Respawn()
+    {
+        Time.timeScale = 1;
+        Shader.SetGlobalFloat("_isAffected", 0);
+
+        transform.position = spawnPoint.position;
+        health = 5;
+        TimeManager.instance.timeLeft -= 20f;
     }
 
     IEnumerator InvincibilityEffect(float duration, float flashSpeed)
@@ -520,6 +532,8 @@ public class PlayerController : MonoBehaviour
             levelManager.currentCarriage++;
             levelManager.FollowLogic();
             levelManager.ActivateEnemies();
+
+            spawnPoint.position = transform.position;
         }
 
         else if (collision.gameObject.CompareTag("LeftDoor") && levelManager.canLeave)

@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     {
         startdelay += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.X) && startdelay >= 1.5f)
+        if (Input.anyKeyDown && startdelay >= 1.5f)
         {
             StartCoroutine(FlashText());
         }

@@ -786,6 +786,30 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1570379335}
+    - target: {fileID: 1950081331334697828, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 141d3977dfa622b4ab3271b518d0e908, type: 2}
+    - target: {fileID: 2094662775151253380, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 141d3977dfa622b4ab3271b518d0e908, type: 2}
+    - target: {fileID: 4982116216668742391, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 141d3977dfa622b4ab3271b518d0e908, type: 2}
+    - target: {fileID: 5925153355804053196, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 141d3977dfa622b4ab3271b518d0e908, type: 2}
+    - target: {fileID: 7260565002345719527, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 141d3977dfa622b4ab3271b518d0e908, type: 2}
+    - target: {fileID: 8086068819174960219, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

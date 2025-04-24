@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     // Visuals
     public ParticleSystem Dust;
     Image ammoBase;
-    Animator ammoShake;
+    Animator ammoAnim;
     public Sprite[] ammoSprites;
     ParticleSystem ammoShatter;
 
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
         ammoBase = GameObject.Find("Ammo").transform.GetChild(0).GetComponent<Image>();
-        ammoShake = GameObject.Find("Ammo").GetComponent<Animator>();
+        ammoAnim = GameObject.Find("Ammo").GetComponent<Animator>();
         ammoShatter = GameObject.Find("Ammo").GetComponentInChildren<ParticleSystem>();
 
         TimeManager.instance.timeLoss = 1;
@@ -434,7 +434,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
 
-            ammoShake.SetTrigger("Shake");
+            ammoAnim.SetTrigger("Shake");
             ammoShatter.Play();
         }
     }
@@ -444,7 +444,17 @@ public class PlayerController : MonoBehaviour
         TimeManager.instance.isRewinding = true;
         Time.timeScale = 0;
         Shader.SetGlobalFloat("_isAffected", 1);
+        ammoAnim.SetTrigger("Break");
         yield return new WaitForSecondsRealtime(1);
+        
+
+        for (float i = ammoShatter.time; i > 0; i -= 0.1f)
+        {
+            ammoShatter.Simulate(i, false, true);
+            Debug.Log(ammoShatter.time);
+        }
+
+        yield return new WaitForSecondsRealtime(1.3f);
         Respawn();
     }
 
@@ -454,6 +464,7 @@ public class PlayerController : MonoBehaviour
         TimeManager.instance.timeLeft -= 20f;
         TimeManager.instance.isRewinding = false;
         Shader.SetGlobalFloat("_isAffected", 0);
+        ammoAnim.SetTrigger("Shake");
 
         transform.position = spawnPoint.position;
         health = 5;

@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class TimeManager : MonoBehaviour
 {
@@ -27,6 +26,11 @@ public class TimeManager : MonoBehaviour
     Animator timeAnim;
     Image timeSlider;
 
+    bool secondFacade;
+
+    public float comboTime;
+    public int comboAmount;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,7 +48,7 @@ public class TimeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Shader.SetGlobalFloat("_isAffected", 0);
     }
 
     // Update is called once per frame
@@ -69,6 +73,9 @@ public class TimeManager : MonoBehaviour
             SlowLogic();
             SlowTime();
             WatchAnim();
+            ComboLogic();
+
+            comboTime -= Time.deltaTime;
         }
 
         slowCoolDown -= Time.unscaledDeltaTime;
@@ -83,10 +90,25 @@ public class TimeManager : MonoBehaviour
         minutesLeft = Mathf.FloorToInt(timeLeft / 60);
 
         // Plays sound when ticks
+
         if (previousSec != secondsLeft)
         {
-            previousSec = secondsLeft;
-            Debug.Log("Second hand Ticked");
+            if (timeLoss < 6)
+            {
+                secondFacade = false;
+                previousSec = secondsLeft;
+                Debug.Log("Second hand Ticked");
+            }
+
+            else
+            {
+                // Play seconds tick sound every half second
+                if (!secondFacade)
+                {
+                    secondFacade = true;
+                    StartCoroutine(SecFacade());
+                }
+            }
         }
 
         if (previousMin != minutesLeft)
@@ -94,6 +116,7 @@ public class TimeManager : MonoBehaviour
             previousMin = minutesLeft;
             Debug.Log("Minute Hand Ticked");
         }
+        
     }
 
     void WatchAnim()
@@ -130,7 +153,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowLogic()
     {
-        if (!UIScript.instance.paused)
+        if (!UIScript.instance.paused && !isRewinding)
         {
             if (Input.GetMouseButtonDown(1) && slowCoolDown <= 0)
             {
@@ -148,7 +171,7 @@ public class TimeManager : MonoBehaviour
 
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !isRewinding)
             {
                 previousLoss = timeLoss;
                 timeLoss = 0;
@@ -234,18 +257,47 @@ public class TimeManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(duration);
 
-            if (normalTime)
+            if (!isRewinding)
             {
-                Time.timeScale = 1f;
-            }
+                if (normalTime)
+                {
+                    Time.timeScale = 1f;
+                }
 
-            else
-            {
-                slowTime = true;
-                Time.timeScale = 0.4f;
+                else
+                {
+                    slowTime = true;
+                    Time.timeScale = 0.4f;
+                }
             }
 
             isHitStopRunning = false;
+        }
+    }
+
+    void ComboLogic()
+    {
+        if (comboTime <= 0)
+        {
+            comboAmount = 0;
+            comboTime = 0;
+        }
+
+        if (comboAmount > 3)
+        {
+            comboAmount = 3;
+        }
+    }
+
+    IEnumerator SecFacade()
+    {
+        print("second hand ticked (facade)");
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        if (secondFacade)
+        {
+            StartCoroutine(SecFacade());
         }
     }
 }

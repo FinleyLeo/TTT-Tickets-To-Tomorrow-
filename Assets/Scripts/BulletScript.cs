@@ -53,20 +53,34 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<EnemyScript>().TakeDamage();
+            float multiplier;
+
+            EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<TrailRenderer>().enabled = false;
 
+            TimeManager.instance.comboTime = 1f;
+
+            if (TimeManager.instance.comboAmount < 3)
+            {
+                TimeManager.instance.comboAmount += 1;
+            }
+
             if (TimeManager.instance.slowTime)
             {
-                TimeManager.instance.timeLeft += 5f;
+                multiplier = 1f;
             }
 
             else
             {
-                TimeManager.instance.timeLeft += 2f;
+                multiplier = 1.5f;
             }
+
+            TimeManager.instance.timeLeft += (multiplier * enemyScript.health * TimeManager.instance.comboAmount);
+            
+            enemyScript.TakeDamage();
 
             Destroy(gameObject, 0.1f);
         }

@@ -176,7 +176,7 @@ public class UIScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !TimeManager.instance.isRewinding)
         {
             paused = !paused;
             TimeManager.instance.normalTime = !paused;

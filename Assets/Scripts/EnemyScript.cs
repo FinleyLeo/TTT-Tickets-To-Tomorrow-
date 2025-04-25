@@ -16,9 +16,9 @@ public class EnemyScript : MonoBehaviour
     public GameObject arm;
     public Animator gunAnim;
 
-    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed, offset, flipValue;
+    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed = 2f, offset, flipValue;
 
-    [SerializeField] int health = 1;
+    public int health;
 
     bool facingRight;
     public bool isDead, isActive, isAwake;
@@ -39,13 +39,22 @@ public class EnemyScript : MonoBehaviour
         isActive = false;
 
         flipValue = transform.localScale.x;
+        shootSpeed = Random.Range(0.75f, 1.5f);
+        health = 1;
 
-        shootSpeed = Random.Range(0.75f, 1.75f);
-        aimSpeed = Random.Range(2.5f, 3.5f);
-
-        if (Random.Range(0, 100) > 90)
+        if (Random.Range(0, 100) > 99)
         {
-            shootSpeed *= 2;
+            shootSpeed = 0.5f;
+            sr.color = new Color(1, 0.4f, 0.4f, 1);
+            arm.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 0.4f, 0.4f, 1);
+            arm.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 0.4f, 0.4f, 1);
+
+            if (gameObject.name != "Dummy")
+            {
+                arm.GetComponentsInChildren<SpriteRenderer>()[2].color = new Color(1, 0.4f, 0.4f, 1);
+            }
+
+            health = 3;
         }
     }
 
@@ -147,15 +156,50 @@ public class EnemyScript : MonoBehaviour
     {
         // Set flash effect to full white
         sr.GetPropertyBlock(mpb);
+
+        arm.GetComponentsInChildren<SpriteRenderer>()[0].GetPropertyBlock(mpb);
+        arm.GetComponentsInChildren<SpriteRenderer>()[1].GetPropertyBlock(mpb);
+
+        if (gameObject.name != "Dummy")
+        {
+            arm.GetComponentsInChildren<SpriteRenderer>()[2].GetPropertyBlock(mpb);
+        }
+
         mpb.SetInt("_Hit", 1);
+
         sr.SetPropertyBlock(mpb);
+
+        arm.GetComponentsInChildren<SpriteRenderer>()[0].SetPropertyBlock(mpb);
+        arm.GetComponentsInChildren<SpriteRenderer>()[1].SetPropertyBlock(mpb);
+
+        if (gameObject.name != "Dummy")
+        {
+            arm.GetComponentsInChildren<SpriteRenderer>()[2].SetPropertyBlock(mpb);
+        }
 
         yield return new WaitForSeconds(0.1f);
 
         // Reset back to normal
         sr.GetPropertyBlock(mpb);
+
+        arm.GetComponentsInChildren<SpriteRenderer>()[0].GetPropertyBlock(mpb);
+        arm.GetComponentsInChildren<SpriteRenderer>()[1].GetPropertyBlock(mpb);
+
+        if (gameObject.name != "Dummy")
+        {
+            arm.GetComponentsInChildren<SpriteRenderer>()[2].GetPropertyBlock(mpb);
+        }
+
         mpb.SetInt("_Hit", 0);
         sr.SetPropertyBlock(mpb);
+
+        arm.GetComponentsInChildren<SpriteRenderer>()[0].SetPropertyBlock(mpb);
+        arm.GetComponentsInChildren<SpriteRenderer>()[1].SetPropertyBlock(mpb);
+
+        if (gameObject.name != "Dummy")
+        {
+            arm.GetComponentsInChildren<SpriteRenderer>()[2].SetPropertyBlock(mpb);
+        }
     }
 
     public void FlashWhite()

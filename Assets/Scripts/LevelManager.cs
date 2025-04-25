@@ -120,6 +120,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void RespawnEnemies()
+    {
+        Helper.instance.FindObjectwithTag("SpawnPoint", carriages[currentCarriage], actors);
+
+        foreach (GameObject child in actors)
+        {
+            if (child.transform.childCount == 0)
+            {
+                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+            }
+
+            else if (child.transform.GetChild(0).GetComponent<EnemyScript>().isDead && child.transform.childCount > 0)
+            {
+                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+            }
+        }
+
+        ActivateEnemies();
+    }
+
     public void FollowLogic()
     {
         if (carriages[currentCarriage].layer == 11 || carriages[currentCarriage].layer == 12)

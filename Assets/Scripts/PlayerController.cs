@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int health = 5;
     public bool invincible;
     Transform spawnPoint;
+    public bool isDead;
 
     IEnumerator flashRoutine;
     MaterialPropertyBlock mpb;
@@ -61,7 +64,9 @@ public class PlayerController : MonoBehaviour
     public Sprite[] ammoSprites;
     ParticleSystem ammoShatter;
 
-    public bool isDead;
+    public Volume volume;
+    ChromaticAberration aberration;
+    LensDistortion distortion;
 
     void Start()
     {
@@ -82,6 +87,16 @@ public class PlayerController : MonoBehaviour
         spawnPoint.position = transform.position;
 
         Cursor.lockState = CursorLockMode.Confined;
+
+        volume.profile.TryGet(out ChromaticAberration ab);
+        {
+            aberration = ab;
+        }
+
+        volume.profile.TryGet(out LensDistortion lensD);
+        {
+            distortion = lensD;
+        }
     }
 
     void Update()
@@ -92,6 +107,7 @@ public class PlayerController : MonoBehaviour
         Crouch();
         SlideLogic();
         GroundCheck();
+        RewindVisuals();
     }
 
     private void FixedUpdate()
@@ -441,18 +457,15 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Rewind()
     {
+        TimeManager.instance.slowTime = true;
         TimeManager.instance.isRewinding = true;
+        TimeManager.instance.timeLoss = 15;
         Time.timeScale = 0;
         Shader.SetGlobalFloat("_isAffected", 1);
         ammoAnim.SetTrigger("Break");
         yield return new WaitForSecondsRealtime(1);
-        
 
-        for (float i = ammoShatter.time; i > 0; i -= 0.1f)
-        {
-            ammoShatter.Simulate(i, false, true);
-            Debug.Log(ammoShatter.time);
-        }
+        TimeManager.instance.slowTime = false;
 
         yield return new WaitForSecondsRealtime(1.3f);
         Respawn();
@@ -461,9 +474,11 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         Time.timeScale = 1;
-        TimeManager.instance.timeLeft -= 20f;
         TimeManager.instance.isRewinding = false;
+        TimeManager.instance.timeLoss = 1;
         Shader.SetGlobalFloat("_isAffected", 0);
+
+        levelManager.RespawnEnemies();
         ammoAnim.SetTrigger("Shake");
 
         transform.position = spawnPoint.position;
@@ -540,6 +555,35 @@ public class PlayerController : MonoBehaviour
     public void DustEffect()
     {
         Dust.Play();
+    }
+
+    void RewindVisuals()
+    {
+        if (TimeManager.instance.isRewinding && Time.timeScale < 0.05f)
+        {
+            if (aberration != null)
+            {
+                aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0.5f, Time.unscaledDeltaTime * 2f);
+            }
+
+            if (distortion != null)
+            {
+                distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, -0.5f, Time.unscaledDeltaTime * 2f);
+            }
+        }
+
+        else
+        {
+            if (aberration != null)
+            {
+                aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+            }
+
+            if (distortion != null)
+            {
+                distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+            }
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

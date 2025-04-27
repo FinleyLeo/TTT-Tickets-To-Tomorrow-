@@ -5248,6 +5248,7 @@ MonoBehaviour:
   minutesLeft: 0
   comboTime: 0
   comboAmount: 0
+  shockwaveMat: {fileID: 2100000, guid: ecf04b46f49018a46822a1b012dd1729, type: 2}
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0

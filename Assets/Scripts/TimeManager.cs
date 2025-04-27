@@ -31,6 +31,11 @@ public class TimeManager : MonoBehaviour
     public float comboTime;
     public int comboAmount;
 
+    public Material shockwaveMat;
+    float deathTimeElapsed;
+    bool waveDone;
+    bool gameOver;
+
     private void Awake()
     {
         if (instance == null)
@@ -76,12 +81,54 @@ public class TimeManager : MonoBehaviour
             ComboLogic();
 
             comboTime -= Time.deltaTime;
+
+            slowCoolDown -= Time.unscaledDeltaTime;
+
+            timeLeft -= Time.unscaledDeltaTime * timeLoss;
+            timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
+
+            if (timeLeft <= 0)
+            {
+                timeLeft = 0;
+                timeLoss = 0;
+                slowTime = false;
+                normalTime = false;
+                gameOver = true;
+            }
+
+            if (gameOver)
+            {
+                if (!waveDone)
+                {
+                    deathTimeElapsed += Time.unscaledDeltaTime;
+
+                    if (Time.timeScale > 0)
+                    {
+                        Time.timeScale = Mathf.Lerp(Time.timeScale, 0f, 5 * Time.unscaledDeltaTime);
+                        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    }
+
+                    else
+                    {
+                        Time.timeScale = 0f;
+                    }
+
+                    shockwaveMat.SetFloat("_isActive", 1);
+                    shockwaveMat.SetFloat("_UnscaledTime", deathTimeElapsed);
+
+                    if (deathTimeElapsed > 2.6f)
+                    {
+                        waveDone = true;
+                    }
+                }
+
+                else
+                {
+                    // Game run ends
+                }
+                
+            }
         }
-
-        slowCoolDown -= Time.unscaledDeltaTime;
-
-        timeLeft -= Time.unscaledDeltaTime * timeLoss;
-        timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
     }
 
     void TimeCalc()
@@ -196,7 +243,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowTime()
     {
-        if (!UIScript.instance.paused && !isRewinding)
+        if (!UIScript.instance.paused && !isRewinding && !gameOver)
         {
             if (slowTime)
             {
@@ -243,7 +290,7 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator HitStop(float duration)
     {
-        if (!isRewinding)
+        if (!isRewinding && !gameOver)
         {
             if (isHitStopRunning)
             {
@@ -257,7 +304,7 @@ public class TimeManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(duration);
 
-            if (!isRewinding)
+            if (!isRewinding && !gameOver)
             {
                 if (normalTime)
                 {

@@ -306,7 +306,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.99
+    m_Value: 0.999
   intensity:
     m_OverrideState: 1
     m_Value: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   active: 1
   normalBias:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0
   viewBias:
     m_OverrideState: 1
     m_Value: 0.1

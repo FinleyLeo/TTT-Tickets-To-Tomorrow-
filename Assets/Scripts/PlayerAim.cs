@@ -6,11 +6,11 @@ public class PlayerAim : MonoBehaviour
     public GameObject arm, gun, shootPoint;
     public GameObject bullet;
 
-    Animator ammoAnim;
+    public Animator ammoAnim;
     GameObject ammoUI;
 
     float cooldown;
-    float ammo = 6;
+    public float ammo = 6;
     bool reloading;
 
     public ParticleSystem shell;
@@ -31,7 +31,7 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!UIScript.instance.paused)
+        if (!UIScript.instance.paused && !TimeManager.instance.gameOver)
         {
             Aim();
         }

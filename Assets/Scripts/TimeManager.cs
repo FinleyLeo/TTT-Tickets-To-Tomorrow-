@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
@@ -31,10 +32,16 @@ public class TimeManager : MonoBehaviour
     public float comboTime;
     public int comboAmount;
 
-    public Material shockwaveMat;
-    float deathTimeElapsed;
-    bool waveDone;
-    bool gameOver;
+    public Material shockwaveMat, sepiaMat;
+    public float deathTimeElapsed, sepiaLerp;
+    public bool waveDone, sepiaActive;
+
+    public bool gameOver;
+    public Animator gameOverAnim;
+
+    public int health;
+
+    #region singleton
 
     private void Awake()
     {
@@ -48,12 +55,17 @@ public class TimeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SceneManager.activeSceneChanged += OnSceneChange;
+        //gameOver = PlayerPrefs.GetInt("gameOver" ? 1 : 0);
     }
+
+    #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Shader.SetGlobalFloat("_isAffected", 0);
+        
     }
 
     // Update is called once per frame
@@ -61,19 +73,6 @@ public class TimeManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if (timeObj == null)
-            {
-                timeObj = GameObject.Find("Time");
-                timeAnim = timeObj.GetComponent<Animator>();
-                timeSlider = timeObj.transform.GetChild(1).GetComponent<Image>();
-
-                secondHand = timeObj.transform.GetChild(6).gameObject;
-                minuteHand = timeObj.transform.GetChild(5).gameObject;
-
-                Debug.Log("Time object found: " + timeObj.name);
-                Debug.Log("Time anim found: " + timeAnim.name);
-            }
-
             TimeCalc();
             SlowLogic();
             SlowTime();
@@ -87,7 +86,21 @@ public class TimeManager : MonoBehaviour
             timeLeft -= Time.unscaledDeltaTime * timeLoss;
             timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
 
-            if (timeLeft <= 0)
+            if (timeObj == null)
+            {
+                timeObj = GameObject.Find("Time");
+                timeAnim = timeObj.GetComponent<Animator>();
+                timeSlider = timeObj.transform.GetChild(1).GetComponent<Image>();
+
+                secondHand = timeObj.transform.GetChild(6).gameObject;
+                minuteHand = timeObj.transform.GetChild(5).gameObject;
+
+                Debug.Log("Time object found: " + timeObj.name);
+                Debug.Log("Time anim found: " + timeAnim.name);
+            }
+
+            // Game over management
+            if (timeLeft <= 0 && !gameOver && !waveDone)
             {
                 timeLeft = 0;
                 timeLoss = 0;
@@ -102,6 +115,9 @@ public class TimeManager : MonoBehaviour
                 {
                     deathTimeElapsed += Time.unscaledDeltaTime;
 
+                    shockwaveMat.SetFloat("_isActive", 1);
+                    shockwaveMat.SetFloat("_UnscaledTime", deathTimeElapsed);
+
                     if (Time.timeScale > 0)
                     {
                         Time.timeScale = Mathf.Lerp(Time.timeScale, 0f, 5 * Time.unscaledDeltaTime);
@@ -113,8 +129,18 @@ public class TimeManager : MonoBehaviour
                         Time.timeScale = 0f;
                     }
 
-                    shockwaveMat.SetFloat("_isActive", 1);
-                    shockwaveMat.SetFloat("_UnscaledTime", deathTimeElapsed);
+                    sepiaActive = true;
+
+                    if (sepiaMat.GetFloat("_Slider") < 1)
+                    {
+                        sepiaLerp = Mathf.Lerp(sepiaLerp, 1, Time.unscaledDeltaTime);
+                        sepiaMat.SetFloat("_Slider", sepiaLerp);
+                    }
+
+                    else
+                    {
+                        sepiaMat.SetFloat("_Slider", 1);
+                    }
 
                     if (deathTimeElapsed > 2.6f)
                     {
@@ -125,9 +151,13 @@ public class TimeManager : MonoBehaviour
                 else
                 {
                     // Game run ends
+                    gameOverAnim.SetBool("GameOver", gameOver);
                 }
                 
             }
+
+            
+
         }
     }
 
@@ -163,7 +193,12 @@ public class TimeManager : MonoBehaviour
             previousMin = minutesLeft;
             Debug.Log("Minute Hand Ticked");
         }
-        
+    }
+
+    void OnSceneChange(Scene current, Scene next)
+    {
+        Shader.SetGlobalFloat("_isAffected", 0);
+        sepiaMat.SetFloat("_Slider", 0);
     }
 
     void WatchAnim()
@@ -336,6 +371,29 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public void ToggleSepia()
+    {
+        sepiaActive = !sepiaActive;
+
+        if (!sepiaActive)
+        {
+            for (float i = 0; i < 1; i += 0.1f)
+            {
+                sepiaLerp = Mathf.Lerp(sepiaLerp, 1, i);
+                sepiaMat.SetFloat("_Slider", sepiaLerp);
+            }
+        }
+
+        else if (sepiaActive)
+        {
+            for (float i = 1; i > 0; i -= 0.1f)
+            {
+                sepiaLerp = Mathf.Lerp(sepiaLerp, 0, i);
+                sepiaMat.SetFloat("_Slider", sepiaLerp);
+            }
+        }
+    }
+
     IEnumerator SecFacade()
     {
         print("second hand ticked (facade)");
@@ -346,5 +404,12 @@ public class TimeManager : MonoBehaviour
         {
             StartCoroutine(SecFacade());
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetFloat("timeLeft", timeLeft);
+        PlayerPrefs.SetInt("Health", health);
+        PlayerPrefs.SetInt("GameOver", gameOver ? 1 : 0);
     }
 }

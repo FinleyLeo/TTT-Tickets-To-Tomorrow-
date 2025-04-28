@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     Animator anim;
     public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
     public float startdelay;
+    public Image continueButton;
 
     public UIScript UI;
 
@@ -64,16 +65,31 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        mountainAnim.SetBool("InMenu", false);
-        playAnim.SetBool("Opened", false);
+        if (!TimeManager.instance.gameOver)
+        {
+            continueButton.color = Color.white;
 
-        StartCoroutine(UI.DisableMenu());
+            mountainAnim.SetBool("InMenu", false);
+            playAnim.SetBool("Opened", false);
+
+            TimeManager.instance.health = PlayerPrefs.GetInt("Health");
+            TimeManager.instance.timeLeft = PlayerPrefs.GetInt("timeLeft");
+            SceneSwitcher.instance.Transition("Loop1");
+            StartCoroutine(UI.DisableMenu());
+        }
+
+        else
+        {
+            continueButton.color= Color.grey;
+        }
     }
 
     public void NewGame()
     {
         mountainAnim.SetBool("InMenu", false);
         playAnim.SetBool("Opened", false);
+
+        UIScript.instance.RestartValues();
 
         SceneSwitcher.instance.Transition("Loop1");
         StartCoroutine(UI.DisableMenu());

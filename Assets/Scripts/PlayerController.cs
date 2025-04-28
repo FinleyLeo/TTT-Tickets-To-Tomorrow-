@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
+    PlayerAim aim;
 
     // References to other scripts
     LevelManager levelManager;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft = true, canFlip = true;
     public float defaultFriction = 0.8f;
     float friction;
-    float orientation;
+
 
     // Manages the speed of the player
     public float speed, groundSpeed, airSpeed, maxSpeed;
@@ -49,7 +50,6 @@ public class PlayerController : MonoBehaviour
     bool onPlatform;
 
     // Health/Damaging
-    [SerializeField] int health = 5;
     public bool invincible;
     Transform spawnPoint;
     public bool isDead;
@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim =  GetComponent<Animator>();
+        aim = GetComponent<PlayerAim>();
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
@@ -82,7 +83,6 @@ public class PlayerController : MonoBehaviour
 
         TimeManager.instance.timeLoss = 1;
 
-        orientation = transform.localScale.x;
         spawnPoint = GameObject.Find("Spawn Point").transform;
         spawnPoint.position = transform.position;
 
@@ -418,9 +418,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!invincible)
         {
-            health--;
+            TimeManager.instance.health--;
 
-            if (health <= 0)
+            if (TimeManager.instance.health <= 0)
             {
                 // Game Over
                 isDead = true;
@@ -431,7 +431,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(InvincibilityEffect(1.5f, 0.1f));
             FlashWhite();
 
-            switch (health)
+            switch (TimeManager.instance.health)
             {
                 case 5:
                     ammoBase.sprite = ammoSprites[0];
@@ -466,8 +466,10 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
 
         TimeManager.instance.slowTime = false;
+        
 
         yield return new WaitForSecondsRealtime(1.3f);
+
         Respawn();
     }
 
@@ -482,10 +484,13 @@ public class PlayerController : MonoBehaviour
         ammoAnim.SetTrigger("Shake");
 
         transform.position = spawnPoint.position;
-        health = 5;
+        TimeManager.instance.health = 5;
+        aim.ammo = 6;
+        aim.ammoAnim.Play("AmmoReload");
         isDead = false;
 
-        switch (health)
+
+        switch (TimeManager.instance.health)
         {
             case 5:
                 ammoBase.sprite = ammoSprites[0];

@@ -31,6 +31,8 @@ public class UIScript : MonoBehaviour
     bool vSyncActive, fullScreen;
     bool quitToggle;
 
+    Canvas canvas;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +42,8 @@ public class UIScript : MonoBehaviour
         }
 
         SetValues();
+
+        canvas = GetComponent<Canvas>();
     }
 
     private void Awake()
@@ -49,9 +53,20 @@ public class UIScript : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
         else
         {
             Destroy(gameObject);
+        }
+
+        SceneManager.activeSceneChanged += OnSceneChange;
+    }
+
+    void OnSceneChange(Scene current, Scene next)
+    {
+        if (canvas != null)
+        {
+            canvas.worldCamera = Camera.main;
         }
     }
 
@@ -139,59 +154,62 @@ public class UIScript : MonoBehaviour
 
     void PauseCheck()
     {
-        if (paused)
+        if (!TimeManager.instance.gameOver)
         {
-            if (Time.timeScale > 0.05)
+            if (paused)
             {
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 1 - Mathf.Exp(-10 * Time.unscaledDeltaTime));
-                Time.fixedDeltaTime = Time.timeScale * 0.02f;
+                if (Time.timeScale > 0.05)
+                {
+                    Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 1 - Mathf.Exp(-10 * Time.unscaledDeltaTime));
+                    Time.fixedDeltaTime = Time.timeScale * 0.02f;
+                }
+
+                else
+                {
+                    Time.timeScale = 0;
+                }
+
+                if (pauseDarken.color.a < 0.65f)
+                {
+                    pauseDarken.color = Color.Lerp(pauseDarken.color, new Color(0, 0, 0, 0.66f), Time.unscaledDeltaTime * 10);
+                }
+
+                else
+                {
+                    pauseDarken.color = new Color(0, 0, 0, 0.66f);
+                }
             }
 
             else
             {
-                Time.timeScale = 0;
+                if (pauseDarken.color.a > 0.05f)
+                {
+                    pauseDarken.color = Color.Lerp(pauseDarken.color, new Color(0, 0, 0, 0f), Time.unscaledDeltaTime * 10);
+                }
+
+                else
+                {
+                    pauseDarken.color = new Color(0, 0, 0, 0);
+                }
             }
 
-            if (pauseDarken.color.a < 0.65f)
+            if (Input.GetKeyDown(KeyCode.Escape) && !TimeManager.instance.isRewinding)
             {
-                pauseDarken.color = Color.Lerp(pauseDarken.color, new Color(0, 0, 0, 0.66f), Time.unscaledDeltaTime * 10);
-            }
+                paused = !paused;
+                TimeManager.instance.normalTime = !paused;
+                pauseAnim.SetBool("Paused", paused);
 
-            else
-            {
-                pauseDarken.color = new Color(0, 0, 0, 0.66f);
-            }
-        }
+                if (!paused)
+                {
+                    Time.timeScale = 1;
+                    Time.fixedDeltaTime = Time.timeScale * 0.02f;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
 
-        else
-        {
-            if (pauseDarken.color.a > 0.05f)
-            {
-                pauseDarken.color = Color.Lerp(pauseDarken.color, new Color(0, 0, 0, 0f), Time.unscaledDeltaTime * 10);
-            }
-
-            else
-            {
-                pauseDarken.color = new Color(0, 0, 0, 0);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && !TimeManager.instance.isRewinding)
-        {
-            paused = !paused;
-            TimeManager.instance.normalTime = !paused;
-            pauseAnim.SetBool("Paused", paused);
-
-            if (!paused)
-            {
-                Time.timeScale = 1;
-                Time.fixedDeltaTime = Time.timeScale * 0.02f;
-                Cursor.lockState = CursorLockMode.Confined;
-            }
-
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                }
             }
         }
     }
@@ -212,11 +230,14 @@ public class UIScript : MonoBehaviour
 
         quitChoice.SetBool("Opened", quitToggle);
         pauseAnim.SetBool("Paused", !quitToggle);
+
+        PlayerPrefs.SetFloat("timeLeft", TimeManager.instance.timeLeft);
+        PlayerPrefs.SetInt("Health", TimeManager.instance.health);
     }
 
     public void ToMenu()
     {
-        quitToggle = !quitToggle;
+        quitToggle = false;
 
         SceneSwitcher.instance.Transition("Main Menu");
         StartCoroutine(DisableMenu());
@@ -228,6 +249,9 @@ public class UIScript : MonoBehaviour
         menuAnim.SetTrigger("Reset");
         pauseAnim.SetBool("Paused", paused);
         quitChoice.SetBool("Opened", quitToggle);
+
+        PlayerPrefs.SetFloat("timeLeft", TimeManager.instance.timeLeft);
+        PlayerPrefs.SetInt("Health", TimeManager.instance.health);
     }
 
     public void Quit()
@@ -396,5 +420,35 @@ public class UIScript : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("resolution", resolution);
+    }
+
+    public void RestartGame()
+    {
+        // Reset all data relating to progression
+
+        RestartValues();
+
+        SceneSwitcher.instance.Transition("Loop1");
+    }
+
+    public void RestartValues()
+    {
+        TimeManager.instance.timeLeft = 720;
+        TimeManager.instance.gameOver = false;
+        TimeManager.instance.waveDone = false;
+        TimeManager.instance.deathTimeElapsed = 0;
+
+        PlayerPrefs.DeleteKey("Health");
+        PlayerPrefs.DeleteKey("timeLeft");
+        PlayerPrefs.DeleteKey("GameOver");
+    }
+
+    public void CloseEndMenu()
+    {
+        RestartValues();
+
+        TimeManager.instance.gameOverAnim.SetBool("GameOver", TimeManager.instance.gameOver);
+
+        TimeManager.instance.ToggleSepia();
     }
 }

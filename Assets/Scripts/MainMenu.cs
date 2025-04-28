@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -10,7 +11,7 @@ public class MainMenu : MonoBehaviour
     Animator anim;
     public Animator mountainAnim, settingsAnim, quitConfirmAnim, playAnim;
     public float startdelay;
-    public Image continueButton;
+    public TextMeshProUGUI continueButton;
 
     public UIScript UI;
 
@@ -30,6 +31,18 @@ public class MainMenu : MonoBehaviour
         if (Input.anyKeyDown && startdelay >= 1.5f)
         {
             StartCoroutine(FlashText());
+        }
+
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            if (TimeManager.instance.saveExists)
+            {
+                continueButton.color = Color.white;
+            }
+            else
+            {
+                continueButton.color = Color.grey;
+            }
         }
     }
 
@@ -65,22 +78,15 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        if (!TimeManager.instance.gameOver)
+        if (TimeManager.instance.saveExists)
         {
-            continueButton.color = Color.white;
-
             mountainAnim.SetBool("InMenu", false);
             playAnim.SetBool("Opened", false);
 
-            TimeManager.instance.health = PlayerPrefs.GetInt("Health");
-            TimeManager.instance.timeLeft = PlayerPrefs.GetInt("timeLeft");
+            TimeManager.instance.LoadValues();
+
             SceneSwitcher.instance.Transition("Loop1");
             StartCoroutine(UI.DisableMenu());
-        }
-
-        else
-        {
-            continueButton.color= Color.grey;
         }
     }
 
@@ -90,6 +96,8 @@ public class MainMenu : MonoBehaviour
         playAnim.SetBool("Opened", false);
 
         UIScript.instance.RestartValues();
+        TimeManager.instance.deathTimeElapsed = 0;
+        TimeManager.instance.saveExists = true;
 
         SceneSwitcher.instance.Transition("Loop1");
         StartCoroutine(UI.DisableMenu());
@@ -115,6 +123,8 @@ public class MainMenu : MonoBehaviour
     {
         mountainAnim.SetBool("InMenu", false);
         quitConfirmAnim.SetBool("Opened", false);
+
+        TimeManager.instance.SaveValues();
 
         Application.Quit();
     }

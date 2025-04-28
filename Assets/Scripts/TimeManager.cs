@@ -41,6 +41,10 @@ public class TimeManager : MonoBehaviour
 
     public int health;
 
+    public bool saveExists;
+
+    public int carriagesPassed;
+
     #region singleton
 
     private void Awake()
@@ -57,7 +61,6 @@ public class TimeManager : MonoBehaviour
         }
 
         SceneManager.activeSceneChanged += OnSceneChange;
-        //gameOver = PlayerPrefs.GetInt("gameOver" ? 1 : 0);
     }
 
     #endregion
@@ -65,7 +68,7 @@ public class TimeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        LoadValues();
     }
 
     // Update is called once per frame
@@ -152,13 +155,61 @@ public class TimeManager : MonoBehaviour
                 {
                     // Game run ends
                     gameOverAnim.SetBool("GameOver", gameOver);
-                }
-                
+                }   
             }
-
-            
-
         }
+    }
+
+    public void LoadValues()
+    {
+        if (PlayerPrefs.HasKey("Health"))
+        {
+            health = PlayerPrefs.GetInt("Health");
+        }
+
+        else
+        {
+            health = 5;
+        }
+
+        if (PlayerPrefs.HasKey("TimeLeft"))
+        {
+            timeLeft = PlayerPrefs.GetFloat("TimeLeft");
+        }
+
+        else
+        {
+            timeLeft = 720;
+        }
+
+        if (PlayerPrefs.HasKey("saveExists"))
+        {
+            saveExists = PlayerPrefs.GetInt("saveExists") == 1;
+        }
+
+        else
+        {
+            saveExists = false;
+        }
+
+        if (PlayerPrefs.HasKey("carriagesPassed"))
+        {
+            carriagesPassed = PlayerPrefs.GetInt("carriagesPassed");
+        }
+
+        else
+        {
+            carriagesPassed = 0;
+        }
+    }
+
+    public void SaveValues()
+    {
+        PlayerPrefs.SetFloat("TimeLeft", timeLeft);
+        PlayerPrefs.SetInt("Health", health);
+        PlayerPrefs.SetInt("saveExists", saveExists ? 1 : 0);
+        PlayerPrefs.SetInt("carriagesPassed", carriagesPassed);
+        PlayerPrefs.Save();
     }
 
     void TimeCalc()
@@ -408,8 +459,6 @@ public class TimeManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetFloat("timeLeft", timeLeft);
-        PlayerPrefs.SetInt("Health", health);
-        PlayerPrefs.SetInt("GameOver", gameOver ? 1 : 0);
+        SaveValues();
     }
 }

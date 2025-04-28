@@ -5387,8 +5387,14 @@ MonoBehaviour:
   comboAmount: 0
   shockwaveMat: {fileID: 2100000, guid: ecf04b46f49018a46822a1b012dd1729, type: 2}
   sepiaMat: {fileID: 2100000, guid: e51b21cf30c25324f8e68d41acbec42c, type: 2}
+  deathTimeElapsed: 0
+  sepiaLerp: 0
+  waveDone: 0
+  sepiaActive: 0
   gameOver: 0
   gameOverAnim: {fileID: 1692889604}
+  health: 5
+  saveExists: 0
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0
@@ -18825,6 +18831,7 @@ MonoBehaviour:
   quitConfirmAnim: {fileID: 1270878183}
   playAnim: {fileID: 516614952}
   startdelay: 0
+  continueButton: {fileID: 1230023754}
   UI: {fileID: 399147684}
 --- !u!1 &2115922015
 GameObject:

@@ -230,9 +230,6 @@ public class UIScript : MonoBehaviour
 
         quitChoice.SetBool("Opened", quitToggle);
         pauseAnim.SetBool("Paused", !quitToggle);
-
-        PlayerPrefs.SetFloat("timeLeft", TimeManager.instance.timeLeft);
-        PlayerPrefs.SetInt("Health", TimeManager.instance.health);
     }
 
     public void ToMenu()
@@ -250,14 +247,15 @@ public class UIScript : MonoBehaviour
         pauseAnim.SetBool("Paused", paused);
         quitChoice.SetBool("Opened", quitToggle);
 
-        PlayerPrefs.SetFloat("timeLeft", TimeManager.instance.timeLeft);
-        PlayerPrefs.SetInt("Health", TimeManager.instance.health);
+        TimeManager.instance.SaveValues();
     }
 
     public void Quit()
     {
         SceneSwitcher.instance.Transition("Main Menu");
         StartCoroutine(DisableMenu());
+
+        TimeManager.instance.SaveValues();
 
         Application.Quit();
     }
@@ -424,8 +422,6 @@ public class UIScript : MonoBehaviour
 
     public void RestartGame()
     {
-        // Reset all data relating to progression
-
         RestartValues();
 
         SceneSwitcher.instance.Transition("Loop1");
@@ -433,14 +429,15 @@ public class UIScript : MonoBehaviour
 
     public void RestartValues()
     {
+        // Reset all data relating to progression
         TimeManager.instance.timeLeft = 720;
         TimeManager.instance.gameOver = false;
         TimeManager.instance.waveDone = false;
+        TimeManager.instance.health = 5;
         TimeManager.instance.deathTimeElapsed = 0;
+        TimeManager.instance.carriagesPassed = 0;
 
-        PlayerPrefs.DeleteKey("Health");
-        PlayerPrefs.DeleteKey("timeLeft");
-        PlayerPrefs.DeleteKey("GameOver");
+        TimeManager.instance.SaveValues();
     }
 
     public void CloseEndMenu()

@@ -97,6 +97,25 @@ public class PlayerController : MonoBehaviour
         {
             distortion = lensD;
         }
+
+        switch (TimeManager.instance.health)
+        {
+            case 5:
+                ammoBase.sprite = ammoSprites[0];
+                break;
+            case 4:
+                ammoBase.sprite = ammoSprites[1];
+                break;
+            case 3:
+                ammoBase.sprite = ammoSprites[2];
+                break;
+            case 2:
+                ammoBase.sprite = ammoSprites[3];
+                break;
+            case 1:
+                ammoBase.sprite = ammoSprites[4];
+                break;
+        }
     }
 
     void Update()
@@ -612,6 +631,8 @@ public class PlayerController : MonoBehaviour
             levelManager.currentCarriage++;
             levelManager.FollowLogic();
             levelManager.ActivateEnemies();
+
+            TimeManager.instance.carriagesPassed += 1;
 
             spawnPoint.position = transform.position;
         }

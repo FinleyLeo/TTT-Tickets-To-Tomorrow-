@@ -61,7 +61,7 @@ Material:
     - _Size: 0.15
     - _SizeRatio: 1.777
     - _Speed: 0.4
-    - _UnscaledTime: 2.6035914
+    - _UnscaledTime: 2.601777
     - _isActive: 1
     m_Colors:
     - _FocalPoint: {r: 0.1, g: 0.8, b: 0, a: 0}

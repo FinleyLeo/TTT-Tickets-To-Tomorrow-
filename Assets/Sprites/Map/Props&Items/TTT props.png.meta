@@ -3,32 +3,35 @@ guid: bce7930793fe9a64bb12e04b3008da3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7656119283613024561
-    second: TTT props 1_0
+      213: -68679790496459400
+    second: TTT props_0
   - first:
-      213: 7169885250712373602
-    second: TTT props 1_1
+      213: -738015554477803633
+    second: TTT props_1
   - first:
-      213: -1780482369693507788
-    second: TTT props 1_2
+      213: -3001405575999450060
+    second: TTT props_2
   - first:
-      213: 3784484958421286112
-    second: TTT props 1_3
+      213: -7206346156758390510
+    second: TTT props_3
   - first:
-      213: -8170249043626535889
-    second: TTT props 1_4
+      213: 3886982284999917158
+    second: TTT props_4
   - first:
-      213: 6970070555210079889
-    second: TTT props 1_5
+      213: 7250085497864995596
+    second: TTT props_5
   - first:
-      213: 4878787604091164634
-    second: TTT props 1_6
+      213: -1117112661194450373
+    second: TTT props_6
   - first:
-      213: -5841358024346926139
-    second: TTT props 1_7
+      213: 7168269700845086500
+    second: TTT props_7
   - first:
-      213: 4056008245059609291
-    second: TTT props 1_8
+      213: -8961339673210043068
+    second: TTT props_8
+  - first:
+      213: 2862094647874235903
+    second: TTT props_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TTT props 1_0
+      name: TTT props_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fce3a3e431000c590800000000000000
-      internalID: -7656119283613024561
+      spriteID: 875d53c28100c0ff0800000000000000
+      internalID: -68679790496459400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_1
+      name: TTT props_1
       rect:
         serializedVersion: 2
         x: 8
@@ -161,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2690609d5ac808360800000000000000
-      internalID: 7169885250712373602
+      spriteID: f8733ac63ca02c5f0800000000000000
+      internalID: -738015554477803633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_2
+      name: TTT props_2
       rect:
         serializedVersion: 2
         x: 16
@@ -183,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43f9299d7b47a47e0800000000000000
-      internalID: -1780482369693507788
+      spriteID: 4341dafd78dd856d0800000000000000
+      internalID: -3001405575999450060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_3
+      name: TTT props_3
       rect:
         serializedVersion: 2
         x: 24
@@ -205,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ec7284c401358430800000000000000
-      internalID: 3784484958421286112
+      spriteID: 2192aede95aedfb90800000000000000
+      internalID: -7206346156758390510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_4
+      name: TTT props_4
       rect:
         serializedVersion: 2
-        x: 31
-        y: 45
-        width: 14
-        height: 14
+        x: 32
+        y: 46
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f245a2c58c17d9e80800000000000000
-      internalID: -8170249043626535889
+      spriteID: 66ef7a94bc551f530800000000000000
+      internalID: 3886982284999917158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_5
+      name: TTT props_5
       rect:
         serializedVersion: 2
         x: 44
@@ -249,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19ed4bead3aaab060800000000000000
-      internalID: 6970070555210079889
+      spriteID: c034473095a7d9460800000000000000
+      internalID: 7250085497864995596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_6
+      name: TTT props_6
       rect:
         serializedVersion: 2
         x: 1
@@ -271,19 +274,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad7de6c1a7fe4b340800000000000000
-      internalID: 4878787604091164634
+      spriteID: b3ad96f04f73f70f0800000000000000
+      internalID: -1117112661194450373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_7
+      name: TTT props_7
       rect:
         serializedVersion: 2
-        x: 37
+        x: 9
         y: 36
-        width: 10
+        width: 3
         height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -293,14 +296,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c38ce063d35feea0800000000000000
-      internalID: -5841358024346926139
+      spriteID: 4272115505fca7360800000000000000
+      internalID: 7168269700845086500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_8
+      name: TTT props_8
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44543b2eb0de2a380800000000000000
+      internalID: -8961339673210043068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT props_9
       rect:
         serializedVersion: 2
         x: 1
@@ -315,58 +340,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc265dc5206d94830800000000000000
-      internalID: 4056008245059609291
+      spriteID: ffd27101be338b720800000000000000
+      internalID: 2862094647874235903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_9
+      name: TTT props_10
       rect:
         serializedVersion: 2
-        x: 27
-        y: 34
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e643f864d4a632489bbc54c8d3a701a
-      internalID: 737218061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TTT props 1_10
-      rect:
-        serializedVersion: 2
-        x: 21
+        x: 38
         y: 37
-        width: 4
+        width: 8
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2404ec39dfa494f4aa16d18a40401909
-      internalID: 1445926041
+      spriteID: d47fbdaa3bb50e046bbcbb1201d902ea
+      internalID: -899090620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_11
+      name: TTT props_11
       rect:
         serializedVersion: 2
         x: 15
@@ -374,37 +377,59 @@ TextureImporter:
         width: 2
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 534a7052b1408d841b1020dd9e7c654b
-      internalID: 1368838686
+      spriteID: 051dafb48ba5ff247b9b744ec3cbcd23
+      internalID: 806467471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TTT props 1_12
+      name: TTT props_12
       rect:
         serializedVersion: 2
-        x: 9
-        y: 36
-        width: 3
-        height: 5
+        x: 21
+        y: 37
+        width: 4
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97320f68eb17b6349871ac1c225233d4
-      internalID: 2007864700
+      spriteID: cad6957e4e5596f45ad1386e84d2825f
+      internalID: 1115834609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TTT props_13
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 34
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247cec42dbb89c14a9e19d182b56679c
+      internalID: 476680735
       vertices: []
       indices: 
       edges: []
@@ -413,7 +438,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 263f2f25128e51d489166e9dac786c85
+    spriteID: 8b3409a9bd5621d41b537c95fc4af9c5
     internalID: 0
     vertices: []
     indices: 
@@ -423,19 +448,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TTT props 1_0: -7656119283613024561
-      TTT props 1_1: 7169885250712373602
-      TTT props 1_10: 1445926041
-      TTT props 1_11: 1368838686
-      TTT props 1_12: 2007864700
-      TTT props 1_2: -1780482369693507788
-      TTT props 1_3: 3784484958421286112
-      TTT props 1_4: -8170249043626535889
-      TTT props 1_5: 6970070555210079889
-      TTT props 1_6: 4878787604091164634
-      TTT props 1_7: -5841358024346926139
-      TTT props 1_8: 4056008245059609291
-      TTT props 1_9: 737218061
+      TTT props_0: -68679790496459400
+      TTT props_1: -738015554477803633
+      TTT props_10: -899090620
+      TTT props_11: 806467471
+      TTT props_12: 1115834609
+      TTT props_13: 476680735
+      TTT props_2: -3001405575999450060
+      TTT props_3: -7206346156758390510
+      TTT props_4: 3886982284999917158
+      TTT props_5: 7250085497864995596
+      TTT props_6: -1117112661194450373
+      TTT props_7: 7168269700845086500
+      TTT props_8: -8961339673210043068
+      TTT props_9: 2862094647874235903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

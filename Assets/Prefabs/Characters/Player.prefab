@@ -353,7 +353,6 @@ MonoBehaviour:
   wallJumpPower: {x: -0.75, y: 0.8}
   slideSpeed: 1500
   isSliding: 0
-  health: 5
   invincible: 0
   isDead: 0
   Dust: {fileID: 4687327108155944375}
@@ -380,6 +379,8 @@ MonoBehaviour:
   gun: {fileID: 148670968604792337}
   shootPoint: {fileID: 2916627442502097216}
   bullet: {fileID: 1057965647031810841, guid: f1f3f9239e0e642439a7ba760ce5f757, type: 3}
+  ammoAnim: {fileID: 0}
+  ammo: 6
   shell: {fileID: 9213126705478175310}
 --- !u!50 &3012725799641797138
 Rigidbody2D:

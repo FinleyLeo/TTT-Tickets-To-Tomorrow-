@@ -35,6 +35,8 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("RightDoor") || collision.gameObject.CompareTag("LeftDoor"))
         {
+            AudioManager.instance.PlaySFX("WallHit");
+
             Destroy(gameObject);
         }
 

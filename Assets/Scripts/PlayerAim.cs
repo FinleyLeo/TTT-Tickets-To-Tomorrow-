@@ -67,9 +67,17 @@ public class PlayerAim : MonoBehaviour
 
         cooldown -= Time.unscaledDeltaTime;
 
-        if (Input.GetMouseButtonDown(0) && cooldown <= 0 && ammo > 0 && !reloading)
+        if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            if (cooldown <= 0 && ammo > 0 && !reloading)
+            {
+                Shoot();
+            }
+
+            else
+            {
+                AudioManager.instance.PlaySFX("ShootEmpty");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && ammo != 6 && !reloading)
@@ -86,6 +94,7 @@ public class PlayerAim : MonoBehaviour
         if (ammoAnim != null)
         {
             ammoAnim.Play("AmmoReload");
+            AudioManager.instance.PlaySFX("Reload");
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -128,5 +137,7 @@ public class PlayerAim : MonoBehaviour
 
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, shootPoint.transform.rotation.eulerAngles.z));
         temp.tag = "Player";
+
+        AudioManager.instance.PlaySFXWithPitch("Shoot", Random.Range(0.8f, 1.2f));
     }
 }

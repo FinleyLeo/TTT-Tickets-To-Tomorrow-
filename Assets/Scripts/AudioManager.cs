@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     public AudioMixer musicMixer;
     public AudioMixer SFXMixer;
 
+    public float defaultPitch = 1f;
+
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +34,49 @@ public class AudioManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
+    {
+        SetValues();
+        PlayMusic("Menu");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        PitchCalc();
+    }
+
+    void PitchCalc()
+    {
+        if (TimeManager.instance.slowTime || UIScript.instance.paused)
+        {
+            if (defaultPitch > 0.4f)
+            {
+                defaultPitch = Mathf.Lerp(defaultPitch, 0.4f, Time.unscaledDeltaTime * 6);
+            }
+
+            else
+            {
+                defaultPitch = 0.4f;
+            }
+        }
+
+        else
+        {
+            if (defaultPitch < 1f)
+            {
+                defaultPitch = Mathf.Lerp(defaultPitch, 1f, Time.unscaledDeltaTime * 6);
+            }
+
+            else
+            {
+                defaultPitch = 1f;
+            }
+        }
+
+        musicSource.pitch = defaultPitch;
+    }
+
+    void SetValues()
     {
         if (PlayerPrefs.HasKey("sfxVol"))
         {
@@ -60,13 +105,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void PlaySFX(string name, float pitch)
+    public void PlaySFXWithPitch(string name, float pitch)
     {
         Sound s = Array.Find(SFXSounds, x => x.soundName == name);
 
@@ -77,12 +116,31 @@ public class AudioManager : MonoBehaviour
 
         else
         {
-            SFXSource.pitch = pitch;
+            SFXSource.pitch = pitch * defaultPitch;
             SFXSource.PlayOneShot(s.sound);
         }
     }
 
-    public void PlayMusic(string name, float pitch)
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(SFXSounds, x => x.soundName == name);
+        if (s == null)
+        {
+            print("sound not found");
+        }
+        else
+        {
+            SFXSource.pitch = defaultPitch;
+            SFXSource.PlayOneShot(s.sound);
+        }
+    }
+
+    public void StopSFX()
+    {
+        SFXSource.Stop();
+    }
+
+    public void PlayMusic(string name)
     {
         Sound s = Array.Find(musicSounds, x => x.soundName == name);
 
@@ -94,7 +152,6 @@ public class AudioManager : MonoBehaviour
         else
         {
             musicSource.clip = s.sound;
-            musicSource.pitch = pitch;
             musicSource.Play();
         }
     }

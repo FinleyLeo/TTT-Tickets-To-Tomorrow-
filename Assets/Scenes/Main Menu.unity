@@ -5395,6 +5395,7 @@ MonoBehaviour:
   gameOverAnim: {fileID: 1692889604}
   health: 5
   saveExists: 0
+  carriagesPassed: 0
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0
@@ -9206,6 +9207,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2109274000}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: BottleClink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &939193998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9283,6 +9296,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Switch
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2109274000}
+          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+          m_MethodName: BottleClink
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
@@ -9537,6 +9562,7 @@ GameObject:
   - component: {fileID: 974105646}
   - component: {fileID: 974105645}
   - component: {fileID: 974105648}
+  - component: {fileID: 974105649}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -9685,6 +9711,35 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
+--- !u!114 &974105649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974105643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 399147684}
+          m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+          m_MethodName: ButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &981859460
 GameObject:
   m_ObjectHideFlags: 0
@@ -13065,6 +13120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 125927953}
+  - {fileID: 1970085634}
   - {fileID: 104909081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13085,19 +13141,93 @@ MonoBehaviour:
   p_sfxSlider: {fileID: 1923228641}
   p_musicSlider: {fileID: 1924553314}
   SFXSounds:
-  - soundName: 
-    sound: {fileID: 0}
+  - soundName: WallHit
+    sound: {fileID: 8300000, guid: 1db4ff09f3244f04796d28b97a89fdea, type: 3}
+  - soundName: PlayerHit
+    sound: {fileID: 8300000, guid: 236f5f4e8b0ad514a90561ac5936a327, type: 3}
+  - soundName: EnemyHit
+    sound: {fileID: 8300000, guid: cdc52abe0d4eefd4bb10838b28278449, type: 3}
+  - soundName: ButtonClick
+    sound: {fileID: 8300000, guid: 0c0b4c626a8c15644a6fe6fcc5c48af8, type: 3}
+  - soundName: ButtonHover
+    sound: {fileID: 8300000, guid: 450e739be7f7839409e3b752ffc6710a, type: 3}
+  - soundName: Clink1
+    sound: {fileID: 8300000, guid: 72bdf5a621b85544cb043294bb0790b1, type: 3}
+  - soundName: Clink2
+    sound: {fileID: 8300000, guid: 07f5b79e1fe10674aa41727ea0045c4c, type: 3}
+  - soundName: Clink3
+    sound: {fileID: 8300000, guid: 445630461169fbc448603af87853fd82, type: 3}
+  - soundName: Dialogue
+    sound: {fileID: 8300000, guid: 88f882ad1aef2a94881fe67ed918f38a, type: 3}
+  - soundName: ShootEmpty
+    sound: {fileID: 8300000, guid: 90b8a464719eea34fbc889be7450cd6b, type: 3}
+  - soundName: Shoot
+    sound: {fileID: 8300000, guid: 2ec9185f24a532a4b8a1679b9aed36ca, type: 3}
+  - soundName: GameOver
+    sound: {fileID: 8300000, guid: 699caa7037e7f5942962cdf3ae90dc8c, type: 3}
+  - soundName: Shatter
+    sound: {fileID: 8300000, guid: cd1759553bd0cac46983b86cd74ad1a1, type: 3}
+  - soundName: IntroGuitar
+    sound: {fileID: 8300000, guid: af9de959ba753f1478d1ee2c177beaa3, type: 3}
+  - soundName: PlayerJump
+    sound: {fileID: 8300000, guid: 32a4cfea1063bcd4c955d0c2ee98548a, type: 3}
+  - soundName: PlayerLand
+    sound: {fileID: 8300000, guid: 3b7a6cf4a684fcc4e9cfe0c2e013a1f4, type: 3}
+  - soundName: PlayerSlide
+    sound: {fileID: 8300000, guid: e364801207c743844ae4d5b470784f5b, type: 3}
+  - soundName: PlayerWallSlide
+    sound: {fileID: 8300000, guid: 7dde854258f6c16439bc6b0b67c4cdfb, type: 3}
+  - soundName: PlayerCrouch
+    sound: {fileID: 8300000, guid: 6ec523c10ad768349a8329d197d8b31e, type: 3}
+  - soundName: PlayerUncrouch
+    sound: {fileID: 8300000, guid: 76a9f59298a0f0e4fa3124a7dfe40ddc, type: 3}
+  - soundName: PressPlay
+    sound: {fileID: 8300000, guid: 6aba753a0add2da4c8f93ba146f1250f, type: 3}
+  - soundName: RadioStart
+    sound: {fileID: 8300000, guid: 949132e5fdbc95647bbc9ec7dddf318b, type: 3}
+  - soundName: RadioYap
+    sound: {fileID: 8300000, guid: 6f9f8371dca49874abbe3b8de6b6e8ad, type: 3}
+  - soundName: RadioYap1
+    sound: {fileID: 8300000, guid: 7465f8a98825b264ca599b2f38310d66, type: 3}
+  - soundName: RadioYap2
+    sound: {fileID: 8300000, guid: 5d1ff6afd8152d94ab03e2fb069939d0, type: 3}
+  - soundName: RadioYap3
+    sound: {fileID: 8300000, guid: 06c9c62df58b59549b5b6bd3c7cbbbf6, type: 3}
+  - soundName: Reload
+    sound: {fileID: 8300000, guid: fd31207287f1f524cba5929996c21da9, type: 3}
+  - soundName: EchoTick
+    sound: {fileID: 8300000, guid: c5d656c0a9d40064eb2001da7777d9c2, type: 3}
+  - soundName: SlowIn
+    sound: {fileID: 8300000, guid: e9b59b62344833f4d9f6d0c3b57cb71a, type: 3}
+  - soundName: SlowOut
+    sound: {fileID: 8300000, guid: 400bddd6484b0314db1c3f412d80fb76, type: 3}
+  - soundName: Step1
+    sound: {fileID: 8300000, guid: f53398d0fd5fb4748a5d8e3e47dd0dfe, type: 3}
+  - soundName: Step2
+    sound: {fileID: 8300000, guid: 35151e3721539ff43bc2e6201d39cfb8, type: 3}
+  - soundName: Step3
+    sound: {fileID: 8300000, guid: 975e3048c5710dd41913236dbae7338f, type: 3}
+  - soundName: Step4
+    sound: {fileID: 8300000, guid: c07b58fb800173c4bbbf2d48e432ed78, type: 3}
+  - soundName: Tick1
+    sound: {fileID: 8300000, guid: 5dfdd77cd4577ac468bdb4c91c4aea2c, type: 3}
+  - soundName: Tick2
+    sound: {fileID: 8300000, guid: 05d17c8bab43dc54d9d173a90686c396, type: 3}
   musicSounds:
   - soundName: Menu
-    sound: {fileID: 0}
-  - soundName: Loop
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: d064e64576443a140994d54a511b31f1, type: 3}
+  - soundName: Game
+    sound: {fileID: 8300000, guid: 71db96a8654292740ab33284ddaccdd8, type: 3}
+  - soundName: PreBoss
+    sound: {fileID: 8300000, guid: 8608d639fdfd51143ba849305c703d34, type: 3}
   - soundName: Boss
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 9b9774dcaeb1dc548bd2033c5c7c31dc, type: 3}
   SFXSource: {fileID: 125927954}
+  LoopingSFX: {fileID: 0}
   musicSource: {fileID: 104909082}
   musicMixer: {fileID: 24100000, guid: de81cf7b47eac314f8615a5b8a230f53, type: 2}
   SFXMixer: {fileID: 24100000, guid: 705349c40a343084f922d9c7f49992a5, type: 2}
+  defaultPitch: 1
 --- !u!1 &1379151812
 GameObject:
   m_ObjectHideFlags: 0
@@ -14711,6 +14841,7 @@ GameObject:
   - component: {fileID: 1585400113}
   - component: {fileID: 1585400112}
   - component: {fileID: 1585400111}
+  - component: {fileID: 1585400115}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -14859,6 +14990,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585400109}
   m_CullTransparentMesh: 1
+--- !u!114 &1585400115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585400109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 399147684}
+          m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+          m_MethodName: ButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1593894777
 GameObject:
   m_ObjectHideFlags: 0
@@ -16367,6 +16527,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2109274000}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: BottleClink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1842622770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16444,6 +16616,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Switch
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2109274000}
+          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+          m_MethodName: BottleClink
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
@@ -17716,6 +17900,18 @@ MonoBehaviour:
             m_StringArgument: Switch
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 2109274000}
+          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+          m_MethodName: BottleClink
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -17819,6 +18015,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969846961}
   m_CullTransparentMesh: 1
+--- !u!1 &1970085633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970085634}
+  - component: {fileID: 1970085635}
+  m_Layer: 0
+  m_Name: Looping SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970085634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970085633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1371784537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1970085635
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970085633}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 705349c40a343084f922d9c7f49992a5, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1975125400
 GameObject:
   m_ObjectHideFlags: 0

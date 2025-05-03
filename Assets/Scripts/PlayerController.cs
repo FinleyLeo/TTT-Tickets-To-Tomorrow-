@@ -374,6 +374,8 @@ public class PlayerController : MonoBehaviour
     {
         if (wallSliding && !wallJumped)
         {
+            AudioManager.instance.StopSFX();
+            AudioManager.instance.PlaySFX("PlayerJump");
             wallJumped = true;
             wallSliding = false;
             anim.SetTrigger("Jump");
@@ -449,6 +451,8 @@ public class PlayerController : MonoBehaviour
             Camera.main.GetComponent<CameraController>().Shake(1.5f, 0.1f, 0.2f);
             StartCoroutine(InvincibilityEffect(1.5f, 0.1f));
             FlashWhite();
+
+            AudioManager.instance.PlaySFX("PlayerHit");
 
             switch (TimeManager.instance.health)
             {
@@ -643,6 +647,32 @@ public class PlayerController : MonoBehaviour
             levelManager.DeactivateEnemies();
             levelManager.currentCarriage--;
             levelManager.FollowLogic();
+        }
+    }
+
+    public void PlayAnimSound(string sound)
+    {
+        AudioManager.instance.PlaySFX(sound);
+    }
+
+    public void Footsteps()
+    {
+        int ran = Random.Range(0, 3);
+
+        switch (ran)
+        {
+            case 0:
+                AudioManager.instance.PlaySFX("Step1");
+                break;
+            case 1:
+                AudioManager.instance.PlaySFX("Step2");
+                break;
+            case 2:
+                AudioManager.instance.PlaySFX("Step3");
+                break;
+            case 3:
+                AudioManager.instance.PlaySFX("Step4");
+                break;
         }
     }
 }

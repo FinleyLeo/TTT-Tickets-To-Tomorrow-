@@ -247,6 +247,7 @@ public class UIScript : MonoBehaviour
         pauseAnim.SetBool("Paused", paused);
         quitChoice.SetBool("Opened", quitToggle);
 
+        AudioManager.instance.PlayMusic("Menu");
         TimeManager.instance.SaveValues();
     }
 
@@ -422,9 +423,18 @@ public class UIScript : MonoBehaviour
 
     public void RestartGame()
     {
-        RestartValues();
+        TimeManager.instance.timeLeft = 720;
+        TimeManager.instance.gameOver = false;
+        TimeManager.instance.waveDone = false;
+        TimeManager.instance.health = 5;
+        TimeManager.instance.deathTimeElapsed = 0;
+        TimeManager.instance.carriagesPassed = 0;
+
+        TimeManager.instance.SaveValues();
 
         SceneSwitcher.instance.Transition("Loop1");
+
+        AudioManager.instance.PlayMusic("Game");
     }
 
     public void RestartValues()
@@ -436,6 +446,7 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.health = 5;
         TimeManager.instance.deathTimeElapsed = 0;
         TimeManager.instance.carriagesPassed = 0;
+        TimeManager.instance.saveExists = false;
 
         TimeManager.instance.SaveValues();
     }
@@ -447,5 +458,12 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.gameOverAnim.SetBool("GameOver", TimeManager.instance.gameOver);
 
         TimeManager.instance.ToggleSepia();
+
+        AudioManager.instance.PlaySFXWithPitch("ButtonClick", 1f);
+    }
+
+    public void ButtonHover()
+    {
+        AudioManager.instance.PlaySFXWithPitch("ButtonHover", 1f);
     }
 }

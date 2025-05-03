@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     public float startdelay;
     public TextMeshProUGUI continueButton;
 
+    bool menuOpen = false;
+
     public UIScript UI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +23,8 @@ public class MainMenu : MonoBehaviour
         anim = GetComponent<Animator>();
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02f;
+
+        AudioManager.instance.PlaySFX("IntroGuitar");
     }
 
     // Update is called once per frame
@@ -28,9 +32,12 @@ public class MainMenu : MonoBehaviour
     {
         startdelay += Time.deltaTime;
 
-        if (Input.anyKeyDown && startdelay >= 1.5f)
+        if (Input.anyKeyDown && startdelay >= 1f && !menuOpen)
         {
+            menuOpen = true;
             StartCoroutine(FlashText());
+
+            AudioManager.instance.PlaySFX("PressPlay");
         }
 
         if (SceneManager.GetActiveScene().name == "Main Menu")
@@ -39,6 +46,7 @@ public class MainMenu : MonoBehaviour
             {
                 continueButton.color = Color.white;
             }
+
             else
             {
                 continueButton.color = Color.grey;
@@ -74,6 +82,9 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetBool("InMenu", true);
 
         playAnim.SetBool("Opened", true);
+
+        AudioManager.instance.PlaySFX("Shatter");
+        AudioManager.instance.PlaySFX("Shoot");
     }
 
     public void Continue()
@@ -87,6 +98,10 @@ public class MainMenu : MonoBehaviour
 
             SceneSwitcher.instance.Transition("Loop1");
             StartCoroutine(UI.DisableMenu());
+
+            menuOpen = false;
+
+            AudioManager.instance.PlayMusic("Game");
         }
     }
 
@@ -101,6 +116,10 @@ public class MainMenu : MonoBehaviour
 
         SceneSwitcher.instance.Transition("Loop1");
         StartCoroutine(UI.DisableMenu());
+
+        menuOpen = false;
+
+        AudioManager.instance.PlayMusic("Game");
     }
 
     public void OpenOptions()
@@ -109,6 +128,9 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetBool("InMenu", true);
 
         settingsAnim.SetBool("Opened", true);
+
+        AudioManager.instance.PlaySFX("Shatter");
+        AudioManager.instance.PlaySFX("Shoot");
     }
 
     public void QuitGame()
@@ -117,6 +139,9 @@ public class MainMenu : MonoBehaviour
         mountainAnim.SetBool("InMenu", true);
 
         quitConfirmAnim.SetBool("Opened", true);
+
+        AudioManager.instance.PlaySFX("Shatter");
+        AudioManager.instance.PlaySFX("Shoot");
     }
 
     public void ConfirmQuit()
@@ -139,5 +164,30 @@ public class MainMenu : MonoBehaviour
     {
         mountainAnim.SetBool("InMenu", false);
         settingsAnim.SetBool("Opened", false);
+    }
+
+    public void BottleClink()
+    {
+        int ran = Random.Range(0, 2);
+        int x = Random.Range(-2, 3);
+        float pitch = 1;
+
+        for (int i = 0; i < x; i++)
+        {
+            pitch *= 1.059463f;
+        }
+
+        switch (ran)
+        {
+            case 0:
+                AudioManager.instance.PlaySFXWithPitch("Clink1", pitch);
+                break;
+            case 1:
+                AudioManager.instance.PlaySFXWithPitch("Clink2", pitch);
+                break;
+            case 2:
+                AudioManager.instance.PlaySFXWithPitch("Clink3", pitch);
+                break;
+        }
     }
 }

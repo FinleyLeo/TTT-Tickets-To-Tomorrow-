@@ -231,6 +231,8 @@ public class EnemyScript : MonoBehaviour
         Camera.main.GetComponent<CameraController>().Shake(0.5f, 0.1f, 0.1f);
         FlashWhite();
 
+        AudioManager.instance.PlaySFX("EnemyHit");
+
         health--;
 
         if (health <= 0)
@@ -255,6 +257,8 @@ public class EnemyScript : MonoBehaviour
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
         cam.Shake(0.25f, 0.1f, 0.1f);
         temp.tag = "Enemy";
+
+        AudioManager.instance.PlaySFXWithPitch("Shoot", Random.Range(0.8f, 1.2f));
 
         yield return new WaitForSeconds(shootSpeed);
 

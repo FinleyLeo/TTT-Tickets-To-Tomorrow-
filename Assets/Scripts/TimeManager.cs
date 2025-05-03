@@ -38,6 +38,7 @@ public class TimeManager : MonoBehaviour
 
     public bool gameOver;
     public Animator gameOverAnim;
+    bool gameOverSoundPlayed = false;
 
     public int health;
 
@@ -116,6 +117,12 @@ public class TimeManager : MonoBehaviour
             {
                 if (!waveDone)
                 {
+                    if (!gameOverSoundPlayed)
+                    {
+                        gameOverSoundPlayed = true;
+                        AudioManager.instance.PlaySFX("GameOver");
+                    }
+
                     deathTimeElapsed += Time.unscaledDeltaTime;
 
                     shockwaveMat.SetFloat("_isActive", 1);
@@ -214,18 +221,20 @@ public class TimeManager : MonoBehaviour
 
     void TimeCalc()
     {
-        secondsLeft = Mathf.RoundToInt(timeLeft % 60);
+        secondsLeft = Mathf.FloorToInt(timeLeft % 60);
         minutesLeft = Mathf.FloorToInt(timeLeft / 60);
 
         // Plays sound when ticks
 
         if (previousSec != secondsLeft)
         {
+            previousSec = secondsLeft;
+
             if (timeLoss < 6)
             {
                 secondFacade = false;
-                previousSec = secondsLeft;
-                Debug.Log("Second hand Ticked");
+
+                AudioManager.instance.PlaySFX("Tick1");
             }
 
             else
@@ -242,7 +251,8 @@ public class TimeManager : MonoBehaviour
         if (previousMin != minutesLeft)
         {
             previousMin = minutesLeft;
-            Debug.Log("Minute Hand Ticked");
+
+            AudioManager.instance.PlaySFX("Tick2");
         }
     }
 
@@ -294,6 +304,8 @@ public class TimeManager : MonoBehaviour
                 normalTime = false;
                 slowTime = true;
                 timeLoss = 3;
+
+                AudioManager.instance.PlaySFX("SlowIn");
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -315,6 +327,8 @@ public class TimeManager : MonoBehaviour
         {
             slowActive = false;
             StartCoroutine(SlowDelay());
+
+            AudioManager.instance.PlaySFX("SlowOut");
 
             if (!UIScript.instance.paused)
             {
@@ -447,7 +461,7 @@ public class TimeManager : MonoBehaviour
 
     IEnumerator SecFacade()
     {
-        print("second hand ticked (facade)");
+        AudioManager.instance.PlaySFX("EchoTick");
 
         yield return new WaitForSecondsRealtime(0.5f);
 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TTT Logo_0: 6510440031573652089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

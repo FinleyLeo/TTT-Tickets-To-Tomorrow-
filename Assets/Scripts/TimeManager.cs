@@ -45,11 +45,13 @@ public class TimeManager : MonoBehaviour
 
     public bool saveExists;
 
+    public bool inDialogue;
     public int carriagesPassed;
 
     // Tutorial vars
 
-    public bool hasGun, hasWatch;
+    public bool hasWatch;
+    public bool tutorialComplete;
 
     #region singleton
 
@@ -80,7 +82,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Main Menu")
+        if (SceneManager.GetActiveScene().name != "Main Menu" && hasWatch)
         {
             TimeCalc();
             SlowLogic();
@@ -218,26 +220,6 @@ public class TimeManager : MonoBehaviour
         {
             carriagesPassed = 0;
         }
-
-        if (PlayerPrefs.HasKey("hasGun"))
-        {
-            hasGun = PlayerPrefs.GetInt("hasGun") == 1;
-        }
-
-        else
-        {
-            hasGun = false;
-        }
-
-        if (PlayerPrefs.HasKey("hasWatch"))
-        {
-            hasWatch = PlayerPrefs.GetInt("hasWatch") == 1;
-        }
-
-        else
-        {
-            hasWatch = false;
-        }
     }
 
     public void SaveValues()
@@ -246,8 +228,6 @@ public class TimeManager : MonoBehaviour
         PlayerPrefs.SetInt("Health", health);
         PlayerPrefs.SetInt("saveExists", saveExists ? 1 : 0);
         PlayerPrefs.SetInt("carriagesPassed", carriagesPassed);
-        PlayerPrefs.SetInt("hasGun", hasGun ? 1 : 0);
-        PlayerPrefs.SetInt("hasWatch", hasWatch ? 1 : 0);
         PlayerPrefs.Save();
     }
 

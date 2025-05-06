@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -38,12 +39,15 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyDetection();
-
-        if (currentCarriage > carriageAmount - 1)
+        if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            SpawnRoom();
-        }
+            EnemyDetection();
+
+            if (currentCarriage > carriageAmount - 1)
+            {
+                SpawnRoom();
+            }
+        }   
     }
 
     public void EnemyDetection()
@@ -101,22 +105,28 @@ public class LevelManager : MonoBehaviour
 
     public void ActivateEnemies()
     {
-        Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
-
-        foreach (GameObject enemy in actors2)
+        if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            StartCoroutine(enemy.GetComponent<EnemyScript>().Awaken());
-        }
+            Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+
+            foreach (GameObject enemy in actors2)
+            {
+                StartCoroutine(enemy.GetComponent<EnemyScript>().Awaken());
+            }
+        }        
     }
 
     public void DeactivateEnemies()
     {
-        Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
-
-        foreach (GameObject enemy in actors2)
+        if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            enemy.GetComponent<EnemyScript>().isActive = false;
-            enemy.GetComponent<EnemyScript>().isAwake = false;
+            Helper.instance.FindObjectwithTag("Enemy", carriages[currentCarriage], actors2);
+
+            foreach (GameObject enemy in actors2)
+            {
+                enemy.GetComponent<EnemyScript>().isActive = false;
+                enemy.GetComponent<EnemyScript>().isAwake = false;
+            }
         }
     }
 
@@ -142,11 +152,19 @@ public class LevelManager : MonoBehaviour
 
     public void FollowLogic()
     {
-        if (carriages[currentCarriage].layer == 11 || carriages[currentCarriage].layer == 12)
+        if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            Helper.instance.FindObjectwithTag("RoomPoint", carriages[currentCarriage], camPoints);
+            if (carriages[currentCarriage].layer == 11 || carriages[currentCarriage].layer == 12)
+            {
+                Helper.instance.FindObjectwithTag("RoomPoint", carriages[currentCarriage], camPoints);
 
-            cam.Target.TrackingTarget = camPoints[0].transform;
+                cam.Target.TrackingTarget = camPoints[0].transform;
+            }
+
+            else
+            {
+                cam.Target.TrackingTarget = player;
+            }
         }
 
         else

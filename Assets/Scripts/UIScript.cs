@@ -447,7 +447,6 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.deathTimeElapsed = 0;
         TimeManager.instance.carriagesPassed = 0;
         TimeManager.instance.saveExists = false;
-        TimeManager.instance.hasGun = false;
         TimeManager.instance.hasWatch = false;
 
         TimeManager.instance.SaveValues();

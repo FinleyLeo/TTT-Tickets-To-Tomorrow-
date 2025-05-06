@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class CameraController : MonoBehaviour
 {
     public CinemachineBasicMultiChannelPerlin noise;
-    public CinemachineCamera camera;
+    public CinemachineCamera cam;
 
     float shakeTimer;
 
@@ -24,7 +24,11 @@ public class CameraController : MonoBehaviour
         noise.AmplitudeGain = Mathf.Lerp(noise.AmplitudeGain, 0.2f, -shakeTimer);
         noise.FrequencyGain = Mathf.Lerp(noise.FrequencyGain, 0.1f, -shakeTimer);
 
-        SlowCam();
+        if (TimeManager.instance.hasWatch)
+        {
+            SlowCam();
+        }
+
     }
 
     public void Shake(float intensity, float frequency, float time)
@@ -42,12 +46,12 @@ public class CameraController : MonoBehaviour
     {
         if (TimeManager.instance.slowTime)
         {
-            camera.Lens.OrthographicSize = Mathf.Lerp(camera.Lens.OrthographicSize, 6.25f, Time.unscaledDeltaTime * 2f);
+            cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 6.25f, Time.unscaledDeltaTime * 2f);
         }
 
         else
         {
-            camera.Lens.OrthographicSize = Mathf.Lerp(camera.Lens.OrthographicSize, 6.75f, Time.unscaledDeltaTime * 2f);
+            cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 6.75f, Time.unscaledDeltaTime * 2f);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -69,6 +70,9 @@ public class PlayerController : MonoBehaviour
     ChromaticAberration aberration;
     LensDistortion distortion;
 
+    bool canPickupWatch;
+    GameObject watch;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,22 +82,6 @@ public class PlayerController : MonoBehaviour
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
-
-        if (TimeManager.instance.hasGun)
-        {
-            GameObject ammoObj = GameObject.Find("Ammo");
-
-            for (int i = 0; i < ammoObj.transform.parent.childCount; i++)
-            {
-                GameObject Go = ammoObj.transform.parent.GetChild(i).gameObject;
-
-                Go.SetActive(true);
-            }
-
-            ammoBase = ammoObj.transform.GetChild(0).GetComponent<Image>();
-            ammoAnim = ammoObj.GetComponent<Animator>();
-            ammoShatter = ammoObj.GetComponentInChildren<ParticleSystem>();
-        }
 
         TimeManager.instance.timeLoss = 1;
         Time.timeScale = 1;
@@ -112,25 +100,6 @@ public class PlayerController : MonoBehaviour
         {
             distortion = lensD;
         }
-
-        switch (TimeManager.instance.health)
-        {
-            case 5:
-                ammoBase.sprite = ammoSprites[0];
-                break;
-            case 4:
-                ammoBase.sprite = ammoSprites[1];
-                break;
-            case 3:
-                ammoBase.sprite = ammoSprites[2];
-                break;
-            case 2:
-                ammoBase.sprite = ammoSprites[3];
-                break;
-            case 1:
-                ammoBase.sprite = ammoSprites[4];
-                break;
-        }
     }
 
     void Update()
@@ -142,6 +111,15 @@ public class PlayerController : MonoBehaviour
         SlideLogic();
         GroundCheck();
         RewindVisuals();
+
+        if (Input.GetKeyDown(KeyCode.E) && SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            if (canPickupWatch)
+            {
+                TimeManager.instance.hasWatch = true;
+                watch.SetActive(false);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -677,6 +655,27 @@ public class PlayerController : MonoBehaviour
             levelManager.DeactivateEnemies();
             levelManager.currentCarriage--;
             levelManager.FollowLogic();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Watch"))
+        {
+            canPickupWatch = true;
+
+            watch = collision.gameObject;
+            collision.GetComponentInChildren<Animator>().SetBool("Active", true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Watch"))
+        {
+            canPickupWatch = false;
+
+            collision.GetComponentInChildren<Animator>().SetBool("Active", false);
         }
     }
 

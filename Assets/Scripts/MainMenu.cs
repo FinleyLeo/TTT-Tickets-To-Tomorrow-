@@ -114,7 +114,7 @@ public class MainMenu : MonoBehaviour
         TimeManager.instance.deathTimeElapsed = 0;
         TimeManager.instance.saveExists = true;
 
-        SceneSwitcher.instance.Transition("Loop1");
+        SceneSwitcher.instance.Transition("Tutorial");
         StartCoroutine(UI.DisableMenu());
 
         menuOpen = false;

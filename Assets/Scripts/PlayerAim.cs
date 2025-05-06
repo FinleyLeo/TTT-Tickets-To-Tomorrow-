@@ -24,8 +24,18 @@ public class PlayerAim : MonoBehaviour
         playerScript = GetComponent<PlayerController>();
 
         cam = Camera.main.GetComponent<CameraController>();
-        ammoUI = GameObject.Find("Ammo");
-        ammoAnim = ammoUI.transform.GetChild(0).GetComponentInChildren<Animator>();
+
+        if (TimeManager.instance.hasGun)
+        {
+            gun.gameObject.SetActive(true);
+            ammoUI = GameObject.Find("Ammo");
+            ammoAnim = ammoUI.transform.GetChild(0).GetComponentInChildren<Animator>();
+        }
+
+        else
+        {
+            gun.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +77,7 @@ public class PlayerAim : MonoBehaviour
 
         cooldown -= Time.unscaledDeltaTime;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && TimeManager.instance.hasGun)
         {
             if (cooldown <= 0 && ammo > 0 && !reloading)
             {
@@ -80,7 +90,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && ammo != 6 && !reloading)
+        if (Input.GetKeyDown(KeyCode.R) && ammo != 6 && !reloading && TimeManager.instance.hasGun)
         {
             StartCoroutine(Reload());
         }

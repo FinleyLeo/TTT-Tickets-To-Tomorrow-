@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TimeManager : MonoBehaviour
 {
@@ -45,6 +46,10 @@ public class TimeManager : MonoBehaviour
     public bool saveExists;
 
     public int carriagesPassed;
+
+    // Tutorial vars
+
+    public bool hasGun, hasWatch;
 
     #region singleton
 
@@ -90,17 +95,22 @@ public class TimeManager : MonoBehaviour
             timeLeft -= Time.unscaledDeltaTime * timeLoss;
             timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
 
-            if (timeObj == null)
+            if (timeObj == null && hasWatch)
             {
                 timeObj = GameObject.Find("Time");
+
+                for (int i = 0; i < timeObj.transform.childCount; i++)
+                {
+                    GameObject Go = timeObj.transform.GetChild(i).gameObject;
+
+                    Go.SetActive(true);
+                }
+
                 timeAnim = timeObj.GetComponent<Animator>();
                 timeSlider = timeObj.transform.GetChild(1).GetComponent<Image>();
 
                 secondHand = timeObj.transform.GetChild(6).gameObject;
                 minuteHand = timeObj.transform.GetChild(5).gameObject;
-
-                Debug.Log("Time object found: " + timeObj.name);
-                Debug.Log("Time anim found: " + timeAnim.name);
             }
 
             // Game over management
@@ -208,6 +218,26 @@ public class TimeManager : MonoBehaviour
         {
             carriagesPassed = 0;
         }
+
+        if (PlayerPrefs.HasKey("hasGun"))
+        {
+            hasGun = PlayerPrefs.GetInt("hasGun") == 1;
+        }
+
+        else
+        {
+            hasGun = false;
+        }
+
+        if (PlayerPrefs.HasKey("hasWatch"))
+        {
+            hasWatch = PlayerPrefs.GetInt("hasWatch") == 1;
+        }
+
+        else
+        {
+            hasWatch = false;
+        }
     }
 
     public void SaveValues()
@@ -216,6 +246,8 @@ public class TimeManager : MonoBehaviour
         PlayerPrefs.SetInt("Health", health);
         PlayerPrefs.SetInt("saveExists", saveExists ? 1 : 0);
         PlayerPrefs.SetInt("carriagesPassed", carriagesPassed);
+        PlayerPrefs.SetInt("hasGun", hasGun ? 1 : 0);
+        PlayerPrefs.SetInt("hasWatch", hasWatch ? 1 : 0);
         PlayerPrefs.Save();
     }
 

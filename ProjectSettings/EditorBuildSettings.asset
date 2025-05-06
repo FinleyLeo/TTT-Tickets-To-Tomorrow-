@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loop1.unity
     guid: 75b23efb7575a044e8bdf7d242b62f81
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 7624c6528462cf34db930f94c61d85e3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

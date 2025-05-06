@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Slider p_sfxSlider, p_musicSlider;
 
     public Sound[] SFXSounds, musicSounds;
-    public AudioSource SFXSource, musicSource;
+    public AudioSource SFXSource, musicSource, loopingSFX;
 
     public AudioMixer musicMixer;
     public AudioMixer SFXMixer;
@@ -30,6 +31,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SceneManager.activeSceneChanged += OnSceneChange;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +46,19 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         PitchCalc();
+    }
+
+    void OnSceneChange(Scene current, Scene next)
+    {
+        if (SceneManager.GetActiveScene().name == "Loop1")
+        {
+            loopingSFX.Play();
+        }
+
+        else
+        {
+            loopingSFX.Stop();
+        }
     }
 
     void PitchCalc()
@@ -74,6 +90,7 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource.pitch = defaultPitch;
+        loopingSFX.pitch = defaultPitch;
     }
 
     void SetValues()

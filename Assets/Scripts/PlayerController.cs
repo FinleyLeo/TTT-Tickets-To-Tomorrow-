@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -77,11 +78,25 @@ public class PlayerController : MonoBehaviour
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
-        ammoBase = GameObject.Find("Ammo").transform.GetChild(0).GetComponent<Image>();
-        ammoAnim = GameObject.Find("Ammo").GetComponent<Animator>();
-        ammoShatter = GameObject.Find("Ammo").GetComponentInChildren<ParticleSystem>();
+
+        if (TimeManager.instance.hasGun)
+        {
+            GameObject ammoObj = GameObject.Find("Ammo");
+
+            for (int i = 0; i < ammoObj.transform.parent.childCount; i++)
+            {
+                GameObject Go = ammoObj.transform.parent.GetChild(i).gameObject;
+
+                Go.SetActive(true);
+            }
+
+            ammoBase = ammoObj.transform.GetChild(0).GetComponent<Image>();
+            ammoAnim = ammoObj.GetComponent<Animator>();
+            ammoShatter = ammoObj.GetComponentInChildren<ParticleSystem>();
+        }
 
         TimeManager.instance.timeLoss = 1;
+        Time.timeScale = 1;
 
         spawnPoint = GameObject.Find("Spawn Point").transform;
         spawnPoint.position = transform.position;
@@ -480,16 +495,21 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Rewind()
     {
-        TimeManager.instance.slowTime = true;
         TimeManager.instance.isRewinding = true;
         TimeManager.instance.timeLoss = 15;
         Time.timeScale = 0;
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.loopingSFX.Stop();
+        AudioManager.instance.PlaySFX("PlayerDeath");
+
+        yield return new WaitForSecondsRealtime(0.6f);
+
         Shader.SetGlobalFloat("_isAffected", 1);
         ammoAnim.SetTrigger("Break");
-        yield return new WaitForSecondsRealtime(1);
 
-        TimeManager.instance.slowTime = false;
-        
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        AudioManager.instance.PlaySFX("PlayerRewind");
 
         yield return new WaitForSecondsRealtime(1.3f);
 
@@ -502,6 +522,8 @@ public class PlayerController : MonoBehaviour
         TimeManager.instance.isRewinding = false;
         TimeManager.instance.timeLoss = 1;
         Shader.SetGlobalFloat("_isAffected", 0);
+        AudioManager.instance.musicSource.Play();
+        AudioManager.instance.loopingSFX.Play();
 
         levelManager.RespawnEnemies();
         ammoAnim.SetTrigger("Shake");
@@ -509,7 +531,12 @@ public class PlayerController : MonoBehaviour
         transform.position = spawnPoint.position;
         TimeManager.instance.health = 5;
         aim.ammo = 6;
-        aim.ammoAnim.Play("AmmoReload");
+
+        if (SceneManager.GetActiveScene().name == "Loop1")
+        {
+            aim.ammoAnim.Play("AmmoReload");
+        }
+
         isDead = false;
 
 
@@ -587,29 +614,32 @@ public class PlayerController : MonoBehaviour
 
     void RewindVisuals()
     {
-        if (TimeManager.instance.isRewinding && Time.timeScale < 0.05f)
+        if (isDead)
         {
-            if (aberration != null)
+            if (TimeManager.instance.isRewinding && Time.timeScale < 0.05f)
             {
-                aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0.5f, Time.unscaledDeltaTime * 2f);
+                if (aberration != null)
+                {
+                    aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0.5f, Time.unscaledDeltaTime * 2f);
+                }
+
+                if (distortion != null)
+                {
+                    distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, -0.5f, Time.unscaledDeltaTime * 2f);
+                }
             }
 
-            if (distortion != null)
+            else
             {
-                distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, -0.5f, Time.unscaledDeltaTime * 2f);
-            }
-        }
+                if (aberration != null)
+                {
+                    aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+                }
 
-        else
-        {
-            if (aberration != null)
-            {
-                aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0, Time.unscaledDeltaTime * 2f);
-            }
-
-            if (distortion != null)
-            {
-                distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+                if (distortion != null)
+                {
+                    distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+                }
             }
         }
     }

@@ -447,6 +447,8 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.deathTimeElapsed = 0;
         TimeManager.instance.carriagesPassed = 0;
         TimeManager.instance.saveExists = false;
+        TimeManager.instance.hasGun = false;
+        TimeManager.instance.hasWatch = false;
 
         TimeManager.instance.SaveValues();
     }
@@ -465,5 +467,10 @@ public class UIScript : MonoBehaviour
     public void ButtonHover()
     {
         AudioManager.instance.PlaySFXWithPitch("ButtonHover", 1f);
+    }
+
+    public void CrossOut()
+    {
+        AudioManager.instance.PlaySFX("CrossOut");
     }
 }

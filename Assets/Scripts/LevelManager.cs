@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] small, medium, large;
+    [SerializeField] GameObject[] small, medium, large, refill;
     [SerializeField] GameObject[] enemies;
 
     [SerializeField] List<GameObject> carriages = new List<GameObject>();
@@ -45,7 +45,24 @@ public class LevelManager : MonoBehaviour
 
             if (currentCarriage > carriageAmount - 1)
             {
-                SpawnRoom();
+                if (TimeManager.instance.carriagesPassed > 15)
+                {
+                    if (Random.Range(0, 101) < 20)
+                    {
+                        SpawnRefill();
+                        TimeManager.instance.carriagesPassed = 0;
+                    }
+
+                    else
+                    {
+                        SpawnRoom();
+                    }
+                }
+
+                else
+                {
+                    SpawnRoom();
+                }
             }
         }   
     }
@@ -97,6 +114,35 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject child in actors)
         {
             Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+        }
+
+        carriages.Add(carriage);
+        carriageAmount++;
+    }
+
+    void SpawnRefill()
+    {
+        roomSize = Random.Range(0f, 3f);
+
+        if (roomSize < 1)
+        {
+            carriage = Instantiate(refill[0], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
+
+            xOffset += 19.075f;
+        }
+
+        else if (roomSize > 1 && roomSize < 2.5f)
+        {
+            carriage = Instantiate(refill[1], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
+
+            xOffset += 23.375f;
+        }
+
+        else if (roomSize > 2.5f)
+        {
+            carriage = Instantiate(refill[2], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
+
+            xOffset += 29.375f;
         }
 
         carriages.Add(carriage);

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -79,11 +80,15 @@ public class EnemyScript : MonoBehaviour
             {
                 sr.color = Color.Lerp(sr.color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
                 arm.GetComponentsInChildren<SpriteRenderer>()[0].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[0].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
-                arm.GetComponentsInChildren<SpriteRenderer>()[1].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[1].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
 
-                if (gameObject.name != "Dummy")
+                if (SceneManager.GetActiveScene().name != "Tutorial")
                 {
-                    arm.GetComponentsInChildren<SpriteRenderer>()[2].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[2].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+                    arm.GetComponentsInChildren<SpriteRenderer>()[1].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[1].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+
+                    if (gameObject.name != "Dummy")
+                    {
+                        arm.GetComponentsInChildren<SpriteRenderer>()[2].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[2].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
+                    }
                 }
 
                 StartCoroutine(Death());
@@ -157,24 +162,22 @@ public class EnemyScript : MonoBehaviour
         // Set flash effect to full white
         sr.GetPropertyBlock(mpb);
 
-        arm.GetComponentsInChildren<SpriteRenderer>()[0].GetPropertyBlock(mpb);
-        arm.GetComponentsInChildren<SpriteRenderer>()[1].GetPropertyBlock(mpb);
-
-        if (gameObject.name != "Dummy")
+        for (int i = 0; i < arm.transform.childCount; i++)
         {
-            arm.GetComponentsInChildren<SpriteRenderer>()[2].GetPropertyBlock(mpb);
+            Transform child = arm.transform.GetChild(i);
+
+            child.GetComponent<SpriteRenderer>().GetPropertyBlock(mpb);
         }
 
         mpb.SetInt("_Hit", 1);
 
         sr.SetPropertyBlock(mpb);
 
-        arm.GetComponentsInChildren<SpriteRenderer>()[0].SetPropertyBlock(mpb);
-        arm.GetComponentsInChildren<SpriteRenderer>()[1].SetPropertyBlock(mpb);
-
-        if (gameObject.name != "Dummy")
+        for (int i = 0; i < arm.transform.childCount; i++)
         {
-            arm.GetComponentsInChildren<SpriteRenderer>()[2].SetPropertyBlock(mpb);
+            Transform child = arm.transform.GetChild(i);
+
+            child.GetComponent<SpriteRenderer>().SetPropertyBlock(mpb);
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -182,23 +185,22 @@ public class EnemyScript : MonoBehaviour
         // Reset back to normal
         sr.GetPropertyBlock(mpb);
 
-        arm.GetComponentsInChildren<SpriteRenderer>()[0].GetPropertyBlock(mpb);
-        arm.GetComponentsInChildren<SpriteRenderer>()[1].GetPropertyBlock(mpb);
-
-        if (gameObject.name != "Dummy")
+        for (int i = 0; i < arm.transform.childCount; i++)
         {
-            arm.GetComponentsInChildren<SpriteRenderer>()[2].GetPropertyBlock(mpb);
+            Transform child = arm.transform.GetChild(i);
+
+            child.GetComponent<SpriteRenderer>().GetPropertyBlock(mpb);
         }
 
         mpb.SetInt("_Hit", 0);
+
         sr.SetPropertyBlock(mpb);
 
-        arm.GetComponentsInChildren<SpriteRenderer>()[0].SetPropertyBlock(mpb);
-        arm.GetComponentsInChildren<SpriteRenderer>()[1].SetPropertyBlock(mpb);
-
-        if (gameObject.name != "Dummy")
+        for (int i = 0; i < arm.transform.childCount; i++)
         {
-            arm.GetComponentsInChildren<SpriteRenderer>()[2].SetPropertyBlock(mpb);
+            Transform child = arm.transform.GetChild(i);
+
+            child.GetComponent<SpriteRenderer>().SetPropertyBlock(mpb);
         }
     }
 
@@ -231,7 +233,7 @@ public class EnemyScript : MonoBehaviour
         Camera.main.GetComponent<CameraController>().Shake(0.5f, 0.1f, 0.1f);
         FlashWhite();
 
-        AudioManager.instance.PlaySFX("EnemyHit");
+        AudioManager.instance.PlaySFXWithPitch("EnemyHit", 1 + TimeManager.instance.comboAmount / 2);
 
         health--;
 

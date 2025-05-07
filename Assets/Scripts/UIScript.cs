@@ -154,7 +154,7 @@ public class UIScript : MonoBehaviour
 
     void PauseCheck()
     {
-        if (!TimeManager.instance.gameOver)
+        if (!TimeManager.instance.gameOver && !TimeManager.instance.inDialogue)
         {
             if (paused)
             {
@@ -423,12 +423,9 @@ public class UIScript : MonoBehaviour
 
     public void RestartGame()
     {
-        TimeManager.instance.timeLeft = 720;
-        TimeManager.instance.gameOver = false;
-        TimeManager.instance.waveDone = false;
-        TimeManager.instance.health = 5;
-        TimeManager.instance.deathTimeElapsed = 0;
-        TimeManager.instance.carriagesPassed = 0;
+        RestartValues();
+        TimeManager.instance.saveExists = true;
+        TimeManager.instance.hasWatch = true;
 
         TimeManager.instance.SaveValues();
 

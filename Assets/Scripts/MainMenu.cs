@@ -111,8 +111,6 @@ public class MainMenu : MonoBehaviour
         playAnim.SetBool("Opened", false);
 
         UIScript.instance.RestartValues();
-        TimeManager.instance.deathTimeElapsed = 0;
-        TimeManager.instance.saveExists = true;
 
         SceneSwitcher.instance.Transition("Tutorial");
         StartCoroutine(UI.DisableMenu());

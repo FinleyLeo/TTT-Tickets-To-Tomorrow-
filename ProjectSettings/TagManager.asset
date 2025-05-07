@@ -15,6 +15,7 @@ TagManager:
   - RoomPoint
   - Gun
   - Watch
+  - Refill
   layers:
   - Default
   - TransparentFX

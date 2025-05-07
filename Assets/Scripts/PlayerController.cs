@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     public float defaultFriction = 0.8f;
     float friction;
 
-
     // Manages the speed of the player
     public float speed, groundSpeed, airSpeed, maxSpeed;
 
@@ -70,8 +69,10 @@ public class PlayerController : MonoBehaviour
     ChromaticAberration aberration;
     LensDistortion distortion;
 
-    bool canPickupWatch;
-    GameObject watch;
+
+    // Time Management
+    bool canPickupWatch, canRefill;
+    GameObject watch, clock;
 
     void Start()
     {
@@ -111,14 +112,15 @@ public class PlayerController : MonoBehaviour
         SlideLogic();
         GroundCheck();
         RewindVisuals();
+        Interacting();
 
-        if (Input.GetKeyDown(KeyCode.E) && SceneManager.GetActiveScene().name == "Tutorial")
+        if (ammoBase == null || ammoShatter == null)
         {
-            if (canPickupWatch)
-            {
-                TimeManager.instance.hasWatch = true;
-                watch.SetActive(false);
-            }
+            GameObject ammoObj = GameObject.Find("Ammo");
+
+            ammoBase = ammoObj.transform.GetChild(0).GetComponent<Image>();
+            ammoShatter = ammoObj.GetComponentInChildren<ParticleSystem>();
+            ammoAnim = ammoObj.GetComponent<Animator>();
         }
     }
 
@@ -127,6 +129,27 @@ public class PlayerController : MonoBehaviour
         BasicMovement();
         WallSlide();
         Slide();
+    }
+
+    void Interacting()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (canPickupWatch && SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                TimeManager.instance.hasWatch = true;
+                watch.SetActive(false);
+            }
+
+            if (canRefill)
+            {
+                FlashWhite();
+                TimeManager.instance.timeLeft += 120f;
+                TimeManager.instance.health = 5;
+                clock.GetComponent<CircleCollider2D>().enabled = false;
+                canRefill = false;
+            }
+        }
     }
 
     void BasicMovement()
@@ -349,7 +372,11 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            wallSliding = false;
+            if (wallSliding)
+            {
+                AudioManager.instance.StopSFX();
+                wallSliding = false;
+            }
         }
 
         if (wallJumped || wallSliding)
@@ -488,8 +515,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.4f);
 
         AudioManager.instance.PlaySFX("PlayerRewind");
+        
 
-        yield return new WaitForSecondsRealtime(1.3f);
+        yield return new WaitForSecondsRealtime(1f);
+
+        TimeManager.instance.isRewinding = false;
+
+        yield return new WaitForSecondsRealtime(0.3f);
 
         Respawn();
     }
@@ -497,7 +529,6 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         Time.timeScale = 1;
-        TimeManager.instance.isRewinding = false;
         TimeManager.instance.timeLoss = 1;
         Shader.SetGlobalFloat("_isAffected", 0);
         AudioManager.instance.musicSource.Play();
@@ -611,14 +642,20 @@ public class PlayerController : MonoBehaviour
             {
                 if (aberration != null)
                 {
-                    aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+                    aberration.intensity.value = Mathf.Lerp(aberration.intensity.value, 0, Time.unscaledDeltaTime * 4f);
                 }
 
                 if (distortion != null)
                 {
-                    distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, 0, Time.unscaledDeltaTime * 2f);
+                    distortion.intensity.value = Mathf.Lerp(distortion.intensity.value, 0, Time.unscaledDeltaTime * 4f);
                 }
             }
+        }
+
+        else
+        {
+            aberration.intensity.value = 0;
+            distortion.intensity.value = 0;
         }
     }
 
@@ -655,6 +692,17 @@ public class PlayerController : MonoBehaviour
             levelManager.DeactivateEnemies();
             levelManager.currentCarriage--;
             levelManager.FollowLogic();
+        }
+
+        if (collision.gameObject.CompareTag("Refill"))
+        {
+            Light2D light = collision.GetComponentInChildren<Light2D>();
+
+            light.color = Color.cyan;
+            light.intensity = Mathf.Lerp(light.intensity, 30, Time.deltaTime * 2f);
+            clock = collision.gameObject;
+
+            canRefill = true;
         }
     }
 

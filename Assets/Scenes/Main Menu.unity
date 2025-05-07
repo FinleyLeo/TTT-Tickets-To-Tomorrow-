@@ -5468,9 +5468,10 @@ MonoBehaviour:
   gameOverAnim: {fileID: 1692889604}
   health: 5
   saveExists: 0
+  inDialogue: 0
   carriagesPassed: 0
-  hasGun: 1
-  hasWatch: 1
+  hasWatch: 0
+  tutorialComplete: 0
 --- !u!1 &549409487
 GameObject:
   m_ObjectHideFlags: 0
@@ -12297,7 +12298,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 300
   m_TargetDisplay: 0
 --- !u!224 &1316112019
 RectTransform:

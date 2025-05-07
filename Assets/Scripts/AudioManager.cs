@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneChange(Scene current, Scene next)
     {
-        if (SceneManager.GetActiveScene().name == "Loop1")
+        if (SceneManager.GetActiveScene().name == "Loop1" || SceneManager.GetActiveScene().name == "Tutorial")
         {
             loopingSFX.Play();
         }

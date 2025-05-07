@@ -82,20 +82,21 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ComboLogic();
+
+        comboTime -= Time.deltaTime;
+        timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
+
         if (SceneManager.GetActiveScene().name != "Main Menu" && hasWatch)
         {
             TimeCalc();
             SlowLogic();
             SlowTime();
             WatchAnim();
-            ComboLogic();
-
-            comboTime -= Time.deltaTime;
 
             slowCoolDown -= Time.unscaledDeltaTime;
 
             timeLeft -= Time.unscaledDeltaTime * timeLoss;
-            timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
 
             if (timeObj == null && hasWatch)
             {
@@ -355,7 +356,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowTime()
     {
-        if (!UIScript.instance.paused && !isRewinding && !gameOver)
+        if (!UIScript.instance.paused && !isRewinding && !gameOver && hasWatch && !isHitStopRunning)
         {
             if (slowTime)
             {

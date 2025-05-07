@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noise: {fileID: 1307609006}
-  cam: {fileID: 0}
+  cam: {fileID: 1307609004}
 --- !u!114 &1570379341
 MonoBehaviour:
   m_ObjectHideFlags: 0

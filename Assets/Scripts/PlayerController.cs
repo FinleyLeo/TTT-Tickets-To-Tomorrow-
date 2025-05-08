@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
 
 
     // Time Management
-    bool canPickupWatch, canRefill;
-    GameObject watch, clock;
+    bool canPickupWatch;
+    GameObject watch;
 
     void Start()
     {
@@ -139,15 +139,6 @@ public class PlayerController : MonoBehaviour
             {
                 TimeManager.instance.hasWatch = true;
                 watch.SetActive(false);
-            }
-
-            if (canRefill)
-            {
-                FlashWhite();
-                TimeManager.instance.timeLeft += 120f;
-                TimeManager.instance.health = 5;
-                clock.GetComponent<CircleCollider2D>().enabled = false;
-                canRefill = false;
             }
         }
     }
@@ -696,13 +687,16 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Refill"))
         {
+            collision.GetComponent<CircleCollider2D>().enabled = false;
             Light2D light = collision.GetComponentInChildren<Light2D>();
 
             light.color = Color.cyan;
-            light.intensity = Mathf.Lerp(light.intensity, 30, Time.deltaTime * 2f);
-            clock = collision.gameObject;
+            light.intensity = 30;
 
-            canRefill = true;
+            FlashWhite();
+
+            TimeManager.instance.timeLeft += 120f;
+            TimeManager.instance.health = 5;
         }
     }
 

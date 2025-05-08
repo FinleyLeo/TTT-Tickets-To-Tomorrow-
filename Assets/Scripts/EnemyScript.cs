@@ -124,8 +124,6 @@ public class EnemyScript : MonoBehaviour
         else
         {
             arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed);
-
-            //arm.transform.rotation = Quaternion.Euler(0, 0, angle + 180 + offset);
         }
 
         float armAngle = arm.transform.eulerAngles.z;

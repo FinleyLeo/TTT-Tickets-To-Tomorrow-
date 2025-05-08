@@ -356,7 +356,7 @@ public class TimeManager : MonoBehaviour
 
     void SlowTime()
     {
-        if (!UIScript.instance.paused && !isRewinding && !gameOver && hasWatch && !isHitStopRunning)
+        if (!UIScript.instance.paused && !isRewinding && !gameOver && hasWatch && !inDialogue)
         {
             if (slowTime)
             {
@@ -399,40 +399,6 @@ public class TimeManager : MonoBehaviour
         slowTime = false;
 
         Debug.Log("Normal time");
-    }
-
-    public IEnumerator HitStop(float duration)
-    {
-        if (!isRewinding && !gameOver)
-        {
-            if (isHitStopRunning)
-            {
-                yield break;
-            }
-
-            isHitStopRunning = true;
-            slowTime = false;
-
-            Time.timeScale = 0f;
-
-            yield return new WaitForSecondsRealtime(duration);
-
-            if (!isRewinding && !gameOver)
-            {
-                if (normalTime)
-                {
-                    Time.timeScale = 1f;
-                }
-
-                else
-                {
-                    slowTime = true;
-                    Time.timeScale = 0.4f;
-                }
-            }
-
-            isHitStopRunning = false;
-        }
     }
 
     void ComboLogic()

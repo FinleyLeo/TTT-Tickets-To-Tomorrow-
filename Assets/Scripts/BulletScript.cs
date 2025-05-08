@@ -46,7 +46,6 @@ public class BulletScript : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<TrailRenderer>().enabled = false;
-            StartCoroutine(TimeManager.instance.HitStop(0.15f));
             Destroy(gameObject, 0.20f);
         }
     }

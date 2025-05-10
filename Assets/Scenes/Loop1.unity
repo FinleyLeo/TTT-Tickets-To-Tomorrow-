@@ -710,10 +710,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1376293083530979177, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1582325054045540087, guid: f190731d7934da0479168addf69c0795, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -798,49 +794,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1570379335}
-    - target: {fileID: 1944821156638221503, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500509717754090874, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480753564753846289, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999340786383134310, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364757591995464588, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482710443468171366, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6561498204094428174, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705656107052964259, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7013772263342221704, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7204568486962356034, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292325092312013884, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3761739152415954261, guid: f190731d7934da0479168addf69c0795, type: 3}
+      propertyPath: typingSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

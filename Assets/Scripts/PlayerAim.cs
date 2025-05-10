@@ -8,7 +8,7 @@ public class PlayerAim : MonoBehaviour
 
     public Animator ammoAnim;
 
-    float cooldown;
+    float cooldown, reloadDelay;
     public float ammo = 6;
     bool reloading;
 
@@ -63,6 +63,7 @@ public class PlayerAim : MonoBehaviour
         }
 
         cooldown -= Time.unscaledDeltaTime;
+        reloadDelay -= Time.unscaledDeltaTime;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -71,9 +72,10 @@ public class PlayerAim : MonoBehaviour
                 Shoot();
             }
 
-            else
+            else if (ammo <= 0 && !reloading)
             {
                 AudioManager.instance.PlaySFX("ShootEmpty");
+                StartCoroutine(Reload());
             }
         }
 
@@ -85,18 +87,24 @@ public class PlayerAim : MonoBehaviour
 
     IEnumerator Reload()
     {
-        reloading = true;
-        TimeManager.instance.timeLeft -= 4f;
-
-        if (ammoAnim != null)
+        if (reloadDelay <= 0)
         {
-            ammoAnim.Play("AmmoReload");
-            AudioManager.instance.PlaySFX("Reload");
-        }
+            reloadDelay = 0.5f;
+            reloading = true;
+            TimeManager.instance.timeLeft -= 4f;
 
-        yield return new WaitForSeconds(0.3f);
-        reloading = false;
-        ammo = 6;
+            if (ammoAnim != null)
+            {
+                ammoAnim.Play("AmmoReload");
+                AudioManager.instance.PlaySFX("Reload");
+            }
+
+            yield return new WaitForSeconds(0.3f);
+
+            reloading = false;
+            ammo = 6;
+        }
+        
     }
 
     void Shoot()

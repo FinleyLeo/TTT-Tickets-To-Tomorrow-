@@ -24,6 +24,8 @@ public class Dialogue : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
+            // dialogue started
+            Time.timeScale = 0;
             StartDialogue(0, 3);
         }
     }

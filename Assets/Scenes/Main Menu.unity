@@ -13333,6 +13333,14 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: 4759e15a9a330a642811030d78ecd31d, type: 3}
   - soundName: Ambience
     sound: {fileID: 8300000, guid: d2a71ddee01449146834e18715f39153, type: 3}
+  - soundName: ValveTurn
+    sound: {fileID: 8300000, guid: a3b14536c64511448b357ec680bc7d09, type: 3}
+  - soundName: WatchPickup
+    sound: {fileID: 8300000, guid: b4b1ab390b622b24fbede440b451cd92, type: 3}
+  - soundName: BulletShells1
+    sound: {fileID: 8300000, guid: cb0d899d42bad844bba3fb85528e62e4, type: 3}
+  - soundName: BulletShells2
+    sound: {fileID: 8300000, guid: d4dd66d2e1482364b81aa725898ccef5, type: 3}
   musicSounds:
   - soundName: Menu
     sound: {fileID: 8300000, guid: d064e64576443a140994d54a511b31f1, type: 3}

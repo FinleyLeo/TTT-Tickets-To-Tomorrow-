@@ -70,9 +70,10 @@ public class PlayerController : MonoBehaviour
     LensDistortion distortion;
 
 
-    // Time Management
-    bool canPickupWatch;
+    // Interactions
+    bool canPickupWatch, canTurnValve;
     GameObject watch;
+    Animator valveAnim;
 
     void Start()
     {
@@ -137,8 +138,26 @@ public class PlayerController : MonoBehaviour
         {
             if (canPickupWatch && SceneManager.GetActiveScene().name == "Tutorial")
             {
+                AudioManager.instance.PlaySFX("WatchPickup");
                 TimeManager.instance.hasWatch = true;
                 watch.SetActive(false);
+            }
+
+            if (canTurnValve)
+            {
+                AudioManager.instance.PlaySFX("ValveTurn");
+                valveAnim.SetTrigger("Turn");
+
+
+                if (SceneManager.GetActiveScene().name == "Tutorial")
+                {
+                    SceneSwitcher.instance.Transition("Loop1");
+                }
+
+                else
+                {
+                    // not decided
+                }
             }
         }
     }
@@ -539,7 +558,6 @@ public class PlayerController : MonoBehaviour
 
         isDead = false;
 
-
         switch (TimeManager.instance.health)
         {
             case 5:
@@ -684,6 +702,17 @@ public class PlayerController : MonoBehaviour
             levelManager.currentCarriage--;
             levelManager.FollowLogic();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Watch"))
+        {
+            canPickupWatch = true;
+
+            watch = collision.gameObject;
+            collision.GetComponentInChildren<Animator>().SetBool("Active", true);
+        }
 
         if (collision.gameObject.CompareTag("Refill"))
         {
@@ -697,17 +726,32 @@ public class PlayerController : MonoBehaviour
 
             TimeManager.instance.timeLeft += 120f;
             TimeManager.instance.health = 5;
+
+            switch (TimeManager.instance.health)
+            {
+                case 5:
+                    ammoBase.sprite = ammoSprites[0];
+                    break;
+                case 4:
+                    ammoBase.sprite = ammoSprites[1];
+                    break;
+                case 3:
+                    ammoBase.sprite = ammoSprites[2];
+                    break;
+                case 2:
+                    ammoBase.sprite = ammoSprites[3];
+                    break;
+                case 1:
+                    ammoBase.sprite = ammoSprites[4];
+                    break;
+            }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Watch"))
+        if (collision.gameObject.CompareTag("Valve"))
         {
-            canPickupWatch = true;
-
-            watch = collision.gameObject;
-            collision.GetComponentInChildren<Animator>().SetBool("Active", true);
+            valveAnim = collision.GetComponent<Animator>();
+            collision.transform.GetChild(0).GetComponent<Animator>().SetBool("Active", true);
+            canTurnValve = true;
         }
     }
 
@@ -718,6 +762,12 @@ public class PlayerController : MonoBehaviour
             canPickupWatch = false;
 
             collision.GetComponentInChildren<Animator>().SetBool("Active", false);
+        }
+
+        if (collision.gameObject.CompareTag("Valve"))
+        {
+            collision.transform.GetChild(0).GetComponent<Animator>().SetBool("Active", false);
+            canTurnValve = false;
         }
     }
 

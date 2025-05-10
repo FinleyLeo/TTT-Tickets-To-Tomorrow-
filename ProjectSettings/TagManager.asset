@@ -16,6 +16,7 @@ TagManager:
   - Gun
   - Watch
   - Refill
+  - Valve
   layers:
   - Default
   - TransparentFX

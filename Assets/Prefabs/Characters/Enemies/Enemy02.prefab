@@ -265,6 +265,7 @@ MonoBehaviour:
   shootPoint: {fileID: 5705835485475173989}
   arm: {fileID: 773885682393721074}
   gunAnim: {fileID: 294505788498464960}
+  handicapMulti: 1
   health: 1
   isDead: 0
   isActive: 0
@@ -272,6 +273,9 @@ MonoBehaviour:
   normalSprite: {fileID: 1892192399200896467, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
   upSprite: {fileID: 4712697224697972910, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
   downSprite: {fileID: 9091248034932105595, guid: c9b6e0bf79d063d479bf5052bcef1351, type: 3}
+  layers:
+    serializedVersion: 2
+    m_Bits: 328
 --- !u!95 &6847803535579737840
 Animator:
   serializedVersion: 7

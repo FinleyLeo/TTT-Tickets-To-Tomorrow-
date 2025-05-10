@@ -17,16 +17,22 @@ public class EnemyScript : MonoBehaviour
     public GameObject arm;
     public Animator gunAnim;
 
-    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed = 2f, offset, flipValue;
+    float fadeTime = 2f, deadDelay = 0.25f, shootSpeed, aimSpeed = 3f, offset, flipValue;
+    public float handicapMulti = 1;
 
     public int health;
 
     bool facingRight;
     public bool isDead, isActive, isAwake;
+    bool playerSeen, isShooting;
 
     public Sprite normalSprite;  // Default front-facing sprite
     public Sprite upSprite;      // Sprite when aiming up
     public Sprite downSprite;    // Sprite when aiming down
+
+    public LayerMask layers;
+
+    Vector3 aimDirection;
 
     void Start()
     {
@@ -37,15 +43,20 @@ public class EnemyScript : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
 
         anim.enabled = false;
-        isActive = false;
+
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            isActive = false;
+        }
 
         flipValue = transform.localScale.x;
         shootSpeed = Random.Range(0.75f, 1.5f);
         health = 1;
 
-        if (Random.Range(0, 100) > 99)
+        if (Random.Range(0f, 100f) > 99)
         {
             shootSpeed = 0.5f;
+
             sr.color = new Color(1, 0.4f, 0.4f, 1);
             arm.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 0.4f, 0.4f, 1);
             arm.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 0.4f, 0.4f, 1);
@@ -55,7 +66,7 @@ public class EnemyScript : MonoBehaviour
                 arm.GetComponentsInChildren<SpriteRenderer>()[2].color = new Color(1, 0.4f, 0.4f, 1);
             }
 
-            health = 3;
+            health *= 3;
         }
     }
 
@@ -66,8 +77,13 @@ public class EnemyScript : MonoBehaviour
         {
             if (isActive)
             {
-                Orientation();
-                ArmAim();
+                PlayerSeen();
+
+                if (playerSeen)
+                {
+                    Orientation();
+                    ArmAim();
+                }
             }
         }
 
@@ -94,6 +110,9 @@ public class EnemyScript : MonoBehaviour
                 StartCoroutine(Death());
             }
         }
+
+        handicapMulti = 1 - player.GetComponent<Rigidbody2D>().linearVelocity.magnitude / 30;
+        handicapMulti = Mathf.Clamp(handicapMulti, 0.4f, 1);
     }
 
     void Orientation()
@@ -114,16 +133,15 @@ public class EnemyScript : MonoBehaviour
 
     void ArmAim()
     {
-        Vector3 aimDirection = player.transform.position - arm.transform.position;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
         if (facingRight)
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * aimSpeed);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * aimSpeed * handicapMulti);
         }
         else
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed * handicapMulti);
         }
 
         float armAngle = arm.transform.eulerAngles.z;
@@ -221,8 +239,6 @@ public class EnemyScript : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             isActive = true;
             yield return new WaitForSeconds(0.25f);
-
-            StartCoroutine(Shoot());
         }
     }
 
@@ -252,6 +268,7 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator Shoot()
     {
+        isShooting = true;
         offset = Random.Range(-7.5f, 7.5f);
         gunAnim.SetTrigger("Shoot");
         GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
@@ -262,9 +279,72 @@ public class EnemyScript : MonoBehaviour
 
         yield return new WaitForSeconds(shootSpeed);
 
-        if (!isDead && isActive)
+        if (!isDead && isActive && playerSeen)
         {
             StartCoroutine(Shoot());
         }
+
+        else
+        {
+            isShooting = false;
+        }
+    }
+
+    void PlayerSeen()
+    {
+        int[] angles = { 0, -1, 1 }; // Middle ray first, then left, then right
+
+        Vector2 dir = (player.transform.position - transform.position).normalized;
+        float rayDistance = Vector2.Distance(transform.position, player.transform.position);
+
+        RaycastHit2D hit;
+
+        Vector2? aimDir = null;
+
+        for (int i = -1; i < angles.Length; i++)
+        {
+            Vector2 rayDir = RotateVector(dir, i * 6);
+            hit = Physics2D.Raycast(transform.position, rayDir, rayDistance, layers);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    Debug.DrawRay(transform.position, rayDir * rayDistance, Color.green);
+                    playerSeen = true;
+
+                    aimDirection = rayDir;
+
+                    if (!isShooting)
+                    {
+                        StartCoroutine(Shoot());
+                    }
+
+                    break;
+                }
+
+                else
+                {
+                    Debug.DrawRay(transform.position, rayDir * rayDistance, Color.red);
+                    StopCoroutine(Shoot());
+                    playerSeen = false;
+                }
+            }
+
+            else
+            {
+                Debug.DrawRay(transform.position, rayDir * rayDistance, Color.white);
+                StopCoroutine(Shoot());
+                playerSeen = false;
+            }
+        }
+    }
+
+    Vector2 RotateVector(Vector2 v, float degrees)
+    {
+        float rad = degrees * Mathf.Deg2Rad;
+        float sin = Mathf.Sin(rad);
+        float cos = Mathf.Cos(rad);
+        return new Vector2(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
     }
 }

@@ -53,20 +53,22 @@ public class EnemyScript : MonoBehaviour
         shootSpeed = Random.Range(0.75f, 1.5f);
         health = 1;
 
-        if (Random.Range(0f, 100f) > 99)
+        if (gameObject.name != "Dummy")
         {
-            shootSpeed = 0.5f;
-
-            sr.color = new Color(1, 0.4f, 0.4f, 1);
-            arm.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 0.4f, 0.4f, 1);
-            arm.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 0.4f, 0.4f, 1);
-
-            if (gameObject.name != "Dummy")
+            if (Random.Range(0f, 100f) > 99)
             {
-                arm.GetComponentsInChildren<SpriteRenderer>()[2].color = new Color(1, 0.4f, 0.4f, 1);
-            }
+                shootSpeed = 0.5f;
 
-            health *= 3;
+                sr.color = new Color(1, 0.4f, 0.4f, 1);
+
+                for (int i = 0; i < arm.transform.childCount; i++)
+                {
+                    Transform child = arm.transform.GetChild(i);
+                    child.GetComponent<SpriteRenderer>().color = new Color(1, 0.4f, 0.4f, 1);
+                }
+
+                health *= 3;
+            }
         }
     }
 
@@ -95,16 +97,11 @@ public class EnemyScript : MonoBehaviour
             if (deadDelay <= 0)
             {
                 sr.color = Color.Lerp(sr.color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
-                arm.GetComponentsInChildren<SpriteRenderer>()[0].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[0].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
-
-                if (SceneManager.GetActiveScene().name != "Tutorial")
+                
+                for (int i = 0; i < arm.transform.childCount; i++)
                 {
-                    arm.GetComponentsInChildren<SpriteRenderer>()[1].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[1].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
-
-                    if (gameObject.name != "Dummy")
-                    {
-                        arm.GetComponentsInChildren<SpriteRenderer>()[2].color = Color.Lerp(arm.GetComponentsInChildren<SpriteRenderer>()[2].color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
-                    }
+                    Transform child = arm.transform.GetChild(i);
+                    child.GetComponent<SpriteRenderer>().color = Color.Lerp(child.GetComponent<SpriteRenderer>().color, new Color(1, 1, 1, 0), Time.deltaTime * fadeTime);
                 }
 
                 StartCoroutine(Death());

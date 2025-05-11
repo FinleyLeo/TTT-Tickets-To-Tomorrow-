@@ -28,7 +28,7 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!UIScript.instance.paused && !TimeManager.instance.gameOver && !TimeManager.instance.inDialogue)
+        if (!UIScript.instance.paused && !TimeManager.instance.gameOver)
         {
             Aim();
         }
@@ -65,7 +65,7 @@ public class PlayerAim : MonoBehaviour
         cooldown -= Time.unscaledDeltaTime;
         reloadDelay -= Time.unscaledDeltaTime;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !TimeManager.instance.inDialogue)
         {
             if (cooldown <= 0 && ammo > 0 && !reloading)
             {

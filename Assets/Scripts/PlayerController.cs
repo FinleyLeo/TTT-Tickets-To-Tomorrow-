@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -69,11 +68,14 @@ public class PlayerController : MonoBehaviour
     ChromaticAberration aberration;
     LensDistortion distortion;
 
-
     // Interactions
     bool canPickupWatch, canTurnValve;
     GameObject watch;
     Animator valveAnim;
+
+    // Dialogue
+
+    public Dialogue dialogue;
 
     void Start()
     {
@@ -84,9 +86,9 @@ public class PlayerController : MonoBehaviour
         mpb = new MaterialPropertyBlock();
         
         levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+        dialogue = GameObject.Find("Dialogue box").GetComponent<Dialogue>();
 
         TimeManager.instance.timeLoss = 1;
-        Time.timeScale = 1;
 
         spawnPoint = GameObject.Find("Spawn Point").transform;
         spawnPoint.position = transform.position;
@@ -151,6 +153,12 @@ public class PlayerController : MonoBehaviour
 
                 if (SceneManager.GetActiveScene().name == "Tutorial")
                 {
+                    TimeManager.instance.inDialogue = false;
+                    TimeManager.instance.tutorialComplete = true;
+                    TimeManager.instance.saveExists = true;
+                    TimeManager.instance.hasWatch = true;
+                    TimeManager.instance.timeLeft = 720f;
+
                     SceneSwitcher.instance.Transition("Loop1");
                 }
 
@@ -693,6 +701,7 @@ public class PlayerController : MonoBehaviour
             TimeManager.instance.carriagesPassed += 1;
 
             spawnPoint.position = transform.position;
+            DialogueCheck();
         }
 
         else if (collision.gameObject.CompareTag("LeftDoor") && levelManager.canLeave)
@@ -794,6 +803,39 @@ public class PlayerController : MonoBehaviour
             case 3:
                 AudioManager.instance.PlaySFX("Step4");
                 break;
+        }
+    }
+
+    void DialogueCheck()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            Debug.Log("carriages passed: " + TimeManager.instance.carriagesPassed);
+
+            switch (TimeManager.instance.carriagesPassed)
+            {
+                case 1:
+                    dialogue.StartDialogue(5, 6);
+                    break;
+                case 2:
+                    dialogue.StartDialogue(7, 9);
+                    break;
+                case 3:
+                    dialogue.StartDialogue(10, 11);
+                    break;
+                case 4:
+                    dialogue.StartDialogue(12, 13);
+                    break;
+                case 5:
+                    dialogue.StartDialogue(14, 18);
+                    break;
+                case 6:
+                    dialogue.StartDialogue(19, 20);
+                    break;
+                case 7:
+                    dialogue.StartDialogue(21, 24);
+                    break;
+            }
         }
     }
 }

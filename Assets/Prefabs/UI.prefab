@@ -5219,7 +5219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7884605898648626612
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5386,7 +5386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5415,7 +5415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 0
 --- !u!95 &3645296855111120167
@@ -5462,6 +5462,44 @@ MonoBehaviour:
     I can help you grasp the basics again though if you want.
   - So, want my help?
   - That was a yes.. I think? Okay, go to the next room and we'll get started.
+  - Fighting through these carriages will be difficult, so knowing how to move and
+    avoid being shot is important.
+  - Luckily you seem pretty agile. To slide and crouch, run and press down or just
+    press down while standing still respectively.
+  - Nice! you made it through.
+  - See that gun youre holding? lets put it to some use with some target practice.
+    Dont worry these arent real people, just dummies made by yours truly.
+  - Just click to shoot and reload that gun with R or by clicking with an empty gun,
+    simple!
+  - Nice work! Now, im sorry for putting you in danger so soon but I need to test
+    your capabilities. I apologise for how sudden this is.
+  - With that being said, welcome to the challenge room. Make it through here and
+    ill deem you worthy of something very important..
+  - You actually made it?? I mean uh yeah I knew you would. Congratulations!
+  - Now, about that gift I was going to give you.. See that watch on that very fancy
+    pedestal I made? Pick that up and go to the next room.
+  - This watch has powers beyond even my comprehension, somehow, it can manipulate
+    time in whatever way it chooses at the cost of its own time.
+  - Through some testing, I realised the time on the clock is equal to the length
+    of the current time loop. Watch reaches zero and well.. the loop ends.
+  - 'The loop ending means resetting from the very beginning, so id advise against
+    letting that happen. '
+  - However the powers this watch holds makes the high cost very worth it, you will
+    learn its powers in due time.
+  - For now, try holding right click, it should slow down time which can be very
+    useful in intense situations.
+  - The watch is conveniently able to extract time from objects that hold some time
+    around it, for example this grandfather clock.
+  - Going near the clock will automatically make the watch extract the time, replenishing
+    a fairly large amount of time.
+  - This here is one of the engines which powers this trains endless time loop, they
+    can be turned off by turning its valve.
+  - Shutting these down destabilises the loop, with all engines down, the train will
+    finally stop running and free everyone.
+  - Thats what im asking of you.. I know its a lot to ask but the time we have been
+    here is incomprohensibly long, I wish you good luck on your mission.
+  - Finally, heed my warning. Many things cost time including even reloading, so
+    make every shot count.
   typingSpeed: 0.1
 --- !u!1 &2665710729680936314
 GameObject:
@@ -5878,7 +5916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2640653215609216828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6026,7 +6064,7 @@ GameObject:
   - component: {fileID: 2303128606603510812}
   - component: {fileID: 6134147373330262065}
   m_Layer: 5
-  m_Name: collisions (1)
+  m_Name: NoCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6073,7 +6111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6372,7 +6410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8937374062273290068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6520,7 +6558,7 @@ GameObject:
   - component: {fileID: 882879589112666699}
   - component: {fileID: 7741301889821898471}
   m_Layer: 5
-  m_Name: collisions
+  m_Name: yesCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6567,7 +6605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7146,7 +7184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4997838361160768378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7219,7 +7257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &34062763937253530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7393,7 +7431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6753782132695240799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7618,7 +7656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3160689555574277293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7693,7 +7731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6533244801513239252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7766,7 +7804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7193996046278885761
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7992,7 +8030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1413678387031590267
 RectTransform:
   m_ObjectHideFlags: 0

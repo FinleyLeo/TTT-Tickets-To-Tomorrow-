@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
-using Unity.VisualScripting;
 
 public class TimeManager : MonoBehaviour
 {
@@ -12,7 +10,6 @@ public class TimeManager : MonoBehaviour
     public bool normalTime;
     public bool slowTime;
     bool slowActive;
-    bool isHitStopRunning = false;
 
     public bool isRewinding;
 

@@ -24,7 +24,6 @@ public class Dialogue : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
-            // dialogue started
             Time.timeScale = 0;
             StartDialogue(0, 3);
         }
@@ -60,7 +59,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartDialogue(int startIndex, int end)
+    public void StartDialogue(int startIndex, int end)
     {
         StopAllCoroutines();
         textComponent.text = string.Empty;
@@ -68,7 +67,6 @@ public class Dialogue : MonoBehaviour
         anim.SetBool("Open", true);
         index = startIndex;
         endIndex = end;
-        Time.timeScale = 0;
         TimeManager.instance.inDialogue = true;
 
         StartCoroutine(TypeLine());

@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
         xOffset += 23.375f;
 
         carriage = GameObject.Find("Start Room");
+
         carriages.Add(carriage);
     }
 

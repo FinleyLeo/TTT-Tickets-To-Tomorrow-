@@ -13,8 +13,6 @@ public class UIScript : MonoBehaviour
     [SerializeField] Animator pauseAnim, quitChoice, menuAnim;
     [SerializeField] Image pauseDarken;
 
-    bool menuActive = true;
-
     // Menus
     [SerializeField] GameObject mainMenu;
 
@@ -381,11 +379,9 @@ public class UIScript : MonoBehaviour
     }
     public IEnumerator DisableMenu()
     {
-        menuActive = !menuActive;
+        yield return new WaitForSecondsRealtime(1f);
 
-        yield return new WaitForSecondsRealtime(0.99f);
-
-        mainMenu.SetActive(menuActive);
+        mainMenu.SetActive(false);
     }
 
     public void SetResolution(int resolution)

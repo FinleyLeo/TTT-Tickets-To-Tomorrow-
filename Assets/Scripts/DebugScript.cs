@@ -19,7 +19,7 @@ public class DebugScript : MonoBehaviour
     }
 
     [SerializeField] GameObject console;
-    [SerializeField] TextMeshProUGUI fpsText;
+    [SerializeField] TextMeshProUGUI fpsText, carriageText;
 
     bool isActive;
 
@@ -41,12 +41,18 @@ public class DebugScript : MonoBehaviour
         }
 
         SetFPS();
+        CarriagesPassed();
     }
 
     void SetFPS()
     {
         fps = 1 / Time.unscaledDeltaTime;
 
-        fpsText.text = "FPS: " + Mathf.Round(fps).ToString();
+        fpsText.text = "FPS: " + Mathf.Round(fps);
+    }
+
+    void CarriagesPassed()
+    {
+        carriageText.text = "Carriages Passed: " + TimeManager.instance.carriagesPassed;
     }
 }

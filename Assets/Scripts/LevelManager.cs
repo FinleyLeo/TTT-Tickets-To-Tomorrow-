@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] small, medium, large, refill;
+    [SerializeField] GameObject[] small, medium, large, refill, empty;
     [SerializeField] GameObject[] enemies;
+    [SerializeField] GameObject engine;
 
     [SerializeField] List<GameObject> carriages = new List<GameObject>();
     List<GameObject> actors = new List<GameObject>();
@@ -25,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
     public int enemyAmount;
 
-    public bool canLeave;
+    public bool canLeave, engineSpawned;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,20 +45,25 @@ public class LevelManager : MonoBehaviour
         {
             EnemyDetection();
 
-            if (currentCarriage > carriageAmount - 1)
+            if (currentCarriage > carriageAmount - 1 && !engineSpawned)
             {
-                if (TimeManager.instance.carriagesPassed > 15)
+                if (TimeManager.instance.sinceRefill >= 10)
                 {
                     if (Random.Range(0, 101) < 20)
                     {
                         SpawnRefill();
-                        TimeManager.instance.carriagesPassed = 0;
+                        TimeManager.instance.sinceRefill = 0;
                     }
 
                     else
                     {
                         SpawnRoom();
                     }
+                }
+
+                if (TimeManager.instance.carriagesPassed >= 25 + (TimeManager.instance.currentLoop * 25))
+                {
+                    SpawnEngine();
                 }
 
                 else
@@ -87,38 +93,69 @@ public class LevelManager : MonoBehaviour
 
     void SpawnRoom()
     {
-        roomSize = Random.Range(0f, 3f);
-
-        if (roomSize < 1)
+        // 20% of room being empty
+        if (Random.Range(0f, 100f) >= 20)
         {
-            carriage = Instantiate(small[Random.Range(0, small.Length)], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
+            roomSize = Random.Range(0f, 3f);
 
-            xOffset += 19.075f;
+            if (roomSize < 1)
+            {
+                carriage = Instantiate(small[Random.Range(0, small.Length)], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
+
+                xOffset += 19.075f;
+            }
+
+            else if (roomSize > 1 && roomSize < 2.5f)
+            {
+                carriage = Instantiate(medium[Random.Range(0, medium.Length)], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
+
+                xOffset += 23.375f;
+            }
+
+            else if (roomSize > 2.5f)
+            {
+                carriage = Instantiate(large[Random.Range(0, large.Length)], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
+
+                xOffset += 29.375f;
+            }
+
+            Helper.instance.FindObjectwithTag("SpawnPoint", carriage, actors);
+
+            foreach (GameObject child in actors)
+            {
+                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+            }
         }
 
-        else if (roomSize > 1 && roomSize < 2.5f)
+        else
         {
-            carriage = Instantiate(medium[Random.Range(0, medium.Length)], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
+            roomSize = Random.Range(0f, 3f);
 
-            xOffset += 23.375f;
-        }
+            if (roomSize < 1)
+            {
+                carriage = Instantiate(empty[Random.Range(0, 2)], new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
 
-        else if (roomSize > 2.5f)
-        {
-            carriage = Instantiate(large[Random.Range(0, large.Length)], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
+                xOffset += 19.075f;
+            }
 
-            xOffset += 29.375f;
-        }
+            else if (roomSize > 1 && roomSize < 2.5f)
+            {
+                carriage = Instantiate(empty[Random.Range(2, 4)], new Vector3(0 + xOffset, 1.08f, 0), Quaternion.identity, map);
 
-        Helper.instance.FindObjectwithTag("SpawnPoint", carriage, actors);
+                xOffset += 23.375f;
+            }
 
-        foreach (GameObject child in actors)
-        {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+            else if (roomSize > 2.5f)
+            {
+                carriage = Instantiate(empty[4], new Vector3(0 + xOffset, 1.09f, 0), Quaternion.identity, map);
+
+                xOffset += 29.375f;
+            }
         }
 
         carriages.Add(carriage);
         carriageAmount++;
+
     }
 
     void SpawnRefill()
@@ -145,6 +182,18 @@ public class LevelManager : MonoBehaviour
 
             xOffset += 29.375f;
         }
+
+        carriages.Add(carriage);
+        carriageAmount++;
+    }
+
+    void SpawnEngine()
+    {
+        engineSpawned = true;
+
+        carriage = Instantiate(engine, new Vector3(0 + xOffset - 0.125f, 8.445f, 0), Quaternion.identity, map);
+
+        xOffset += 19.075f;
 
         carriages.Add(carriage);
         carriageAmount++;

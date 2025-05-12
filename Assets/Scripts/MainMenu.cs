@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
             TimeManager.instance.LoadValues();
 
             SceneSwitcher.instance.Transition("Loop1");
-            StartCoroutine(UI.DisableMenu());
+            StartCoroutine(UI.ToggleMenu());
 
             menuOpen = false;
 
@@ -112,8 +112,9 @@ public class MainMenu : MonoBehaviour
 
         UIScript.instance.RestartValues();
 
+
         SceneSwitcher.instance.Transition("Tutorial");
-        StartCoroutine(UI.DisableMenu());
+        StartCoroutine(UI.ToggleMenu());
 
         menuOpen = false;
 

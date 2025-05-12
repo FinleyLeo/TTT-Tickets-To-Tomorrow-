@@ -44,20 +44,14 @@ public class EnemyScript : MonoBehaviour
 
         anim.enabled = false;
 
-        if (SceneManager.GetActiveScene().name != "Tutorial")
-        {
-            isActive = false;
-        }
-
         flipValue = transform.localScale.x;
-        shootSpeed = Random.Range(0.75f, 1.5f);
-        health = 1;
+        shootSpeed = Random.Range(1f, 1.75f) - TimeManager.instance.currentLoop / 3;
 
         if (gameObject.name != "Dummy")
         {
             if (Random.Range(0f, 100f) > 99)
             {
-                shootSpeed = 0.5f;
+                shootSpeed = 0.3f;
 
                 sr.color = new Color(1, 0.4f, 0.4f, 1);
 
@@ -70,6 +64,8 @@ public class EnemyScript : MonoBehaviour
                 health *= 3;
             }
         }
+
+        shootSpeed = Mathf.Clamp(shootSpeed, 0.1f, 2f);
     }
 
 
@@ -134,11 +130,11 @@ public class EnemyScript : MonoBehaviour
 
         if (facingRight)
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * aimSpeed * handicapMulti);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + offset), Time.deltaTime * aimSpeed * handicapMulti * TimeManager.instance.currentLoop / 2);
         }
         else
         {
-            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed * handicapMulti);
+            arm.transform.rotation = Quaternion.Lerp(arm.transform.rotation, Quaternion.Euler(0, 0, angle + 180 + offset), Time.deltaTime * aimSpeed * handicapMulti * TimeManager.instance.currentLoop / 2);
         }
 
         float armAngle = arm.transform.eulerAngles.z;
@@ -267,23 +263,29 @@ public class EnemyScript : MonoBehaviour
     {
         isShooting = true;
         offset = Random.Range(-7.5f, 7.5f);
-        gunAnim.SetTrigger("Shoot");
-        GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
-        cam.Shake(0.25f, 0.1f, 0.1f);
-        temp.tag = "Enemy";
 
-        AudioManager.instance.PlaySFXWithPitch("Shoot", Random.Range(0.8f, 1.2f));
+        yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(shootSpeed);
-
-        if (!isDead && isActive && playerSeen)
+        if (!isDead)
         {
-            StartCoroutine(Shoot());
-        }
+            gunAnim.SetTrigger("Shoot");
+            GameObject temp = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, -shootPoint.transform.rotation.eulerAngles.z));
+            cam.Shake(0.25f, 0.1f, 0.1f);
+            temp.tag = "Enemy";
 
-        else
-        {
-            isShooting = false;
+            AudioManager.instance.PlaySFXWithPitch("Shoot", Random.Range(0.8f, 1.2f));
+
+            yield return new WaitForSeconds(shootSpeed);
+
+            if (!isDead && isActive && playerSeen)
+            {
+                StartCoroutine(Shoot());
+            }
+
+            else
+            {
+                isShooting = false;
+            }
         }
     }
 
@@ -296,9 +298,7 @@ public class EnemyScript : MonoBehaviour
 
         RaycastHit2D hit;
 
-        Vector2? aimDir = null;
-
-        for (int i = -1; i < angles.Length; i++)
+        for (int i = 0; i < angles.Length; i++)
         {
             Vector2 rayDir = RotateVector(dir, i * 6);
             hit = Physics2D.Raycast(transform.position, rayDir, rayDistance, layers);

@@ -153,18 +153,34 @@ public class PlayerController : MonoBehaviour
 
                 if (SceneManager.GetActiveScene().name == "Tutorial")
                 {
+                    UIScript.instance.RestartValues();
+
                     TimeManager.instance.inDialogue = false;
                     TimeManager.instance.tutorialComplete = true;
                     TimeManager.instance.saveExists = true;
                     TimeManager.instance.hasWatch = true;
-                    TimeManager.instance.timeLeft = 720f;
 
                     SceneSwitcher.instance.Transition("Loop1");
                 }
 
                 else
                 {
+                    TimeManager.instance.currentLoop++;
+
+                    int temp = TimeManager.instance.currentLoop;
+
                     // not decided
+                    UIScript.instance.RestartValues();
+
+                    TimeManager.instance.inDialogue = false;
+                    TimeManager.instance.tutorialComplete = true;
+                    TimeManager.instance.saveExists = true;
+                    TimeManager.instance.hasWatch = true;
+                    TimeManager.instance.currentLoop = temp;
+
+                    TimeManager.instance.SaveValues();
+
+                    SceneSwitcher.instance.Transition("Loop1");
                 }
             }
         }
@@ -698,7 +714,8 @@ public class PlayerController : MonoBehaviour
             levelManager.FollowLogic();
             levelManager.ActivateEnemies();
 
-            TimeManager.instance.carriagesPassed += 1;
+            TimeManager.instance.carriagesPassed++;
+            TimeManager.instance.sinceRefill++;
 
             spawnPoint.position = transform.position;
             DialogueCheck();

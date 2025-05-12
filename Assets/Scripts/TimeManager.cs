@@ -43,7 +43,7 @@ public class TimeManager : MonoBehaviour
     public bool saveExists;
 
     public bool inDialogue;
-    public int carriagesPassed;
+    public int carriagesPassed, sinceRefill, currentLoop;
 
     // Tutorial vars
 
@@ -218,6 +218,26 @@ public class TimeManager : MonoBehaviour
         {
             carriagesPassed = 0;
         }
+
+        if (PlayerPrefs.HasKey("sinceRefill"))
+        {
+            sinceRefill = PlayerPrefs.GetInt("sinceRefill");
+        }
+
+        else
+        {
+            sinceRefill = 0;
+        }
+
+        if (PlayerPrefs.HasKey("currentLoop"))
+        {
+            currentLoop = PlayerPrefs.GetInt("currentLoop");
+        }
+
+        else
+        {
+            currentLoop = 1;
+        }
     }
 
     public void SaveValues()
@@ -226,6 +246,8 @@ public class TimeManager : MonoBehaviour
         PlayerPrefs.SetInt("Health", health);
         PlayerPrefs.SetInt("saveExists", saveExists ? 1 : 0);
         PlayerPrefs.SetInt("carriagesPassed", carriagesPassed);
+        PlayerPrefs.SetInt("sinceRefill", sinceRefill);
+        PlayerPrefs.SetInt("currentLoop", currentLoop);
         PlayerPrefs.Save();
     }
 

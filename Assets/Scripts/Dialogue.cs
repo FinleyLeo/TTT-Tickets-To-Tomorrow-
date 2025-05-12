@@ -27,6 +27,25 @@ public class Dialogue : MonoBehaviour
             Time.timeScale = 0;
             StartDialogue(0, 3);
         }
+
+        else
+        {
+            switch (TimeManager.instance.currentLoop)
+            {
+                case 1:
+                    StartDialogue(25, 25);
+                    break;
+                case 2:
+                    StartDialogue(26, 27);
+                    break;
+                case 3:
+                    StartDialogue(28, 28);
+                    break;
+                case 4:
+                    StartDialogue(29, 29);
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -51,11 +70,6 @@ public class Dialogue : MonoBehaviour
             {
                 tutOptions.SetActive(true);
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            StartDialogue(0, 3);
         }
     }
 
@@ -126,6 +140,8 @@ public class Dialogue : MonoBehaviour
         tutOptions.SetActive(false);
         anim.SetBool("Open", false);
         Time.timeScale = 1;
+
+        UIScript.instance.RestartValues();
 
         TimeManager.instance.inDialogue = false;
         TimeManager.instance.tutorialComplete = true;

@@ -5464,8 +5464,8 @@ MonoBehaviour:
   - That was a yes.. I think? Okay, go to the next room and we'll get started.
   - Fighting through these carriages will be difficult, so knowing how to move and
     avoid being shot is important.
-  - Luckily you seem pretty agile. To slide and crouch, run and press down or just
-    press down while standing still respectively.
+  - Luckily you seem pretty agile. To slide, run and press down or just press down
+    while standing still to crouch.
   - Nice! you made it through.
   - See that gun youre holding? lets put it to some use with some target practice.
     Dont worry these arent real people, just dummies made by yours truly.
@@ -5500,7 +5500,14 @@ MonoBehaviour:
     here is incomprohensibly long, I wish you good luck on your mission.
   - Finally, heed my warning. Many things cost time including even reloading, so
     make every shot count.
-  typingSpeed: 0.1
+  - Welcome to the first loop, I hope this wont be our only time meeting.
+  - You made it?? I mean, not that I was surprised or anything, welcome to the second
+    loop!
+  - Things will get more difficult from here on out, good luck.
+  - You made it to the third loop?? maybe we really do have a chance... Dont give
+    up now
+  - Only one more engine left... This will be difficult but I trust in your abilities.
+  typingSpeed: 0.075
 --- !u!1 &2665710729680936314
 GameObject:
   m_ObjectHideFlags: 0

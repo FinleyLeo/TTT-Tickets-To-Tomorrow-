@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7249027547545055410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4411575335179085514}
+  m_Layer: 11
+  m_Name: RoomPoint
+  m_TagString: RoomPoint
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4411575335179085514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249027547545055410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.823, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 727446473425415346}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8440516780262195354
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,6 +78,7 @@ Transform:
   - {fileID: 1591041777557096688}
   - {fileID: 9037693876541926592}
   - {fileID: 5154853576505067722}
+  - {fileID: 4411575335179085514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8875368683822928939
@@ -267,6 +299,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727446473425415346}
     m_Modifications:
+    - target: {fileID: 3096015642363833712, guid: ef0054e904ccdfa4a96b56f1042fe8a9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 3634074793901452213, guid: ef0054e904ccdfa4a96b56f1042fe8a9, type: 3}
       propertyPath: m_Name
       value: LeftWall
@@ -399,6 +435,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727446473425415346}
     m_Modifications:
+    - target: {fileID: 427223857417076385, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 640357319608808860, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
       propertyPath: m_Name
       value: Time Engine
@@ -1185,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 520585636, guid: 313252b6da8eec04e865c8468c1816bf, type: 3}
+    - target: {fileID: 4121618006805586508, guid: 34d6eaf2ae78f9a4f9781020ce3a1d75, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50a9de919631cf46bd62521d3ba55fd, type: 2}
     - target: {fileID: 5644415813032329327, guid: 34d6eaf2ae78f9a4f9781020ce3a1d75, type: 3}
       propertyPath: m_Name
       value: LeftWallFloor
@@ -1304,7 +1348,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4927775642023851804, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1718b70578cd54095104b038cabd4c, type: 3}

@@ -28,6 +28,7 @@ public class UIScript : MonoBehaviour
     bool sfxMuted, musicMuted;
     bool vSyncActive, fullScreen;
     bool quitToggle;
+    bool menuActive = true;
 
     Canvas canvas;
 
@@ -235,7 +236,7 @@ public class UIScript : MonoBehaviour
         quitToggle = false;
 
         SceneSwitcher.instance.Transition("Main Menu");
-        StartCoroutine(DisableMenu());
+        StartCoroutine(ToggleMenu());
 
         Time.timeScale = 1;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
@@ -252,7 +253,7 @@ public class UIScript : MonoBehaviour
     public void Quit()
     {
         SceneSwitcher.instance.Transition("Main Menu");
-        StartCoroutine(DisableMenu());
+        StartCoroutine(ToggleMenu());
 
         TimeManager.instance.SaveValues();
 
@@ -377,11 +378,13 @@ public class UIScript : MonoBehaviour
 
         PlayerPrefs.SetInt("fsActive", fullScreen ? 1 : 0);
     }
-    public IEnumerator DisableMenu()
+    public IEnumerator ToggleMenu()
     {
+        menuActive = !menuActive;
+
         yield return new WaitForSecondsRealtime(1f);
 
-        mainMenu.SetActive(false);
+        mainMenu.SetActive(menuActive);
     }
 
     public void SetResolution(int resolution)
@@ -439,6 +442,8 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.health = 5;
         TimeManager.instance.deathTimeElapsed = 0;
         TimeManager.instance.carriagesPassed = 0;
+        TimeManager.instance.sinceRefill = 0;
+        TimeManager.instance.currentLoop = 1;
         TimeManager.instance.saveExists = false;
         TimeManager.instance.hasWatch = false;
 

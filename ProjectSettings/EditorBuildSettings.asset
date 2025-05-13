@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 433c0e0dc99dda64085239940e47fa6b
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 7624c6528462cf34db930f94c61d85e3
+  - enabled: 1
     path: Assets/Scenes/Loop1.unity
     guid: 75b23efb7575a044e8bdf7d242b62f81
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 7624c6528462cf34db930f94c61d85e3
+    path: Assets/Scenes/PreBoss.unity
+    guid: 1f0ea919e3b85c74ebfefa5069ae5333
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

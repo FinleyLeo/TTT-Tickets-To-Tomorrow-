@@ -44,6 +44,9 @@ public class Dialogue : MonoBehaviour
                 case 4:
                     StartDialogue(29, 29);
                     break;
+                case 5:
+                    StartDialogue(30, 30);
+                    break;
             }
         }
     }

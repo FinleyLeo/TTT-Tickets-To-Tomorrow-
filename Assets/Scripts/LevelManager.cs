@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
 
             if (currentCarriage > carriageAmount - 1 && !engineSpawned)
             {
-                if (TimeManager.instance.sinceRefill >= 10)
+                if (TimeManager.instance.sinceRefill >= 20)
                 {
                     if (Random.Range(0, 101) < 20)
                     {

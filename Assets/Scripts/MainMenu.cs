@@ -96,7 +96,16 @@ public class MainMenu : MonoBehaviour
 
             TimeManager.instance.LoadValues();
 
-            SceneSwitcher.instance.Transition("Loop1");
+            if (TimeManager.instance.currentLoop == 5)
+            {
+                SceneSwitcher.instance.Transition("PreBoss");
+            }
+
+            else
+            {
+                SceneSwitcher.instance.Transition("Loop1");
+            }
+
             StartCoroutine(UI.ToggleMenu());
 
             menuOpen = false;

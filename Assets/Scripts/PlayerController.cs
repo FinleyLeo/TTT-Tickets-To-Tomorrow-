@@ -163,6 +163,26 @@ public class PlayerController : MonoBehaviour
                     SceneSwitcher.instance.Transition("Loop1");
                 }
 
+                if (TimeManager.instance.currentLoop == 4)
+                {
+                    TimeManager.instance.currentLoop++;
+
+                    int temp = TimeManager.instance.currentLoop;
+
+                    // not decided
+                    UIScript.instance.RestartValues();
+
+                    TimeManager.instance.inDialogue = false;
+                    TimeManager.instance.tutorialComplete = true;
+                    TimeManager.instance.saveExists = true;
+                    TimeManager.instance.hasWatch = true;
+                    TimeManager.instance.currentLoop = temp;
+
+                    TimeManager.instance.SaveValues();
+
+                    SceneSwitcher.instance.Transition("PreBoss");
+                }
+
                 else
                 {
                     TimeManager.instance.currentLoop++;

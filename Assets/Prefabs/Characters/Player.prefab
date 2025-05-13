@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 930156628183183310, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
   - {fileID: -5101954098649015951, guid: 24723f3481eeb0b418f8cf4c70e550a4, type: 3}
   volume: {fileID: 0}
+  dialogue: {fileID: 0}
 --- !u!114 &1350134786377683441
 MonoBehaviour:
   m_ObjectHideFlags: 0

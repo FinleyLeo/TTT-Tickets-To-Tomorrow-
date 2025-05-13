@@ -18,6 +18,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 17de82e45e5e72d44b77a6213ec517dc
     name: sfxVol
+  - guid: c919e644285f7434694619c24c3748ce
+    name: MuffleAmount
   m_AudioMixerGroupViews:
   - guids:
     - 7110054425abcf746a808afbca0da226
@@ -39,6 +41,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: 6641500946870630796}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -67,6 +70,23 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c622fb251925e0a4a848a51273a71085
   m_FloatValues:
+    c919e644285f7434694619c24c3748ce: 22000
     17de82e45e5e72d44b77a6213ec517dc: 0
     de1a337bf62babb469d9ea79583a0739: 1
   m_TransitionOverrides: {}
+--- !u!244 &6641500946870630796
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: a81916d47937f3c4090007ca6daadb8a
+  m_EffectName: Lowpass Simple
+  m_MixLevel: ebe2f1d8caa02cc4f80d4d42c153d073
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: c919e644285f7434694619c24c3748ce
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

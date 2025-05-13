@@ -17,6 +17,7 @@ TagManager:
   - Watch
   - Refill
   - Valve
+  - Space
   layers:
   - Default
   - TransparentFX

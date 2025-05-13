@@ -20,6 +20,9 @@ public class AudioManager : MonoBehaviour
 
     public float defaultPitch = 1f;
 
+    public bool inSpace;
+    float muffleAmount = 11000;
+
     private void Awake()
     {
         if (instance == null)
@@ -46,6 +49,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         PitchCalc();
+        SFXMuffled();
     }
 
     void OnSceneChange(Scene current, Scene next)
@@ -194,5 +198,21 @@ public class AudioManager : MonoBehaviour
         musicMixer.SetFloat("musicVol", Mathf.Log10(volume) * 20);
     }
 
-    
+    void SFXMuffled()
+    {
+        if (SceneManager.GetActiveScene().name == "PreBoss")
+        {
+            if (inSpace)
+            {
+                muffleAmount = Mathf.Lerp(muffleAmount, 1000f, Time.unscaledDeltaTime * 4);
+            }
+
+            else
+            {
+                muffleAmount = Mathf.Lerp(muffleAmount, 22000f, Time.unscaledDeltaTime * 4);
+            }
+
+            SFXMixer.SetFloat("MuffleAmount", muffleAmount);
+        }
+    }
 }

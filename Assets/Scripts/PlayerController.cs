@@ -793,6 +793,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.CompareTag("Space"))
+        {
+            AudioManager.instance.inSpace = true;
+        }
+
         if (collision.gameObject.CompareTag("Valve"))
         {
             valveAnim = collision.GetComponent<Animator>();
@@ -814,6 +819,11 @@ public class PlayerController : MonoBehaviour
         {
             collision.transform.GetChild(0).GetComponent<Animator>().SetBool("Active", false);
             canTurnValve = false;
+        }
+
+        if (collision.gameObject.CompareTag("Space"))
+        {
+            AudioManager.instance.inSpace = false;
         }
     }
 

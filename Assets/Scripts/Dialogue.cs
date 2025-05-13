@@ -45,6 +45,7 @@ public class Dialogue : MonoBehaviour
                     StartDialogue(29, 29);
                     break;
                 case 5:
+                    AudioManager.instance.musicSource.Stop();
                     StartDialogue(30, 30);
                     break;
             }

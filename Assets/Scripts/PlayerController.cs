@@ -166,6 +166,12 @@ public class PlayerController : MonoBehaviour
                     SceneSwitcher.instance.Transition("Loop1");
                 }
 
+                if (SceneManager.GetActiveScene().name == "PreBoss")
+                {
+                    // Win game visuals
+                    print("Game finished");
+                }
+
                 if (TimeManager.instance.currentLoop == 4)
                 {
                     TimeManager.instance.currentLoop++;
@@ -186,7 +192,7 @@ public class PlayerController : MonoBehaviour
                     SceneSwitcher.instance.Transition("PreBoss");
                 }
 
-                else
+                else if (TimeManager.instance.currentLoop < 4)
                 {
                     TimeManager.instance.currentLoop++;
 
@@ -800,6 +806,7 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.instance.inSpace = true;
             TimeManager.instance.timeLoss = 0;
+            Physics2D.gravity /= 2;
         }
 
         if (collision.gameObject.CompareTag("Valve"))
@@ -829,6 +836,7 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.instance.inSpace = false;
             TimeManager.instance.timeLoss = 1;
+            Physics2D.gravity *= 2;
         }
     }
 

@@ -81,15 +81,35 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         ComboLogic();
+        SlowTime();
 
         comboTime -= Time.deltaTime;
         timeLeft = Mathf.Clamp(timeLeft, 0, 720); // 12 minutes max
 
-        if (SceneManager.GetActiveScene().name != "Main Menu" && hasWatch)
+        // Stops slow motion
+        if (!Input.GetMouseButton(1) && slowTime && slowActive)
+        {
+            slowActive = false;
+            StartCoroutine(SlowDelay());
+
+            AudioManager.instance.PlaySFX("SlowOut");
+
+            if (!UIScript.instance.paused)
+            {
+                timeLoss = 1;
+            }
+
+            previousLoss = 1;
+
+            slowCoolDown = 0.5f;
+        }
+
+
+        // Runs all code
+        if (SceneManager.GetActiveScene().name != "Main Menu" && hasWatch && !AudioManager.instance.inSpace)
         {
             TimeCalc();
             SlowLogic();
-            SlowTime();
             WatchAnim();
 
             slowCoolDown -= Time.unscaledDeltaTime;
@@ -365,57 +385,43 @@ public class TimeManager : MonoBehaviour
                 timeLoss = 0;
             }
         }
-
-        if (!Input.GetMouseButton(1) && slowTime && slowActive)
-        {
-            slowActive = false;
-            StartCoroutine(SlowDelay());
-
-            AudioManager.instance.PlaySFX("SlowOut");
-
-            if (!UIScript.instance.paused)
-            {
-                timeLoss = 1;
-            }
-
-            previousLoss = 1;
-
-            slowCoolDown = 0.5f;
-        }
     }
 
     void SlowTime()
     {
-        if (!UIScript.instance.paused && !isRewinding && !gameOver && hasWatch && !inDialogue)
+        if (hasWatch)
         {
-            if (slowTime)
+            if (!UIScript.instance.paused && !isRewinding && !gameOver && !inDialogue)
             {
-                if (Time.timeScale > 0.41)
+                if (slowTime)
                 {
-                    Time.timeScale = Mathf.Lerp(Time.timeScale, 0.4f, 10 * Time.unscaledDeltaTime);
-                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    if (Time.timeScale > 0.41)
+                    {
+                        Time.timeScale = Mathf.Lerp(Time.timeScale, 0.4f, 10 * Time.unscaledDeltaTime);
+                        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    }
+
+                    else
+                    {
+                        Time.timeScale = 0.4f;
+                        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    }
                 }
 
                 else
                 {
-                    Time.timeScale = 0.4f;
-                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
-                }
-            }
+                    if (Time.timeScale < 0.8)
+                    {
+                        Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 10 * Time.unscaledDeltaTime);
+                        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    }
 
-            else
-            {
-                if (Time.timeScale < 0.8)
-                {
-                    Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 10 * Time.unscaledDeltaTime);
-                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
-                }
-
-                else
-                {
-                    Time.timeScale = 1;
-                    Time.fixedDeltaTime = 0.02f;
-                    normalTime = true;
+                    else
+                    {
+                        Time.timeScale = 1;
+                        Time.fixedDeltaTime = 0.02f;
+                        normalTime = true;
+                    }
                 }
             }
         }

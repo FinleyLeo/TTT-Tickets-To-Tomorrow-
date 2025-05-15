@@ -6524,10 +6524,10 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.05, y: 1}
+      Size: {x: 0.05, y: 2}
     HardLimits:
       Enabled: 0
-      Size: {x: 0.8, y: 1.95}
+      Size: {x: 0.8, y: 2}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 2.5, z: 0}
@@ -7565,6 +7565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noise: {fileID: 1307609006}
   cam: {fileID: 1307609004}
+  defaultAmp: 0.2
+  defaultFreq: 0.1
 --- !u!114 &1570379341
 MonoBehaviour:
   m_ObjectHideFlags: 0

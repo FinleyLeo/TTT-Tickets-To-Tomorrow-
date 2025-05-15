@@ -5456,6 +5456,7 @@ MonoBehaviour:
   timeLoss: 0
   secondsLeft: 0
   minutesLeft: 0
+  timeObj: {fileID: 0}
   comboTime: 0
   comboAmount: 0
   shockwaveMat: {fileID: 2100000, guid: ecf04b46f49018a46822a1b012dd1729, type: 2}
@@ -13365,6 +13366,7 @@ MonoBehaviour:
   musicMixer: {fileID: 24100000, guid: de81cf7b47eac314f8615a5b8a230f53, type: 2}
   SFXMixer: {fileID: 24100000, guid: 705349c40a343084f922d9c7f49992a5, type: 2}
   defaultPitch: 1
+  inSpace: 0
 --- !u!1 &1379151812
 GameObject:
   m_ObjectHideFlags: 0
@@ -13870,7 +13872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1435301995
 RectTransform:
   m_ObjectHideFlags: 0

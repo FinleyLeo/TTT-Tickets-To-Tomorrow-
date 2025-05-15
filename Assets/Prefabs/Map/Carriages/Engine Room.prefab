@@ -448,6 +448,18 @@ PrefabInstance:
       value: Valve
       objectReference: {fileID: 0}
     - target: {fileID: 6463155240078311760, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.200676
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463155240078311760, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16.200676
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463155240078311760, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 37.426605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463155240078311760, guid: f34b5a3a9c18f654bba45f1d45f4ae75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8475723
       objectReference: {fileID: 0}

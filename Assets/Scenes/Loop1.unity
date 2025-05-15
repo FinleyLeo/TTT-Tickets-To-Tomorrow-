@@ -794,10 +794,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1570379335}
-    - target: {fileID: 3761739152415954261, guid: f190731d7934da0479168addf69c0795, type: 3}
-      propertyPath: typingSpeed
-      value: 0.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1248,6 +1244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noise: {fileID: 1307609006}
   cam: {fileID: 1307609004}
+  defaultAmp: 0.2
+  defaultFreq: 0.1
 --- !u!114 &1570379341
 MonoBehaviour:
   m_ObjectHideFlags: 0

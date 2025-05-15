@@ -21,7 +21,8 @@ public class TimeManager : MonoBehaviour
 
     int previousLoss, previousSec, previousMin;
 
-    GameObject timeObj, minuteHand, secondHand;
+    GameObject minuteHand, secondHand;
+    public GameObject timeObj;
     Animator timeAnim;
     Image timeSlider;
 
@@ -238,6 +239,15 @@ public class TimeManager : MonoBehaviour
         {
             currentLoop = 1;
         }
+
+        if (PlayerPrefs.HasKey("hasWatch"))
+        {
+            hasWatch = PlayerPrefs.GetInt("hasWatch") == 1;
+        }
+        else
+        {
+            hasWatch = false;
+        }
     }
 
     public void SaveValues()
@@ -248,6 +258,7 @@ public class TimeManager : MonoBehaviour
         PlayerPrefs.SetInt("carriagesPassed", carriagesPassed);
         PlayerPrefs.SetInt("sinceRefill", sinceRefill);
         PlayerPrefs.SetInt("currentLoop", currentLoop);
+        PlayerPrefs.SetInt("hasWatch", hasWatch ? 1 : 0);
         PlayerPrefs.Save();
     }
 

@@ -65,7 +65,7 @@ public class PlayerAim : MonoBehaviour
         cooldown -= Time.unscaledDeltaTime;
         reloadDelay -= Time.unscaledDeltaTime;
 
-        if (Input.GetMouseButtonDown(0) && !TimeManager.instance.inDialogue)
+        if (Input.GetMouseButtonDown(0) && !TimeManager.instance.inDialogue && !AudioManager.instance.inSpace)
         {
             if (cooldown <= 0 && ammo > 0 && !reloading)
             {
@@ -79,7 +79,7 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && ammo != 6 && !reloading)
+        if (Input.GetKeyDown(KeyCode.R) && ammo != 6 && !reloading && !AudioManager.instance.inSpace)
         {
             StartCoroutine(Reload());
         }

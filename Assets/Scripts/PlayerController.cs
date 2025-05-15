@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
     ChromaticAberration aberration;
     LensDistortion distortion;
 
+    GameObject ammoObj;
+
     // Interactions
     bool canPickupWatch, canTurnValve;
     GameObject watch;
@@ -116,10 +118,11 @@ public class PlayerController : MonoBehaviour
         GroundCheck();
         RewindVisuals();
         Interacting();
+        UIFade();
 
         if (ammoBase == null || ammoShatter == null)
         {
-            GameObject ammoObj = GameObject.Find("Ammo");
+            ammoObj = GameObject.Find("Ammo");
 
             ammoBase = ammoObj.transform.GetChild(0).GetComponent<Image>();
             ammoShatter = ammoObj.GetComponentInChildren<ParticleSystem>();
@@ -796,6 +799,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Space"))
         {
             AudioManager.instance.inSpace = true;
+            TimeManager.instance.timeLoss = 0;
         }
 
         if (collision.gameObject.CompareTag("Valve"))
@@ -824,6 +828,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Space"))
         {
             AudioManager.instance.inSpace = false;
+            TimeManager.instance.timeLoss = 1;
         }
     }
 
@@ -857,8 +862,6 @@ public class PlayerController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
-            Debug.Log("carriages passed: " + TimeManager.instance.carriagesPassed);
-
             switch (TimeManager.instance.carriagesPassed)
             {
                 case 1:
@@ -882,6 +885,38 @@ public class PlayerController : MonoBehaviour
                 case 7:
                     dialogue.StartDialogue(21, 24);
                     break;
+            }
+        }
+    }
+
+    void UIFade()
+    {
+        if (SceneManager.GetActiveScene().name == "PreBoss")
+        {
+            if (AudioManager.instance.inSpace)
+            {
+                if (ammoObj != null)
+                {
+                    ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
+                }
+
+                if (TimeManager.instance.timeObj != null)
+                {
+                    TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
+                }
+            }
+
+            else
+            {
+                if (ammoObj != null)
+                {
+                    ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
+                }
+
+                if (TimeManager.instance.timeObj != null)
+                {
+                    TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
+                }
             }
         }
     }

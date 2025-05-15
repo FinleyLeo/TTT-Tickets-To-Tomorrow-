@@ -9,11 +9,14 @@ public class CameraController : MonoBehaviour
 
     float shakeTimer;
 
+    public float defaultAmp = 0.2f;
+    public float defaultFreq = 0.1f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        noise.AmplitudeGain = 0.2f;
-        noise.FrequencyGain = 0.1f;
+        noise.AmplitudeGain = defaultAmp;
+        noise.FrequencyGain = defaultFreq;
     }
 
     // Update is called once per frame
@@ -21,8 +24,8 @@ public class CameraController : MonoBehaviour
     {
         shakeTimer -= Time.deltaTime;
 
-        noise.AmplitudeGain = Mathf.Lerp(noise.AmplitudeGain, 0.2f, -shakeTimer);
-        noise.FrequencyGain = Mathf.Lerp(noise.FrequencyGain, 0.1f, -shakeTimer);
+        noise.AmplitudeGain = Mathf.Lerp(noise.AmplitudeGain, defaultAmp, -shakeTimer);
+        noise.FrequencyGain = Mathf.Lerp(noise.FrequencyGain, defaultFreq, -shakeTimer);
 
         if (TimeManager.instance.hasWatch)
         {

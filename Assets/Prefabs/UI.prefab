@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2395232809756407156}
   - component: {fileID: 8086068819174960219}
+  - component: {fileID: 6619331306984162107}
   m_Layer: 5
   m_Name: Ammo
   m_TagString: Untagged
@@ -62,6 +63,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &6619331306984162107
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155541486387526155}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1322106384464600244
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4.3, y: 0.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!198 &3333315074687263080
@@ -5508,7 +5521,7 @@ MonoBehaviour:
     up now
   - Two more engines left... This will be difficult but I trust in your abilities.
   - Time for the final engine, I can almost savor the sweet taste of victory!
-  typingSpeed: 0.075
+  typingSpeed: 0.05
 --- !u!1 &2665710729680936314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,6 +7131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3480157340736820715}
   - component: {fileID: 8934747387064807730}
+  - component: {fileID: 4103928180687560171}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -7175,6 +7189,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &4103928180687560171
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179908146458972445}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5999340786383134310
 GameObject:
   m_ObjectHideFlags: 0

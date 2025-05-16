@@ -170,6 +170,7 @@ public class PlayerController : MonoBehaviour
                 {
                     // Win game visuals
                     print("Game finished");
+                    TimeManager.instance.gameEnded = true;
                 }
 
                 if (TimeManager.instance.currentLoop == 4)

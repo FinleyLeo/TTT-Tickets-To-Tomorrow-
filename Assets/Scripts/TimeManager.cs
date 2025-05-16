@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class TimeManager : MonoBehaviour
 {
@@ -46,6 +47,12 @@ public class TimeManager : MonoBehaviour
     public bool inDialogue;
     public int carriagesPassed, sinceRefill, currentLoop;
 
+    public bool gameEnded;
+    public Material crack;
+    public Image endScreen;
+    float crackAmount = 10;
+    bool animPlaying = false;
+
     // Tutorial vars
 
     public bool hasWatch;
@@ -74,6 +81,7 @@ public class TimeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        crack.SetFloat("_Radius", 10);
         LoadValues();
     }
 
@@ -194,6 +202,17 @@ public class TimeManager : MonoBehaviour
                     // Game run ends
                     gameOverAnim.SetBool("GameOver", gameOver);
                 }   
+            }
+        }
+
+        if (gameEnded)
+        {
+            EndLerp();
+
+            if (!animPlaying)
+            {
+                animPlaying = true;
+                StartCoroutine(EndAnimation());
             }
         }
     }
@@ -484,6 +503,31 @@ public class TimeManager : MonoBehaviour
         {
             StartCoroutine(SecFacade());
         }
+    }
+
+    IEnumerator EndAnimation()
+    {
+        crackAmount = 6;
+        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.1f);
+        yield return new WaitForSeconds(1f);
+
+        crackAmount = 3;
+        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.3f);
+
+        yield return new WaitForSeconds(1.5f);
+
+        crackAmount = 0;
+        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.5f);
+
+        yield return new WaitForSeconds(0.25f);
+
+        crackAmount = 10;
+        endScreen.color = new Color(1, 1, 1, 1);
+    }
+
+    void EndLerp()
+    {
+        crack.SetFloat("_Radius", Mathf.Lerp(crack.GetFloat("_Radius"), crackAmount, Time.unscaledDeltaTime * 10));
     }
 
     private void OnApplicationQuit()

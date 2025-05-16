@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
                 watch.SetActive(false);
             }
 
-            if (canTurnValve)
+            if (canTurnValve && !TimeManager.instance.gameEnded)
             {
                 AudioManager.instance.PlaySFX("ValveTurn");
                 valveAnim.SetTrigger("Turn");
@@ -168,8 +168,6 @@ public class PlayerController : MonoBehaviour
 
                 if (SceneManager.GetActiveScene().name == "PreBoss")
                 {
-                    // Win game visuals
-                    print("Game finished");
                     TimeManager.instance.gameEnded = true;
                 }
 
@@ -193,7 +191,7 @@ public class PlayerController : MonoBehaviour
                     SceneSwitcher.instance.Transition("PreBoss");
                 }
 
-                else if (TimeManager.instance.currentLoop < 4)
+                else if (TimeManager.instance.currentLoop < 4 && SceneManager.GetActiveScene().name != "Tutorial")
                 {
                     TimeManager.instance.currentLoop++;
 
@@ -218,25 +216,28 @@ public class PlayerController : MonoBehaviour
 
     void BasicMovement()
     {
-        horiz = Input.GetAxisRaw("Horizontal");
-
-        if (horiz != 0 && !isSliding && !isCrouching)
+        if (!TimeManager.instance.gameEnded)
         {
-            rb.AddForce(10f * horiz * speed * Vector2.right);
+            horiz = Input.GetAxisRaw("Horizontal");
 
-            // Limits the speed of the player
-            if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+            if (horiz != 0 && !isSliding && !isCrouching)
             {
-                rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
+                rb.AddForce(10f * horiz * speed * Vector2.right);
+
+                // Limits the speed of the player
+                if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+                {
+                    rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
+                }
             }
-        }
 
-        // Applies friction to the player when not moving
-        else
-        {
-            if (isGrounded)
+            // Applies friction to the player when not moving
+            else
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x * friction, rb.linearVelocity.y);
+                if (isGrounded)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x * friction, rb.linearVelocity.y);
+                }
             }
         }
     }

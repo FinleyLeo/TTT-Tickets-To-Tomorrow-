@@ -123,7 +123,7 @@ public class LevelManager : MonoBehaviour
 
             foreach (GameObject child in actors)
             {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position, Quaternion.identity, child.transform);
+                Instantiate(enemies[Random.Range(0, enemies.Length)], child.transform.position + new Vector3(0, 0, 2), Quaternion.identity, child.transform);
             }
         }
 

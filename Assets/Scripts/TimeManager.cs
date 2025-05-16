@@ -64,6 +64,7 @@ public class TimeManager : MonoBehaviour
     {
         if (instance == null)
         {
+            saveExists = false;
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -508,21 +509,34 @@ public class TimeManager : MonoBehaviour
     IEnumerator EndAnimation()
     {
         crackAmount = 6;
-        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.1f);
+        Camera.main.GetComponent<CameraController>().Shake(0.75f, 0.5f, 0.1f);
+        AudioManager.instance.PlayUnaffectedSFX("EndCrack1");
+
         yield return new WaitForSeconds(1f);
 
         crackAmount = 3;
-        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.3f);
+        Camera.main.GetComponent<CameraController>().Shake(0.75f, 0.5f, 0.3f);
+        AudioManager.instance.PlayUnaffectedSFX("EndCrack2");
 
         yield return new WaitForSeconds(1.5f);
 
         crackAmount = 0;
-        Camera.main.GetComponent<CameraController>().Shake(0.3f, 0.5f, 0.5f);
+        Camera.main.GetComponent<CameraController>().Shake(0.75f, 0.5f, 0.5f);
+        AudioManager.instance.PlayUnaffectedSFX("EndCrack3");
 
         yield return new WaitForSeconds(0.25f);
 
         crackAmount = 10;
         endScreen.color = new Color(1, 1, 1, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        endScreen.color = new Color(0, 0, 0, 1);
+        AudioManager.instance.PlayUnaffectedSFX("EndShatter");
+
+        yield return new WaitForSeconds(2f);
+
+        endScreen.GetComponent<Animator>().SetBool("Active", true);
     }
 
     void EndLerp()

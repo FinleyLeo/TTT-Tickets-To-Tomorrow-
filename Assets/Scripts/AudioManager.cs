@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Slider p_sfxSlider, p_musicSlider;
 
     public Sound[] SFXSounds, musicSounds;
-    public AudioSource SFXSource, musicSource, loopingSFX;
+    public AudioSource SFXSource, musicSource, loopingSFX, unaffected;
 
     public AudioMixer musicMixer;
     public AudioMixer SFXMixer;
@@ -159,6 +159,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayUnaffectedSFX(string name)
+    {
+        Sound s = Array.Find(SFXSounds, x => x.soundName == name);
+        if (s == null)
+        {
+            print("sound not found");
+        }
+        else
+        {
+            unaffected.pitch = defaultPitch;
+            unaffected.PlayOneShot(s.sound);
+        }
+    }
+
     public void StopSFX()
     {
         SFXSource.Stop();
@@ -213,6 +227,16 @@ public class AudioManager : MonoBehaviour
             }
 
             SFXMixer.SetFloat("MuffleAmount", muffleAmount);
+        }
+
+        else
+        {
+            if (muffleAmount < 22000)
+            {
+                muffleAmount = Mathf.Lerp(muffleAmount, 22000f, Time.unscaledDeltaTime * 4);
+
+                SFXMixer.SetFloat("MuffleAmount", muffleAmount);
+            }
         }
     }
 }

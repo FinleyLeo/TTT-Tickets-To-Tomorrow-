@@ -28,13 +28,15 @@ public class UIScript : MonoBehaviour
     bool sfxMuted, musicMuted;
     bool vSyncActive, fullScreen;
     bool quitToggle;
-    bool menuActive = true;
+    public bool menuActive;
 
     Canvas canvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        menuActive = true;
+
         if (SceneManager.GetActiveScene().name == "Main Menu")
         {
             GameObject.Find("Main Menu").SetActive(true);
@@ -234,6 +236,7 @@ public class UIScript : MonoBehaviour
     public void ToMenu()
     {
         quitToggle = false;
+        TimeManager.instance.gameEnded = false;
 
         SceneSwitcher.instance.Transition("Main Menu");
         StartCoroutine(ToggleMenu());
@@ -423,6 +426,7 @@ public class UIScript : MonoBehaviour
     public void RestartGame()
     {
         RestartValues();
+
         TimeManager.instance.saveExists = true;
         TimeManager.instance.hasWatch = true;
 
@@ -446,6 +450,7 @@ public class UIScript : MonoBehaviour
         TimeManager.instance.currentLoop = 1;
         TimeManager.instance.saveExists = false;
         TimeManager.instance.hasWatch = false;
+        TimeManager.instance.gameEnded = false;
 
         TimeManager.instance.SaveValues();
     }

@@ -3159,6 +3159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 351253988}
   - component: {fileID: 351253989}
+  - component: {fileID: 351253990}
   m_Layer: 5
   m_Name: QuitChoice
   m_TagString: Untagged
@@ -3208,6 +3209,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &351253990
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351253987}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &352191223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +5675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516614951}
   - component: {fileID: 516614952}
+  - component: {fileID: 516614953}
   m_Layer: 5
   m_Name: PlayChoice
   m_TagString: Untagged
@@ -5711,6 +5725,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &516614953
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516614950}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &522845461
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,6 +6127,7 @@ MonoBehaviour:
   carriagesPassed: 0
   sinceRefill: 0
   currentLoop: 1
+  carriageBalance: 0
   gameEnded: 0
   crack: {fileID: 2100000, guid: ea04f8dd904165d4dbdae7fbb26e1625, type: 2}
   endScreen: {fileID: 82725311}
@@ -9073,6 +9100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900240643}
   - component: {fileID: 900240644}
+  - component: {fileID: 900240645}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -9122,6 +9150,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &900240645
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900240642}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &902817668
 GameObject:
   m_ObjectHideFlags: 0
@@ -12832,6 +12872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1270878182}
   - component: {fileID: 1270878183}
+  - component: {fileID: 1270878184}
   m_Layer: 5
   m_Name: QuitConfirmation
   m_TagString: Untagged
@@ -12881,6 +12922,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &1270878184
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270878181}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1299791167
 GameObject:
   m_ObjectHideFlags: 0
@@ -13059,7 +13112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1316112015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15926,7 +15979,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399147684}
         m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: RestartLoop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19919,6 +19972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2053790910}
   - component: {fileID: 2053790911}
+  - component: {fileID: 2053790912}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -19969,6 +20023,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &2053790912
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053790909}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2066200510
 GameObject:
   m_ObjectHideFlags: 0

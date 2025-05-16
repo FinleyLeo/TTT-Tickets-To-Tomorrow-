@@ -45,7 +45,7 @@ public class TimeManager : MonoBehaviour
     public bool saveExists;
 
     public bool inDialogue;
-    public int carriagesPassed, sinceRefill, currentLoop;
+    public int carriagesPassed, sinceRefill, currentLoop, carriageBalance;
 
     public bool gameEnded;
     public Material crack;

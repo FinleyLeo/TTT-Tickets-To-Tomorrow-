@@ -742,22 +742,31 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += Vector3.right * 3f;
             levelManager.currentCarriage++;
-            levelManager.FollowLogic();
             levelManager.ActivateEnemies();
-
-            TimeManager.instance.carriagesPassed++;
-            TimeManager.instance.sinceRefill++;
-
+            levelManager.FollowLogic();
             spawnPoint.position = transform.position;
-            DialogueCheck();
+
+
+            if (TimeManager.instance.carriageBalance <= 0)
+            {
+                TimeManager.instance.carriagesPassed++;
+                TimeManager.instance.sinceRefill++;
+
+                DialogueCheck();
+            }
+
+            TimeManager.instance.carriageBalance--;
+            TimeManager.instance.carriageBalance = Mathf.Clamp(TimeManager.instance.carriageBalance, 0, 10000);
         }
 
         else if (collision.gameObject.CompareTag("LeftDoor") && levelManager.canLeave)
         {
             transform.position += Vector3.right * -3f;
-            levelManager.DeactivateEnemies();
             levelManager.currentCarriage--;
+            levelManager.DeactivateEnemies();
             levelManager.FollowLogic();
+
+            TimeManager.instance.carriageBalance++;
         }
     }
 

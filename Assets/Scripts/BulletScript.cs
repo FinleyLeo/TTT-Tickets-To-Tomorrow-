@@ -7,6 +7,8 @@ public class BulletScript : MonoBehaviour
 
     GameObject player;
 
+    bool layerGiven;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,14 +22,19 @@ public class BulletScript : MonoBehaviour
     {
         transform.position += transform.up * speed * Time.deltaTime;
 
-        if (gameObject.CompareTag("Player") || player.GetComponent<PlayerController>().invincible)
+        if (!layerGiven)
         {
-            GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Player");
-        }
+            if (gameObject.CompareTag("Player") || player.GetComponent<PlayerController>().invincible)
+            {
+                GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Player");
+                layerGiven = true;
+            }
 
-        else if (gameObject.CompareTag("Enemy"))
-        {
-            GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+                layerGiven = true;
+            }
         }
     }
 

@@ -28,12 +28,6 @@ public class SceneSwitcher : MonoBehaviour
         transition.SetBool("Fading", true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Transition(string scene)
     {
         StartCoroutine(Transitioning(scene));

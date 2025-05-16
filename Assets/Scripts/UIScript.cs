@@ -437,6 +437,23 @@ public class UIScript : MonoBehaviour
         AudioManager.instance.PlayMusic("Game");
     }
 
+    public void RestartLoop()
+    {
+        TimeManager.instance.timeLeft = 720;
+        TimeManager.instance.gameOver = false;
+        TimeManager.instance.waveDone = false;
+        TimeManager.instance.health = 5;
+        TimeManager.instance.deathTimeElapsed = 0;
+        TimeManager.instance.carriagesPassed = 0;
+        TimeManager.instance.sinceRefill = 0;
+        TimeManager.instance.gameEnded = false;
+        TimeManager.instance.SaveValues();
+
+        SceneSwitcher.instance.Transition("Loop1");
+
+        AudioManager.instance.PlayMusic("Game");
+    }
+
     public void RestartValues()
     {
         // Reset all data relating to progression
@@ -457,8 +474,6 @@ public class UIScript : MonoBehaviour
 
     public void CloseEndMenu()
     {
-        RestartValues();
-
         TimeManager.instance.gameOverAnim.SetBool("GameOver", TimeManager.instance.gameOver);
 
         TimeManager.instance.ToggleSepia();

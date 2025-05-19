@@ -910,32 +910,29 @@ public class PlayerController : MonoBehaviour
 
     void UIFade()
     {
-        if (SceneManager.GetActiveScene().name == "PreBoss")
+        if (AudioManager.instance.inSpace || UIScript.instance.paused)
         {
-            if (AudioManager.instance.inSpace)
+            if (ammoObj != null)
             {
-                if (ammoObj != null)
-                {
-                    ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
-                }
-
-                if (TimeManager.instance.timeObj != null)
-                {
-                    TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
-                }
+                ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
             }
 
-            else
+            if (TimeManager.instance.timeObj != null)
             {
-                if (ammoObj != null)
-                {
-                    ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
-                }
+                TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 0, Time.unscaledDeltaTime * 4f);
+            }
+        }
 
-                if (TimeManager.instance.timeObj != null)
-                {
-                    TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
-                }
+        else
+        {
+            if (ammoObj != null)
+            {
+                ammoObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(ammoObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
+            }
+
+            if (TimeManager.instance.timeObj != null)
+            {
+                TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(TimeManager.instance.timeObj.GetComponent<CanvasGroup>().alpha, 1, Time.unscaledDeltaTime * 4f);
             }
         }
     }

@@ -13,6 +13,8 @@ public class UIScript : MonoBehaviour
     [SerializeField] Animator pauseAnim, quitChoice, menuAnim;
     [SerializeField] Image pauseDarken;
 
+    [SerializeField] GameObject crosshair;
+
     // Menus
     [SerializeField] GameObject mainMenu;
 
@@ -35,6 +37,8 @@ public class UIScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.visible = false;
+
         menuActive = true;
 
         if (SceneManager.GetActiveScene().name == "Main Menu")
@@ -151,6 +155,8 @@ public class UIScript : MonoBehaviour
         {
             PauseCheck();
         }
+
+        crosshair.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void PauseCheck()

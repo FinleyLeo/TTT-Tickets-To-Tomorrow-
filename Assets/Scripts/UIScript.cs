@@ -13,8 +13,6 @@ public class UIScript : MonoBehaviour
     [SerializeField] Animator pauseAnim, quitChoice, menuAnim;
     [SerializeField] Image pauseDarken;
 
-    [SerializeField] GameObject crosshair;
-
     // Menus
     [SerializeField] GameObject mainMenu;
 
@@ -34,11 +32,11 @@ public class UIScript : MonoBehaviour
 
     Canvas canvas;
 
+    float pauseDelay;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;
-
         menuActive = true;
 
         if (SceneManager.GetActiveScene().name == "Main Menu")
@@ -73,6 +71,9 @@ public class UIScript : MonoBehaviour
         {
             canvas.worldCamera = Camera.main;
         }
+
+        // Pause menu fixes
+        ExitPause();
     }
 
     void SetValues()
@@ -155,13 +156,13 @@ public class UIScript : MonoBehaviour
         {
             PauseCheck();
         }
-
-        crosshair.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void PauseCheck()
     {
-        if (!TimeManager.instance.gameOver && !TimeManager.instance.inDialogue)
+        pauseDelay -= Time.unscaledDeltaTime;
+
+        if (!TimeManager.instance.gameOver && !TimeManager.instance.inDialogue && pauseDelay <= 0)
         {
             if (paused)
             {
@@ -202,6 +203,7 @@ public class UIScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape) && !TimeManager.instance.isRewinding)
             {
+                pauseDelay = 0.25f;
                 paused = !paused;
                 TimeManager.instance.normalTime = !paused;
                 pauseAnim.SetBool("Paused", paused);
@@ -223,6 +225,7 @@ public class UIScript : MonoBehaviour
 
     public void ExitPause()
     {
+        pauseDelay = 1f;
         paused = false;
         TimeManager.instance.normalTime = !paused;
         pauseAnim.SetBool("Paused", paused);
